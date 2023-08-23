@@ -1,0 +1,14 @@
+[
+    {
+        "frontend": "React Js",
+        "backend": "Express Js"
+    },
+    {
+        "frontend": "Next Js",
+        "backend": "Postgresql"
+    },
+    {
+        "frontend": "Tailwind Css",
+        "backend": "Mysql"
+    }
+  ]
