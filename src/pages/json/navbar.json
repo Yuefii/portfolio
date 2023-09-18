@@ -5,14 +5,14 @@
     },
     {
         "name": "Skills",
-        "link": "/layout/skills"
+        "link": "/view/skills"
     },
     {
         "name": "Certificate",
-        "link": "/layout/certificate"
+        "link": "/view/certificate"
     },
     {
         "name": "Project",
-        "link": "/layout/project"
+        "link": "/view/project"
     }
 ]

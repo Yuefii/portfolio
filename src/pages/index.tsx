@@ -1,7 +1,5 @@
-import Profile from './components/profile'
-import Jumbotron from './components/jumbotron'
-import Footer from './components/footer'
-import Media from './layout/navigasi'
+import Jumbotron from './view/jumbotron'
+import Media from './view/navigasi'
 
 export default function Home() {
   return (
