@@ -1,10 +1,10 @@
 import CertificateLayout from "./layout/certificates"
 
-const CertificatePage = () => {
+const CertificatePages = () => {
     return (
         <main>
             <CertificateLayout />
         </main>
     )
 }
-export default CertificatePage
+export default CertificatePages

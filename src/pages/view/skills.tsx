@@ -1,6 +1,6 @@
-import MySkill from '../components/skills'
+import MySkill from '../layout/skills'
 
-const Skills = () => {
+const SkillsPages = () => {
     return (
         <main>
             <MySkill />
@@ -8,4 +8,4 @@ const Skills = () => {
     )
 }
 
-export default Skills
+export default SkillsPages

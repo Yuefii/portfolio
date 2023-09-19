@@ -1,6 +1,6 @@
 import Skill from '../json/skill.json'
 
-const Skills = () => {
+const SkillsLayout = () => {
     return (
         <main className='-my-16'>
             <div className="py-16">
@@ -36,4 +36,4 @@ const Skills = () => {
     )
 }
 
-export default Skills
+export default SkillsLayout

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import json from '@/pages/json/navigasi.json'
 
-const Sosmed = () => {
+const SosmedLayout = () => {
     return (
         <main>
             <div className="container mx-auto py-5 px-10">
@@ -19,4 +19,4 @@ const Sosmed = () => {
         </main>
     )
 }
-export default Sosmed
+export default SosmedLayout

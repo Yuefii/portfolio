@@ -1,10 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
-const Project = () => {
+import Image from "next/image"
+const ProjectLayout = () => {
     return (
         <main className="container mx-auto lg:-my-16">
             <h1 className="text-center text-2xl py-8 font-bold">Latest Projects</h1>
             <div className="justify-center mx-5 flex">
-                <img src="/project1.png" alt="1" className="lg:w-1/3" />
+                <Image src="/project1.png" alt="1" className="lg:w-1/3" width={500} height={500} />
             </div>
             <div className="justify-center flex">
                 <ul className="flex gap-3 my-4 mx-4">
@@ -16,4 +16,4 @@ const Project = () => {
         </main>
     )
 }
-export default Project
+export default ProjectLayout

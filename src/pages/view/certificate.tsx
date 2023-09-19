@@ -1,9 +1,9 @@
 import Certificates from '../layout/certificate'
-const Certificate = () => {
+const CertificatesPages = () => {
     return (
         <main>
             <Certificates />
         </main>
     )
 }
-export default Certificate
+export default CertificatesPages

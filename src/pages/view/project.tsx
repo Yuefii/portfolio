@@ -1,6 +1,6 @@
-import Projects from '../components/project'
+import Projects from '../layout/project'
 
-const Project = () => {
+const ProjectPages = () => {
     return (
         <main>
             <Projects />
@@ -8,4 +8,4 @@ const Project = () => {
     )
 }
 
-export default Project
+export default ProjectPages

@@ -1,10 +1,10 @@
 import Sosmed from "../layout/sosmed"
 
-const SosmedPage = () => {
+const SosmedPages = () => {
     return (
         <main>
             <Sosmed />
         </main>
     )
 }
-export default SosmedPage
+export default SosmedPages

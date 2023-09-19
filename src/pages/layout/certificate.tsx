@@ -2,7 +2,7 @@ import Image from "next/image"
 import json from "@/pages/json/certificate.json"
 import Link from "next/link"
 
-const Certificate = () => {
+const CertificatesLayout = () => {
     return (
         <main>
             <div className="flex justify-center mx-auto lg:-my-16">
@@ -38,4 +38,4 @@ const Certificate = () => {
     )
 }
 
-export default Certificate
+export default CertificatesLayout
