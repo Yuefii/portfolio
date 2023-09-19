@@ -1,5 +1,5 @@
 import Jumbotron from './view/jumbotron'
-import Media from './view/navigasi'
+import Media from './view/sosmed'
 
 export default function Home() {
   return (

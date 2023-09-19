@@ -1,4 +1,4 @@
-import Certificates from '../components/certificate'
+import Certificates from '../layout/certificate'
 const Certificate = () => {
     return (
         <main>
