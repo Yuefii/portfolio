@@ -1,11 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import { Analytics } from '@vercel/analytics/react';
 
-export default function Document({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Document() {
   return (
     <Html lang="en">
       <Head />
@@ -13,8 +8,6 @@ export default function Document({
       <body className='bg-slate-100'>
         <Main />
         <NextScript />
-        {children}
-        <Analytics />
       </body>
     </Html>
   )
