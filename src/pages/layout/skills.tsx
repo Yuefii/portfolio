@@ -20,10 +20,10 @@ const SkillsLayout = () => {
                         <tbody>
                             {Skill.map((skill, index) => (
                                 <tr key={index} className="border">
-                                    <th scope="row" className="px-6 py-4 font-medium text-slate-700 whitespace-nowrap border-r">
+                                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap border-r">
                                         {skill.frontend}
                                     </th>
-                                    <th className="px-6 py-4 font-medium text-slate-700 whitespace-nowrap">
+                                    <th className="px-6 py-4 font-medium whitespace-nowrap">
                                         {skill.backend}
                                     </th>
                                 </tr>

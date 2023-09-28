@@ -7,8 +7,8 @@ const CertificatesLayout = () => {
         <main>
             <div className="flex justify-center mx-auto lg:-my-16">
                 <div className="grid gap-4 py-10 lg:w-1/3">
-                    <h1 className="text-center text-2xl text-slate-900 font-bold">CERTIFICATE</h1>
-                    <p className='text-slate-700 text-center mx-5'>This is a certificate that I got while learning coding in courses and bootcamps.</p>
+                    <h1 className="text-center text-2xl font-bold">CERTIFICATE</h1>
+                    <p className='text-slate-400 text-center mx-5'>This is a certificate that I got while learning coding in courses and bootcamps.</p>
                     {json.map((data, index) => (
                         <div className="-mt-10 mx-5" key={index}>
                             {data.banner && (

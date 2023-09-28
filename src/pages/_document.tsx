@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <title>Yuefii | Portfolio</title>
-      <body className='bg-slate-100'>
+      <body className='dark:bg-slate-900'>
         <Main />
         <NextScript />
       </body>
