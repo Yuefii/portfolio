@@ -25,7 +25,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="dark:bg-slate-950">
-            <div className="min-h-screen container mx-auto md:px-28 pt-6">
+            <div className="min-h-screen sm:container mx-auto md:px-28 pt-6">
               <div className="h-full md:flex">
                 <Sidebar />
                 <main className="flex-1 h-full overflow-y-auto">

@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { ModeToggle } from "@/components/theme-toggle";
-import Header from "./Header";
-import Navbar from "./Navbar";
+import Header from "@/app/components/sidebar/Header";
+import Navbar from "@/app/components/Navbar";
 
 const Sidebar = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
