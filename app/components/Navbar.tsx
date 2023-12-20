@@ -14,7 +14,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="border border-black dark:border-slate-300 mx-5 mt-3 h-auto rounded-lg">
+      <div className="md:border border-black dark:border-slate-300 mx-5 mt-3 h-auto rounded-lg">
         <ul className="text-sm font-semibold p-3 space-y-1">
           {/* HOMEPAGE */}
           <li>

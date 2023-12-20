@@ -6,10 +6,9 @@ import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Link from "next/link";
+import Navbar from "@/app/components/Navbar";
 
 export function MenuToggle() {
   return (
@@ -19,19 +18,11 @@ export function MenuToggle() {
           <AlignJustify className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start">
-        <DropdownMenuItem>
-          <Link href="/">Beranda</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/about">About</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/certificates">Certificates</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/projects">Projects</Link>
-        </DropdownMenuItem>
+      <DropdownMenuContent
+        align="center"
+        className="w-full dark:bg-slate-950 h-[300px]"
+      >
+        <Navbar />
       </DropdownMenuContent>
     </DropdownMenu>
   );

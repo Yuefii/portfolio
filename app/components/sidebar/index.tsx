@@ -37,7 +37,9 @@ const Sidebar = () => {
       {isMobile && (
         <div className="flex justify-between">
           <Header />
-          <ModeToggle />
+          <div className="mr-2">
+            <ModeToggle />
+          </div>
         </div>
       )}
       <aside
