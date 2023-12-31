@@ -12,9 +12,10 @@ const Education = () => {
         transition={{ duration: 0.3, delay: 0.3 }}
       >
         {EducationList.map((EL, index) => (
-          <div
+          <motion.div
+            whileHover={{ scale: 0.9 }}
             key={index}
-            className="border border-black dark:border-white rounded-lg flex items-center m-2"
+            className="border-2 border-violet-600 dark:border-white rounded-lg flex items-center m-2"
           >
             <Image
               className="p-2"
@@ -30,7 +31,7 @@ const Education = () => {
               <li>{EL.jurusan}</li>
               <li>{EL.tahun}</li>
             </div>
-          </div>
+          </motion.div>
         ))}
       </motion.div>
     </>
