@@ -1,14 +1,8 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { BsMoon, BsSun } from "react-icons/bs";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
 import {
-  PiLaptopThin,
-  PiUserLight,
-  PiBagSimpleLight,
-  PiHouseSimpleThin,
   PiCertificateBold,
 } from "react-icons/pi";
 import { FiArchive, FiHome, FiUser } from "react-icons/fi";

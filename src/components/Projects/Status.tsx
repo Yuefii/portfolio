@@ -31,9 +31,9 @@ function Statuspage({ isAvailbale, Relaxing, className }: any) {
 
   let bgColorClass =
     status === Status[0].Available
-      ? "bg-lime-400"
+      ? "bg-violet-600"
       : Status[0].Relaxing
-      ? "bg-lime-400 "
+      ? "bg-violet-600 "
       : "bg-red-600 ";
   //
   return (
