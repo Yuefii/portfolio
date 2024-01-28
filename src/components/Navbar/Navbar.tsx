@@ -10,11 +10,11 @@ import { FiArchive, FiHome, FiUser } from "react-icons/fi";
 const links = [
   { icons: <FiHome />, path: "/" },
   { icons: <FiUser />, path: "/about" },
-  { icons: <FiArchive />, path: "/project" },
+  { icons: <FiArchive />, path: "/projects" },
   { icons: <PiCertificateBold />  , path: "/certificate" },
 ];
 
-const Header = () => {
+const Navbar = () => {
   const pathname = usePathname() || "";
   const [hoveredPath, setHoveredPath] = useState(pathname);
 
@@ -73,4 +73,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
