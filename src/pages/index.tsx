@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Profile from "@/components/Home/Profile";
 import Footer from "@/components/Footer/Footer";
 import HomeProject from "@/components/Projects/HomeProject";
+import HireMe from "@/components/HireMe";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       >
         <Profile />
         <HomeProject />
+        <HireMe />
         <Footer />
       </motion.div>
     </>

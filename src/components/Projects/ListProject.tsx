@@ -65,25 +65,25 @@ const ListProject = ({ item }: any) => {
               className="flex gap-4"
             >
               <Link
-                className="mt-4 md:mt-2 border border-neutral-500 rounded-xl p-2 px-7 bg-white text-sm text-neutral-500 font-semibold shadow-md"
+                className="mt-4 md:mt-2 border border-neutral-500 rounded-lg p-2 px-7 bg-white text-sm text-neutral-500 font-semibold shadow-md hover:bg-gray-300 hover:text-black"
                 href={item.website}
               >
                 Website
               </Link>
               <Link
-                className="flex items-center gap-2 mt-4 md:mt-2 rounded-xl p-2 px-7 bg-black text-sm text-white font-semibold"
+                className="flex items-center gap-2 mt-4 md:mt-2 rounded-lg p-2 px-4 bg-black text-sm text-white font-semibold hover:bg-black/80"
                 href={item.github}
               >
                 <span>
                   <FaGithub className="text-white" />
                 </span>
-                Github
+                Source
               </Link>
             </motion.div>
           </div>
         </div>
       </div>
-      <div className="border my-10 border-neutral-300 dark:border-neutral-800  h-[1px]" />
+      <div className="border my-10 border-neutral-300  h-[1px]" />
     </>
   );
 };

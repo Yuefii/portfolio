@@ -44,15 +44,15 @@ const Profile = () => {
               </motion.p>
 
               <div className="flex items-center gap-x-2 mt-6 ">
-                <div className="bg-violet-600 w-fit shadow-md  px-2 rounded-md flex items-center gap-x-2 py-1">
+                <Link href="/#contact" className="bg-violet-600 w-fit shadow-md py-1.5 px-2 rounded-md flex items-center gap-x-2 hover:bg-violet-600/80">
                   <AiOutlinePlusCircle className="text-white" />
                   <span className="text-white font-semibold">Hire Me</span>
-                </div>
-                <div className="border-neutral-300 shadow-md border w-fit h-8 px-2 rounded-md flex items-center gap-x-2">
+                </Link>
+                <Link href="/about" className="border-neutral-300 shadow-md border w-fit py-1.5 px-2 rounded-md flex items-center gap-x-2 hover:bg-neutral-300/80">
                   <span className="text-neutral-700 font-semibold">
                     About Me
                   </span>
-                </div>
+                </Link>
               </div>
             </div>
             <motion.div
