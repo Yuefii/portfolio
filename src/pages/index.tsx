@@ -1,24 +1,31 @@
-import { motion } from "framer-motion";
-import Profile from "@/components/Home/Profile";
-import Footer from "@/components/Footer/Footer";
-import HomeProject from "@/components/Projects/HomeProject";
-import HireMe from "@/components/HireMe";
+import Bio from "@/components/Bio";
+import Header from "@/components/Header";
+import Profile from "@/components/Profile";
+import MoreInfo from "@/components/MoreInfo";
+import Accordions from "@/components/Accordions";
+import SocialMedia from "@/components/SocialMedia";
 
-const Home = () => {
+const App = () => {
   return (
-    <>
-      <motion.div
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1, transition: { duration: 0.2 } }}
-        className="bg-white top-24 relative shadow-md rounded-xl max-w-2xl mx-4 sm:mx-auto"
-      >
-        <Profile />
-        <HomeProject />
-        <HireMe />
-        <Footer />
-      </motion.div>
-    </>
+    <main className="bg-[#111111] pt-10">
+      <Profile />
+      <div className="h-full p-3 bg-[#111111]">
+        <div className="h-screen max-w-lg mx-auto bg-[#111111] pt-14">
+          <div>
+            <Header />
+            <div>
+              <Bio />
+              <SocialMedia />
+            </div>
+            <div className="mt-5 space-y-2">
+              {/* <MoreInfo /> */}
+              <Accordions />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 };
 
-export default Home;
+export default App;
