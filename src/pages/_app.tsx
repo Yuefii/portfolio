@@ -3,6 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import type { AppProps } from "next/app";
 import { ToastContainer } from "react-toastify";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
         autoClose={2000}
       />
       <Component {...pageProps} />
+      <Analytics />
     </main>
   );
 }
