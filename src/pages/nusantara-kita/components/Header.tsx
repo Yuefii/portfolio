@@ -11,7 +11,7 @@ const Header = () => {
       <li>Provinsi</li>
       <li>Kabupaten/Kota</li>
       <li>Kecamatan</li>
-      <li>Kelurahan</li>
+      <li>Desa</li>
       <div className="my-5 flex items-center">
         <Link
           href="https://github.com/Yuefii/api-nusantara-kita"

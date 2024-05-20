@@ -4,7 +4,7 @@ import { baseUrl } from "@/utils/env";
 const Villages = ({ show, onClick, data, setShow, value, onChange }: any) => {
   return (
     <>
-      <h1 className="text-white pt-5 font-medium">Kelurahan</h1>
+      <h1 className="text-white pt-5 font-medium">Desa</h1>
       <Input
         className="bg-[#161616] text-white"
         type="text"

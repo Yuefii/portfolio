@@ -12,6 +12,7 @@ import Regencies from "./sections/regencies";
 import Districts from "./sections/districts";
 import Villages from "./sections/villages";
 import Header from "./components/Header";
+import Head from "next/head";
 
 const App = () => {
   const { provinces, showProvinces, setProvinces, setShowProvinces } =
@@ -96,6 +97,41 @@ const App = () => {
 
   return (
     <main className="bg-[#111111] pb-10">
+      <Head>
+        <title>Nusantara Kita - Dokumentasi API Wilayah Indonesia</title>
+        <meta
+          name="description"
+          content="Dokumentasi API Nusantara Kita menyediakan data lengkap mengenai wilayah Indonesia, termasuk provinsi, kabupaten, kota dan desa."
+        />
+        <meta
+          name="keywords"
+          content="Nusantara Kita, API Indonesia, data wilayah Indonesia, provinsi, kabupaten, kota, desa, wilayah indonesia"
+        />
+        <meta
+          property="og:title"
+          content="Nusantara Kita - Dokumentasi API Wilayah Indonesia"
+        />
+        <meta
+          property="og:description"
+          content="Dokumentasi API Nusantara Kita menyediakan data lengkap mengenai wilayah Indonesia, termasuk provinsi, kabupaten, kota dan desa."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yuefii.my.id/nusantara-kita" />
+        <meta property="og:image" content="https://yuefii.my.id/profile.jpg" />
+        <link rel="canonical" href="https://yuefii.my.id/nusantara-kita" />
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Nusantara Kita",
+            "url": "https://yuefii.my.id/nusantara-kita",
+            "description": "Dokumentasi API Nusantara Kita menyediakan data lengkap mengenai wilayah Indonesia, termasuk provinsi, kabupaten, kota dan desa.",
+            "image": "https://yuefii.my.id/profile.jpg"
+          }
+        `}
+        </script>
+      </Head>
       <div className="h-auto p-3 bg-[#111111]">
         <div className="h-auto max-w-2xl mx-auto bg-[#111111] space-y-2 pt-14">
           <Header />
