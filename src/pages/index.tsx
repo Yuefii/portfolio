@@ -9,7 +9,7 @@ import * as TechStack from "@/components/showcase/DetailShowcases";
 
 const App = () => {
   return (
-    <main className="bg-[#111111] pt-10">
+    <main className="bg-[#111111] pt-2">
       <Head>
         <title>Yuefii Portfolio - Content Creator & Developer</title>
         <meta
@@ -53,15 +53,16 @@ const App = () => {
       </Head>
       <Profile />
       <div className="h-full p-3 bg-[#111111]">
-        <div className="h-auto max-w-lg mx-auto bg-[#111111] pt-14">
+        <div className="h-auto max-w-2xl mx-auto bg-[#111111] pt-14">
           <div>
             <Header />
             <div>
               <Bio />
               <SocialMedia />
             </div>
-            <div className="mt-5 space-y-2">
+            <div className="my-5 space-y-2">
               <CardShowcase
+                header="Showcase Projects"
                 title="API NUSANTARA KITA"
                 title_url="nusantara-kita.yuefii.my.id"
                 description="API Nusantara Kita menyediakan data lengkap mengenai wilayah
@@ -72,7 +73,15 @@ const App = () => {
               >
                 <TechStack.DetailsNusantaraKita />
               </CardShowcase>
-              <Accordions />
+              <Accordions title="Project On Development">
+                <CardShowcase
+                  title="Ecommerce_api"
+                  description="API ini dibuat bertujuan untuk membuat sebuah ecommerce dan masih sedang dalam tahap pengembangan hingga saat ini."
+                  url_source_code="https://github.com/Yuefii/ecommerce__api"
+                >
+                  <TechStack.DetailsEcommerce />
+                </CardShowcase>
+              </Accordions>
             </div>
           </div>
         </div>

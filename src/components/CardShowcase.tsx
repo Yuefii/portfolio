@@ -10,16 +10,18 @@ import Link from "next/link";
 import { FaGithub, FaUnlink } from "react-icons/fa";
 
 interface Props {
+  header?: string;
   title: string;
-  title_url: string;
+  title_url?: string;
   description?: string;
-  url: string;
+  url?: string;
   url_source_code: string;
-  url_show: string;
+  url_show?: string;
   children: React.ReactNode;
 }
 
 const CardShowcase: React.FC<Props> = ({
+  header,
   title,
   title_url,
   description,
@@ -30,15 +32,20 @@ const CardShowcase: React.FC<Props> = ({
 }) => {
   return (
     <>
-      <h1 className="text-2xl text-white font-semibold">Showcase Projects</h1>
+      {header ? (
+        <h1 className="text-2xl text-white font-semibold">{header}</h1>
+      ) : null}
       <Card className="bg-[#161616] border-none">
         <CardHeader>
           <CardTitle className="text-white">{title}</CardTitle>
           <CardDescription>
             <p>{description}</p>
-            <Link href={url}>
-              URL : <span className="text-blue-500 underline">{title_url}</span>
-            </Link>
+            {title_url ? (
+              <Link href={url || ""}>
+                URL :{" "}
+                <span className="text-blue-500 underline">{title_url}</span>
+              </Link>
+            ) : null}
           </CardDescription>
         </CardHeader>
         <CardContent>{children}</CardContent>
@@ -53,13 +60,15 @@ const CardShowcase: React.FC<Props> = ({
                 <p className="text-sm">Source Code</p>
               </Link>
             ) : null}
-            <Link
-              href={url_show}
-              className="flex items-center gap-2 bg-white p-1.5 rounded-md text-black"
-            >
-              <FaUnlink size="15" />
-              <p className="text-sm">Show Project</p>
-            </Link>
+            {url_show ? (
+              <Link
+                href={url_show}
+                className="flex items-center gap-2 bg-white p-1.5 rounded-md text-black"
+              >
+                <FaUnlink size="15" />
+                <p className="text-sm">Show Project</p>
+              </Link>
+            ) : null}
           </div>
         </CardFooter>
       </Card>

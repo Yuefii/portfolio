@@ -1,5 +1,4 @@
 import {
-  PiLinkLight,
   PiGithubLogo,
   PiInstagramLogo,
   PiLinkedinLogoLight,
@@ -33,14 +32,8 @@ export const links = [
   },
   {
     iconFirst: <FaCoffee className="text-2xl" />,
-    name: "Saweria",
+    name: "Buy me Coffee",
     link: "https://saweria.co/yuefii",
-    lastIcon: <FaAngleRight />,
-  },
-  {
-    iconFirst: <PiLinkLight className="text-2xl" />,
-    name: "callmeyuefii@gmail.com",
-    stri: "Copy",
     lastIcon: <FaAngleRight />,
   },
 ];
