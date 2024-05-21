@@ -4,15 +4,17 @@ import Header from "@/components/Header";
 import Profile from "@/components/Profile";
 import Accordions from "@/components/Accordions";
 import SocialMedia from "@/components/SocialMedia";
+import CardShowcase from "@/components/CardShowcase";
+import * as TechStack from "@/components/showcase/DetailShowcases";
 
 const App = () => {
   return (
     <main className="bg-[#111111] pt-10">
       <Head>
-        <title>Yuefii Portfolio - Developer & Designer</title>
+        <title>Yuefii Portfolio - Content Creator & Developer</title>
         <meta
           name="description"
-          content="Portfolio Yuefii, seorang content creator sekkaligus developer yang berfokus pada pengembangan aplikasi web."
+          content="Portfolio Yuefii, seorang content creator sekaligus developer yang berfokus pada pengembangan aplikasi web."
         />
         <meta
           name="keywords"
@@ -20,11 +22,11 @@ const App = () => {
         />
         <meta
           property="og:title"
-          content="Yuefii Portfolio - Developer & Designer"
+          content="Yuefii Portfolio - Content Creator & Developer"
         />
         <meta
           property="og:description"
-          content="Portfolio Yuefii, seorang content creator sekkaligus developer yang berfokus pada pengembangan aplikasi web."
+          content="Portfolio Yuefii, seorang content creator sekaligus developer yang berfokus pada pengembangan aplikasi web."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yuefii.my.id" />
@@ -51,7 +53,7 @@ const App = () => {
       </Head>
       <Profile />
       <div className="h-full p-3 bg-[#111111]">
-        <div className="h-screen max-w-lg mx-auto bg-[#111111] pt-14">
+        <div className="h-auto max-w-lg mx-auto bg-[#111111] pt-14">
           <div>
             <Header />
             <div>
@@ -59,7 +61,17 @@ const App = () => {
               <SocialMedia />
             </div>
             <div className="mt-5 space-y-2">
-              {/* <MoreInfo /> */}
+              <CardShowcase
+                title="API NUSANTARA KITA"
+                title_url="nusantara-kita.yuefii.my.id"
+                description="API Nusantara Kita menyediakan data lengkap mengenai wilayah
+              Indonesia, termasuk provinsi, kabupaten/kota, kecamatan dan desa."
+                url="https://nusantara-kita.yuefii.my.id"
+                url_show="/nusantara-kita"
+                url_source_code="https://github.com/Yuefii/api-nusantara-kita"
+              >
+                <TechStack.DetailsNusantaraKita />
+              </CardShowcase>
               <Accordions />
             </div>
           </div>
