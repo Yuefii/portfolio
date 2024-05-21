@@ -101,11 +101,11 @@ const App = () => {
         <title>Nusantara Kita - Dokumentasi API Wilayah Indonesia</title>
         <meta
           name="description"
-          content="Dokumentasi API Nusantara Kita menyediakan data lengkap mengenai wilayah Indonesia, termasuk provinsi, kabupaten, kota dan desa."
+          content="Dokumentasi API Nusantara Kita menyediakan data lengkap mengenai wilayah Indonesia, termasuk provinsi, kabupaten/kota, kecamatan dan desa."
         />
         <meta
           name="keywords"
-          content="Nusantara Kita, API Indonesia, data wilayah Indonesia, provinsi, kabupaten, kota, desa, wilayah indonesia"
+          content="Nusantara Kita, API Indonesia, data wilayah Indonesia, provinsi, kabupaten/kota, kecamatan, desa, wilayah indonesia"
         />
         <meta
           property="og:title"
@@ -113,7 +113,7 @@ const App = () => {
         />
         <meta
           property="og:description"
-          content="Dokumentasi API Nusantara Kita menyediakan data lengkap mengenai wilayah Indonesia, termasuk provinsi, kabupaten, kota dan desa."
+          content="Dokumentasi API Nusantara Kita menyediakan data lengkap mengenai wilayah Indonesia, termasuk provinsi, kabupaten/kota, kecamatan dan desa."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yuefii.my.id/nusantara-kita" />
@@ -126,7 +126,7 @@ const App = () => {
             "@type": "WebPage",
             "name": "Nusantara Kita",
             "url": "https://yuefii.my.id/nusantara-kita",
-            "description": "Dokumentasi API Nusantara Kita menyediakan data lengkap mengenai wilayah Indonesia, termasuk provinsi, kabupaten, kota dan desa.",
+            "description": "Dokumentasi API Nusantara Kita menyediakan data lengkap mengenai wilayah Indonesia, termasuk provinsi, kabupaten/kota, kecamatan dan desa.",
             "image": "https://yuefii.my.id/profile.jpg"
           }
         `}

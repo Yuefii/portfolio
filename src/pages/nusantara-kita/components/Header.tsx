@@ -1,26 +1,43 @@
 import Link from "next/link";
-import { PiGithubLogo } from "react-icons/pi";
+import { FaGithub, FaUser } from "react-icons/fa";
 
 const Header = () => {
   return (
     <div className="text-white">
       <h1 className="text-4xl font-semibold">API DOKUMENTASI</h1>
-      <h1 className="text-md mt-5">
-        Api ini berisi data seluruh wilayah indonesia mulai dari:
-      </h1>
-      <li>Provinsi</li>
-      <li>Kabupaten/Kota</li>
-      <li>Kecamatan</li>
-      <li>Desa</li>
-      <div className="my-5 flex items-center">
+      <div className="text-md text-white space-y-3 mt-5">
+        <p>
+          API Nusantara Kita menyediakan data lengkap mengenai wilayah
+          Indonesia, termasuk provinsi, kabupaten/kota, kecamatan dan desa.
+        </p>
+        <Link href="https://nusantara-kita.yuefii.my.id">
+          URL :{" "}
+          <span className="text-blue-500 underline">
+            nusantara-kita.yuefii.my.id
+          </span>
+        </Link>
+        <h1>Api ini berisi data seluruh wilayah indonesia mulai dari:</h1>
+        <div>
+          <li>Provinsi</li>
+          <li>Kabupaten/Kota</li>
+          <li>Kecamatan</li>
+          <li>Desa</li>
+        </div>
+      </div>
+      <div className="my-5 flex gap-2 items-center">
+        <Link
+          href="https://github.com/Yuefii"
+          className="flex items-center gap-2 border border-white bg-black p-1.5 rounded-md text-white hover:opacity-65"
+        >
+          <FaUser size="15" />
+          <p className="text-sm">Author</p>
+        </Link>
         <Link
           href="https://github.com/Yuefii/api-nusantara-kita"
-          className="flex items-center gap-x-2 p-2 bg-neutral-200 hover:bg-neutral-400 rounded-md cursor-pointer duration-300 ease-in-out transition-all"
+          className="flex items-center gap-2 border bg-black p-1.5 rounded-md text-white hover:opacity-65"
         >
-          <div className="bg-black p-1.5 rounded-full">
-            <PiGithubLogo className="text-xl text-white" />
-          </div>
-          <p className="font-semibold text-base text-black">Source Code</p>
+          <FaGithub size="20" />
+          <p className="text-sm">Source Code</p>
         </Link>
       </div>
     </div>
