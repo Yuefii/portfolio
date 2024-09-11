@@ -1,1 +1,0 @@
-export const baseUrl = "https://nusantara-kita.yuefii.my.id"

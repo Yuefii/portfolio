@@ -1,93 +1,115 @@
-import Bio from "@/components/Bio";
-import Head from "next/head";
-import Header from "@/components/Header";
-import Profile from "@/components/Profile";
-import Accordions from "@/components/Accordions";
-import SocialMedia from "@/components/SocialMedia";
-import CardShowcase from "@/components/CardShowcase";
-import * as TechStack from "@/components/showcase/DetailShowcases";
+import Image from 'next/image'
+import localFont from 'next/font/local'
 
-const App = () => {
+const geistSans = localFont({
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900'
+})
+const geistMono = localFont({
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900'
+})
+
+export default function Home() {
   return (
-    <main className="bg-[#111111] pt-2">
-      <Head>
-        <title>Yuefii Portfolio - Content Creator & Developer</title>
-        <meta
-          name="description"
-          content="Portfolio Yuefii, seorang content creator sekaligus developer yang berfokus pada pengembangan aplikasi web."
+    <div
+      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
+    >
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        <Image
+          className="dark:invert"
+          src="https://nextjs.org/icons/next.svg"
+          alt="Next.js logo"
+          width={180}
+          height={38}
+          priority
         />
-        <meta
-          name="keywords"
-          content="Yuefii, developer, designer, portfolio, web development, software enginner, content creator"
-        />
-        <meta
-          property="og:title"
-          content="Yuefii Portfolio - Content Creator & Developer"
-        />
-        <meta
-          property="og:description"
-          content="Portfolio Yuefii, seorang content creator sekaligus developer yang berfokus pada pengembangan aplikasi web."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yuefii.my.id" />
-        <meta property="og:image" content="https://yuefii.my.id/profile.jpg" />
-        <link rel="canonical" href="https://yuefii.my.id" />
-        <script type="application/ld+json">
-          {`
-          {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Yuefii",
-            "url": "https://yuefii.my.id",
-            "sameAs": [
-              "https://www.tiktok.com/@yuefii_",
-              "https://www.instagram.com/yuefii_",
-              "https://www.linkedin.com/in/muhamad-mupid-ahmadiawan-3b2a95292/",
-              "https://github.com/Yuefii"
-            ],
-            "jobTitle": "Content Creator & Developer",
-            "image": "https://yuefii.my.id/profile.jpg"
-          }
-        `}
-        </script>
-      </Head>
-      <Profile />
-      <div className="h-full p-3 bg-[#111111]">
-        <div className="h-auto max-w-2xl mx-auto bg-[#111111] pt-14">
-          <div>
-            <Header />
-            <div>
-              <Bio />
-              <SocialMedia />
-            </div>
-            <div className="my-5 space-y-2">
-              <CardShowcase
-                header="Showcase Projects"
-                title="API NUSANTARA KITA"
-                title_url="nusantara-kita.yuefii.my.id"
-                description="API Nusantara Kita menyediakan data lengkap mengenai wilayah
-              Indonesia, termasuk provinsi, kabupaten/kota, kecamatan dan desa."
-                url="https://nusantara-kita.yuefii.my.id"
-                url_show="/nusantara-kita"
-                url_source_code="https://github.com/Yuefii/api-nusantara-kita"
-              >
-                <TechStack.DetailsNusantaraKita />
-              </CardShowcase>
-              <Accordions title="Project On Development">
-                <CardShowcase
-                  title="Ecommerce_api"
-                  description="API ini dibuat bertujuan untuk membuat sebuah ecommerce dan masih sedang dalam tahap pengembangan hingga saat ini."
-                  url_source_code="https://github.com/Yuefii/ecommerce__api"
-                >
-                  <TechStack.DetailsEcommerce />
-                </CardShowcase>
-              </Accordions>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  );
-};
+        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+          <li className="mb-2">
+            Get started by editing{' '}
+            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
+              src/pages/index.tsx
+            </code>
+            .
+          </li>
+          <li>Save and see your changes instantly.</li>
+        </ol>
 
-export default App;
+        <div className="flex gap-4 items-center flex-col sm:flex-row">
+          <a
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              className="dark:invert"
+              src="https://nextjs.org/icons/vercel.svg"
+              alt="Vercel logomark"
+              width={20}
+              height={20}
+            />
+            Deploy now
+          </a>
+          <a
+            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read our docs
+          </a>
+        </div>
+      </main>
+      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="https://nextjs.org/icons/file.svg"
+            alt="File icon"
+            width={16}
+            height={16}
+          />
+          Learn
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="https://nextjs.org/icons/window.svg"
+            alt="Window icon"
+            width={16}
+            height={16}
+          />
+          Examples
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="https://nextjs.org/icons/globe.svg"
+            alt="Globe icon"
+            width={16}
+            height={16}
+          />
+          Go to nextjs.org →
+        </a>
+      </footer>
+    </div>
+  )
+}
