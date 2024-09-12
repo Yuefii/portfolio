@@ -26,7 +26,9 @@ const Navbar = () => {
           </li>
           <li className="hover:underline hover:scale-110 flex gap-1.5">
             <FaGithub size="20" />
-            <Link href="#">Source</Link>
+            <Link href="https://github.com/yuefii" target="_blank">
+              Source
+            </Link>
           </li>
         </ul>
       </div>

@@ -11,8 +11,8 @@ const Page = () => {
   return (
     <>
       <SEO
-        title="Yuefii"
-        description="Welcome to Personal My Website Portfolio"
+        title="Yuefii - Homepage"
+        description="Welcome to My Personal Website Portfolio"
         image="https://yuefii.my.id/profile.jpg"
         url="https://yuefii.my.id"
       />
@@ -72,7 +72,8 @@ const Page = () => {
             </span>
             . I’m currently studying at Universitas Insan Pembangunan Indonesia
             and diving into coding with a focus on backend development. I’m
-            really into learning <span className="text-rose-400">new tech</span>{' '}
+            really into learning{' '}
+            <span className="text-rose-400">new tech </span>
             and
             <span className="text-rose-400"> solving problems</span>, and I’m
             committed to growing my skills consistently.
@@ -91,7 +92,8 @@ const Page = () => {
               <li>
                 <Link
                   className="flex gap-1.5 hover:scale-110 transition-all"
-                  href=""
+                  href="https://www.instagram.com/yuefii_"
+                  target="_blank"
                 >
                   <FaInstagram size="20" />
                   Instagram
@@ -100,7 +102,8 @@ const Page = () => {
               <li>
                 <Link
                   className="flex gap-1.5 hover:scale-110 transition-all"
-                  href=""
+                  href="https://www.tiktok.com/@yuefii_"
+                  target="_blank"
                 >
                   <FaTiktok size="20" />
                   Tiktok
@@ -109,7 +112,8 @@ const Page = () => {
               <li>
                 <Link
                   className="flex gap-1.5 hover:scale-110 transition-all"
-                  href=""
+                  href="https://github.com/yuefii"
+                  target="_blank"
                 >
                   <FaGithub size="20" />
                   Github
@@ -119,7 +123,8 @@ const Page = () => {
           </div>
           <div className="flex justify-center">
             <Link
-              href=""
+              target="_blank"
+              href="https://saweria.co/yuefii"
               className="bg-amber-400 flex gap-1.5 rounded-md py-1.5 px-4 text-black font-semibold hover:scale-110 transition-all"
             >
               <FaCoffee size="20" />
