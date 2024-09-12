@@ -18,18 +18,34 @@ const Page = () => {
         url="https://yuefii.my.id"
       />
       <Layout>
-        <div className="mx-20 my-5 bg-neutral-800 p-2 rounded-md text-center">
+        <div className="md:mx-10 flex justify-center">
+          <Image
+            className="w-full opacity-65 h-[200px] rounded-md"
+            src="/banner.gif"
+            alt="banner"
+            width="200"
+            height="200"
+          />
+        </div>
+        <div className="mx-3 md:mx-10 my-5 bg-neutral-800 p-2 rounded-md text-center">
           Hello, i`m <span className="text-sky-400">Backend Engineer</span>{' '}
           based in Kab.Tangerang!
         </div>
-        <div className="mx-20 my-5 flex gap-10">
+        <div className="mx-3 md:mx-10 my-5 flex flex-col md:flex-row gap-x-10">
+          <Image
+            className="rounded-full border border-white"
+            src="/profile.jpg"
+            alt="yuefii"
+            width="120"
+            height="120"
+          />
           <div>
-            <h1 className="text-3xl font-bold">Yuefii (Upii)</h1>
+            <h1 className="mt-5 md:mt-0 text-3xl font-bold">Yuefii (Upii)</h1>
             <h2 className="text-neutral-400">
               Entusiast Code,{' '}
               <span className="text-rose-400">Content Creator</span>, Developer.
             </h2>
-            <div className="flex justify-center gap-10 pt-5">
+            <div className="flex justify-center gap-x-10 pt-5 mb-5 md:mb-0">
               <div className="relative flex items-center">
                 <SiPython size="24" className="text-orange-400" />
                 <span className="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 text-xs text-gray-400">
@@ -56,15 +72,8 @@ const Page = () => {
               </div>
             </div>
           </div>
-          <Image
-            className="rounded-full border border-white"
-            src="/profile.jpg"
-            alt="yuefii"
-            width="120"
-            height="120"
-          />
         </div>
-        <div className="mx-20 my-5">
+        <div className="mx-3 md:mx-10 my-5">
           <h1 className="text-xl underline">About Me</h1>
           <p className="mt-2 text-justify leading-relaxed indent-4">
             Hey there! I’m{' '}
