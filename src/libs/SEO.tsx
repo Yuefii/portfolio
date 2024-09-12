@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 interface SEOProps {
   title: string
@@ -9,8 +9,14 @@ interface SEOProps {
 }
 
 const SEO = ({ title, description, image, url }: SEOProps) => {
-  const fullUrl =
-    url || typeof window !== 'undefined' ? window.location.href : ''
+  const [fullUrl, setFullUrl] = useState('')
+
+  useEffect(() => {
+    if (!fullUrl) {
+      setFullUrl(url || window.location.href)
+    }
+  }, [fullUrl, url])
+
   return (
     <Head>
       <title>{title}</title>
