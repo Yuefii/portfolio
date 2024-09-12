@@ -4,10 +4,17 @@ import Layout from '@/layouts/main'
 import { FaReact } from 'react-icons/fa'
 import { FaGolang } from 'react-icons/fa6'
 import { SiDocker, SiPython, SiTypescript } from 'react-icons/si'
+import SEO from '@/libs/SEO'
 
 const Projects = () => {
   return (
     <>
+      <SEO
+        title="Yuefii - Projects"
+        description="Welcome to My Personal Website Portfolio"
+        image="https://yuefii.my.id/profile.jpg"
+        url="https://yuefii.my.id"
+      />
       <Layout>
         <div className="mx-10">
           <h1 className="text-2xl font-semibold underline">Projects</h1>
