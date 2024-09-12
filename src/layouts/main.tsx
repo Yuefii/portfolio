@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-const MainLayout = ({ children }) => {
+interface MainLayoutProps {
+  children: ReactNode
+}
+
+const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div className="mt-4">
+    <main className="mt-4">
       <div className="container mx-auto max-w-2xl">{children}</div>
-    </div>
+    </main>
   )
 }
 
