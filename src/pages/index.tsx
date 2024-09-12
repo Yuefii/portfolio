@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
 import Layout from '@/layouts/main'
+import GitHubCalendar from 'react-github-calendar'
 import { FaGolang } from 'react-icons/fa6'
 import { SiDocker, SiPython, SiTypescript } from 'react-icons/si'
 import { FaCoffee, FaGithub, FaInstagram, FaTiktok } from 'react-icons/fa'
@@ -85,6 +86,10 @@ const Page = () => {
             >
               My Projects {' > '}
             </Link>
+          </div>
+          <div className="my-8">
+            <h1 className="text-xl pb-5 underline">My Contributions</h1>
+            <GitHubCalendar username="yuefii" />
           </div>
           <div>
             <h1 className="text-xl underline">Follow Me</h1>
