@@ -18,20 +18,17 @@ const Page = () => {
         url="https://yuefii.my.id"
       />
       <Layout>
-        <div className="md:mx-10 flex justify-center">
+        <div className="relative md:mx-10 flex justify-center">
           <Image
-            className="w-full opacity-65 h-[200px] rounded-md"
+            className="w-full opacity-50 h-[200px] rounded-md"
             src="/banner.gif"
             alt="banner"
             width="200"
             height="200"
           />
         </div>
-        <div className="mx-3 md:mx-10 my-5 bg-neutral-800 p-2 rounded-md text-center">
-          Hello, i`m <span className="text-sky-400">Backend Engineer</span>{' '}
-          based in Kab.Tangerang!
-        </div>
-        <div className="mx-3 md:mx-10 my-5 flex flex-col md:flex-row gap-x-10">
+
+        <div className="absolute mx-3 md:mx-10 -mt-16  flex flex-col md:flex-row gap-x-6">
           <Image
             className="rounded-full border border-white"
             src="/profile.jpg"
@@ -72,6 +69,10 @@ const Page = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="mx-3 md:mx-10 mt-56 md:mt-20 bg-neutral-800 p-2 rounded-md text-center">
+          Hello, i`m <span className="text-sky-400">Backend Engineer</span>{' '}
+          based in Kab.Tangerang!
         </div>
         <div className="mx-3 md:mx-10 my-5">
           <h1 className="text-xl underline">About Me</h1>
