@@ -6,7 +6,13 @@ import Layout from '@/layouts/main'
 import GitHubCalendar from 'react-github-calendar'
 import { FaGolang } from 'react-icons/fa6'
 import { SiDocker, SiPython, SiTypescript } from 'react-icons/si'
-import { FaCoffee, FaGithub, FaInstagram, FaTiktok } from 'react-icons/fa'
+import {
+  FaCoffee,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaTiktok
+} from 'react-icons/fa'
 
 const Page = () => {
   return (
@@ -122,6 +128,16 @@ const Page = () => {
                 >
                   <FaTiktok size="20" />
                   Tiktok
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="flex gap-1.5 hover:scale-110 transition-all"
+                  href="https://www.linkedin.com/in/muhamad-mupid-ahmadiawan-3b2a95292/"
+                  target="_blank"
+                >
+                  <FaLinkedin size="20" />
+                  LinkedIn
                 </Link>
               </li>
               <li>
