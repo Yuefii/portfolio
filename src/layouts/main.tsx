@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import Navbar from '@/components/Navbar'
 
 interface MainLayoutProps {
   children: ReactNode
@@ -6,8 +7,9 @@ interface MainLayoutProps {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <main className="mt-4">
-      <div className="container mx-auto max-w-2xl">{children}</div>
+    <main>
+      <Navbar />
+      <div className="mt-4 container mx-auto max-w-2xl">{children}</div>
     </main>
   )
 }

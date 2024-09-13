@@ -1,10 +1,10 @@
+import SEO from '@/libs/SEO'
 import React from 'react'
 import Image from 'next/image'
 import Layout from '@/layouts/main'
 import { FaReact } from 'react-icons/fa'
 import { FaGolang } from 'react-icons/fa6'
 import { SiDocker, SiPython, SiTypescript } from 'react-icons/si'
-import SEO from '@/libs/SEO'
 
 const Projects = () => {
   return (
@@ -18,7 +18,7 @@ const Projects = () => {
       <Layout>
         <div className="mx-10">
           <h1 className="text-2xl font-semibold underline">Projects</h1>
-          <div className="my-5 grid grid-cols-2 gap-6">
+          <div className="my-5 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <Image
                 className="rounded-md w-[300px]"

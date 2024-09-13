@@ -55,7 +55,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="hover:underline">
-                <Link href="/desktop-environment" onClick={toggleMenu}>
+                <Link href="/daily-use" onClick={toggleMenu}>
                   Daily Use
                 </Link>
               </li>
