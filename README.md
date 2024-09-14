@@ -12,7 +12,7 @@
   cd portfolio
   ```
 
-### 🚀  How to Run
+### 🚀 How to Run
 
 - **Install Packages:**
   ```bash
@@ -22,7 +22,7 @@
   ```bash
    bun dev
   ```
- This will provide various information to proceed with the project.
+  This will provide various information to proceed with the project.
 
 ## ⚙️ License
 
