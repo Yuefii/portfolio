@@ -21,6 +21,10 @@ const SEO = ({ title, description, image, url }: SEOProps) => {
     <Head>
       <title>{title}</title>
       <link rel="icon" href="/logo.png" />
+      <meta
+        name="google-site-verification"
+        content="Pwtm5TnyHpwMl-78sNygN-IFLcTHXpBXTmMYsmjq1Ds"
+      />
       <meta name="description" content={description} />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content={title} />
