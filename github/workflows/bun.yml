@@ -1,0 +1,23 @@
+name: Bun Test
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-start:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install
+      - run: bun lint
+      - run: bun nuxt build
+      - run: bun start &
+      - run: sleep 30
+      - run: curl -sI http://localhost:3000/
+      - run: killall bun
