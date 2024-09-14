@@ -1,20 +1,13 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":dependencyDashboard"],
-  "configMigration": true,
+  "extends": [
+    "config:base"
+  ],
   "packageRules": [
     {
-      "packageNames": ["next"],
-      "updateTypes": ["minor", "patch"],
-      "groupName": "Next.js updates",
-      "enabled": true
-    },
-    {
-      "packageNames": ["bun"],
-      "updateTypes": ["minor", "patch"],
-      "groupName": "Bun updates",
+      "packagePatterns": ["bun"],
       "enabled": true
     }
   ]
 }
+
 
