@@ -1,13 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { motion } from 'framer-motion'
-import {
-  FaCoffee,
-  FaGithub,
-  FaInstagram,
-  FaLinkedin,
-  FaTiktok
-} from 'react-icons/fa'
+import { FaGithub, FaInstagram, FaLinkedin, FaTiktok } from 'react-icons/fa'
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
