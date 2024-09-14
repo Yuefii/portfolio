@@ -1,5 +1,6 @@
 import React from 'react'
 import MenuListArticle from './MenuListArticle'
+import MenuListCategory from './MenuListCategory'
 
 const Menu = () => {
   return (
@@ -8,6 +9,7 @@ const Menu = () => {
       <div className="mt-3">
         <MenuListArticle />
       </div>
+      <MenuListCategory />
     </div>
   )
 }
