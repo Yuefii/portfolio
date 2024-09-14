@@ -30,6 +30,9 @@ const Navbar = () => {
           <li className="hover:underline hover:scale-110">
             <Link href="/daily-use">Daily Use</Link>
           </li>
+          <li className="hover:underline hover:scale-110">
+            <Link href="/blogs">Blogs</Link>
+          </li>
           <li className="hover:underline hover:scale-110 flex gap-1.5">
             <FaGithub size="20" />
             <Link href="https://github.com/yuefii/portfolio" target="_blank">
@@ -58,6 +61,9 @@ const Navbar = () => {
                 <Link href="/daily-use" onClick={toggleMenu}>
                   Daily Use
                 </Link>
+              </li>
+              <li className="hover:underline hover:scale-110">
+                <Link href="/blogs">Blogs</Link>
               </li>
               <li className="hover:underline flex items-center gap-1.5">
                 <FaGithub size="20" />

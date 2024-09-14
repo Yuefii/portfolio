@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import BlogsNavbar from '@/components/blogs/BlogNavbar'
 
-const BlogsLayouts = ({ children }) => {
+interface BlogsLayoutProps {
+  children: ReactNode
+}
+
+const BlogsLayouts = ({ children }: BlogsLayoutProps) => {
   return (
     <main>
       <div className="container mx-auto">
