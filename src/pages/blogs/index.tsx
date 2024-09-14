@@ -8,7 +8,7 @@ const Blogs = () => {
   return (
     <BlogsLayouts>
       <Featured />
-      <div className="flex gap-12">
+      <div className="flex flex-col lg:flex-row gap-x-6">
         <CardList />
         <Menu />
       </div>
