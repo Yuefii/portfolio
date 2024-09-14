@@ -23,7 +23,7 @@ const Desktop = () => {
       <SEO
         title="Yuefii - Daily Use"
         description="Welcome to My Personal Website Portfolio"
-        image="https://www.yuefii.site/logo.png"
+        image="https://www.yuefii.site/profile.jpg"
         url="https://www.yuefii.site/daily-use"
         breadcrumbs={globalBreadcrumbs.daily_use}
       />

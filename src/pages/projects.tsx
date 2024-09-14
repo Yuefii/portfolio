@@ -28,7 +28,7 @@ const Projects = () => {
       <SEO
         title="Yuefii - Projects"
         description="Welcome to My Personal Website Portfolio"
-        image="https://www.yuefii.site/logo.png"
+        image="https://www.yuefii.site/profile.jpg"
         url="https://www.yuefii.site/projects"
         breadcrumbs={globalBreadcrumbs.projects}
       />

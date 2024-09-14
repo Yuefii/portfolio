@@ -16,7 +16,7 @@ jobs:
           bun-version: latest
       - run: bun install
       - run: bun lint
-      - run: bun nuxt build
+      - run: bun next build
       - run: bun start &
       - run: sleep 30
       - run: curl -sI http://localhost:3000/
