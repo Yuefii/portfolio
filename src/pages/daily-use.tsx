@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React from 'react'
 import Layout from '@/layouts/main'
 import { FaGithub, FaLinux } from 'react-icons/fa'
+import { globalBreadcrumbs } from '@/utils/breadcrumbs'
 
 const Desktop = () => {
   return (
@@ -11,8 +12,9 @@ const Desktop = () => {
       <SEO
         title="Yuefii - Daily Use"
         description="Welcome to My Personal Website Portfolio"
-        image="https://yuefii.my.id/profile.jpg"
-        url="https://yuefii.my.id"
+        image="https://www.yuefii.site/logo.png"
+        url="https://www.yuefii.site/daily-use"
+        breadcrumbs={globalBreadcrumbs.daily_use}
       />
       <Layout>
         <div className="mx-5">

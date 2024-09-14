@@ -4,6 +4,7 @@ import React from 'react'
 import CardList from '@/components/blogs/CardList'
 import Featured from '@/components/blogs/Featured'
 import BlogsLayouts from '@/layouts/blogs'
+import { globalBreadcrumbs } from '@/utils/breadcrumbs'
 
 const Blogs = () => {
   return (
@@ -11,8 +12,9 @@ const Blogs = () => {
       <SEO
         title="Yuefii - Blogs"
         description="Welcome to My Blogs Article"
-        image="https://yuefii.my.id/profile.jpg"
-        url="https://yuefii.my.id"
+        image="https://www.yuefii.site/logo.png"
+        url="https://www.yuefii.site/blogs"
+        breadcrumbs={globalBreadcrumbs.blogs}
       />
       <BlogsLayouts>
         <Featured />

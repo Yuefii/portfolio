@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.yuefii.site
+
+# Sitemaps
+Sitemap: https://www.yuefii.site/sitemap.xml

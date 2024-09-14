@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Layout from '@/layouts/main'
 import { FaReact } from 'react-icons/fa'
 import { FaGolang } from 'react-icons/fa6'
+import { globalBreadcrumbs } from '@/utils/breadcrumbs'
 import { SiDocker, SiPython, SiTypescript } from 'react-icons/si'
 
 const Projects = () => {
@@ -12,8 +13,9 @@ const Projects = () => {
       <SEO
         title="Yuefii - Projects"
         description="Welcome to My Personal Website Portfolio"
-        image="https://yuefii.my.id/profile.jpg"
-        url="https://yuefii.my.id"
+        image="https://www.yuefii.site/logo.png"
+        url="https://www.yuefii.site/projects"
+        breadcrumbs={globalBreadcrumbs.projects}
       />
       <Layout>
         <div className="mx-10">

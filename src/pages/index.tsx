@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Layout from '@/layouts/main'
 import GitHubCalendar from 'react-github-calendar'
 import { FaGolang } from 'react-icons/fa6'
+import { globalBreadcrumbs } from '@/utils/breadcrumbs'
 import { SiDocker, SiPython, SiTypescript } from 'react-icons/si'
 import {
   FaCoffee,
@@ -20,8 +21,9 @@ const Page = () => {
       <SEO
         title="Yuefii - Homepage"
         description="Welcome to My Personal Website Portfolio"
-        image="https://yuefii.my.id/profile.jpg"
-        url="https://yuefii.my.id"
+        image="https://www.yuefii.site/logo.png"
+        url="https://www.yuefii.site"
+        breadcrumbs={globalBreadcrumbs.homepage}
       />
       <Layout>
         <div className="relative md:mx-10 flex justify-center">

@@ -6,9 +6,10 @@ interface SEOProps {
   description: string
   image?: string
   url?: string
+  breadcrumbs?: { name: string; url: string }[]
 }
 
-const SEO = ({ title, description, image, url }: SEOProps) => {
+const SEO = ({ title, description, image, url, breadcrumbs }: SEOProps) => {
   const [fullUrl, setFullUrl] = useState('')
 
   useEffect(() => {
@@ -36,6 +37,20 @@ const SEO = ({ title, description, image, url }: SEOProps) => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       {image && <meta name="twitter:image" content={image} />}
+      {breadcrumbs && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: breadcrumbs.map((crumb, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              name: crumb.name,
+              item: crumb.url
+            }))
+          })}
+        </script>
+      )}
     </Head>
   )
 }
