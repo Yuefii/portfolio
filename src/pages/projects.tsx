@@ -2,10 +2,25 @@ import SEO from '@/libs/SEO'
 import React from 'react'
 import Image from 'next/image'
 import Layout from '@/layouts/main'
+import { motion } from 'framer-motion'
 import { FaReact } from 'react-icons/fa'
 import { FaGolang } from 'react-icons/fa6'
 import { globalBreadcrumbs } from '@/utils/breadcrumbs'
 import { SiDocker, SiPython, SiTypescript } from 'react-icons/si'
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+}
+
+const containerVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { staggerChildren: 0.3, duration: 0.5 }
+  }
+}
 
 const Projects = () => {
   return (
@@ -19,9 +34,22 @@ const Projects = () => {
       />
       <Layout>
         <div className="mx-10">
-          <h1 className="text-2xl font-semibold underline">Projects</h1>
-          <div className="my-5 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
+          <motion.h1
+            initial="hidden"
+            animate="visible"
+            variants={itemVariants}
+            transition={{ duration: 0.5 }}
+            className="text-2xl font-semibold underline"
+          >
+            Projects
+          </motion.h1>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="my-5 grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            <motion.div variants={itemVariants}>
               <Image
                 className="rounded-md w-[300px]"
                 src="/web-comit.png"
@@ -41,8 +69,8 @@ const Projects = () => {
                 Company Profile untuk pengenalan tentang apa itu departemen
                 COMIT.
               </p>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div variants={itemVariants}>
               <Image
                 className="rounded-md w-[300px]"
                 src="/nusantara-kita.png"
@@ -62,8 +90,8 @@ const Projects = () => {
                 Nusantara Kita adalah sebuah API yang menyediakan data wilayah
                 seluruh indonesia.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </Layout>
     </>
