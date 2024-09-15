@@ -15,14 +15,14 @@ const Card = () => {
         />
       </div>
       <div className="mt-5 flex flex-col space-y-3">
-        <div className="flex gap-x-2">
-          <span>14 september 2024</span>
+        <div className="flex gap-x-2 items-center">
+          <span className="text-base">14 september 2024</span>
           {' - '}
-          <span className="rounded-md bg-white px-4 text-black">
-            Desktop Environments
+          <span className="rounded-md bg-amber-600 py-1.5 px-3 text-xs md:text-base">
+            Daily Use
           </span>
         </div>
-        <Link className="text-4xl font-semibold" href="">
+        <Link className="text-3xl md:text-4xl font-semibold" href="">
           My Daily Use With Linux
         </Link>
         <p className="text-justify  w-full lg:w-[700px] xl:w-[500px] 2xl:w-[800px]">

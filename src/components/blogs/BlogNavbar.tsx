@@ -17,10 +17,10 @@ const BlogNavbar = () => {
         </Link>
         <ul className="hidden md:flex gap-4 text-lg">
           <li>
-            <Link href="">About</Link>
+            <Link href="/blogs">Homepage</Link>
           </li>
           <li>
-            <Link href="">Contact</Link>
+            <Link href="/">Contact</Link>
           </li>
           <AuthLink />
         </ul>
@@ -37,10 +37,10 @@ const BlogNavbar = () => {
           <div className="p-3">
             <ul className="text-lg">
               <li>
-                <Link href="">About</Link>
+                <Link href="/blogs">Homepage</Link>
               </li>
               <li>
-                <Link href="">Contact</Link>
+                <Link href="/">Contact</Link>
               </li>
               <AuthLink />
             </ul>

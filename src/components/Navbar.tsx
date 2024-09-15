@@ -62,7 +62,7 @@ const Navbar = () => {
                   Daily Use
                 </Link>
               </li>
-              <li className="hover:underline hover:scale-110">
+              <li className="hover:underline">
                 <Link href="/blogs">Blogs</Link>
               </li>
               <li className="hover:underline flex items-center gap-1.5">

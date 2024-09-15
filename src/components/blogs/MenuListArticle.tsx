@@ -9,9 +9,7 @@ const MenuListArticle = () => {
           <div>
             <h3 className="text-md font-bold">My Setup Daily Use with Linux</h3>
             <div className="text-xs">
-              <span className="bg-sky-400 text-black rounded-md px-3">
-                Yuefii
-              </span>
+              <span className="font-bold text-sky-500">Yuefii</span>
               {' - '}
               <span>14 september 2024</span>
             </div>
