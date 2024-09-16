@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import Layout from '@/layouts/blogs'
 import Menu from '@/components/blogs/Menu'
+import Comments from '@/components/blogs/Comments'
 
 const Page = () => {
   return (
@@ -61,7 +62,7 @@ const Page = () => {
                 pengalaman yang sangat memuaskan dan efisien.
               </p>
             </div>
-            <div>Comment</div>
+            <Comments />
           </div>
           <Menu />
         </div>
