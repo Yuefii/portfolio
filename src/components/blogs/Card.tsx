@@ -22,7 +22,10 @@ const Card = () => {
             Daily Use
           </span>
         </div>
-        <Link className="text-3xl md:text-4xl font-semibold" href="">
+        <Link
+          className="text-3xl md:text-4xl font-semibold"
+          href="/blogs/daily-use"
+        >
           My Daily Use With Linux
         </Link>
         <p className="text-justify  w-full lg:w-[700px] xl:w-[500px] 2xl:w-[800px]">
