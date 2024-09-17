@@ -1,16 +1,17 @@
+import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
 
 const AuthLink = () => {
-  const status = false
+  const status = 'authenticated'
   return (
     <>
-      {status === false ? (
+      {status === 'notauthenticated' ? (
         <Link href="/auth/login">Login</Link>
       ) : (
         <>
           <Link href="/blogs/write">Write</Link>
-          <span>Logout</span>
+          <span onClick={() => signOut()}>Logout</span>
         </>
       )}
     </>

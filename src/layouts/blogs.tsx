@@ -7,12 +7,10 @@ interface BlogsLayoutProps {
 
 const BlogsLayouts = ({ children }: BlogsLayoutProps) => {
   return (
-    <main>
-      <div className="container mx-auto">
-        <BlogsNavbar />
-        {children}
-      </div>
-    </main>
+    <div className="container mx-auto">
+      <BlogsNavbar />
+      {children}
+    </div>
   )
 }
 
