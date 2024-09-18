@@ -16,10 +16,10 @@ const BlogNavbar = () => {
           Yuefii Blog
         </Link>
         <ul className="hidden md:flex gap-4 text-lg">
-          <li>
+          <li className="hover:underline">
             <Link href="/blogs">Homepage</Link>
           </li>
-          <li>
+          <li className="hover:underline">
             <Link href="/">Contact</Link>
           </li>
           <AuthLink />

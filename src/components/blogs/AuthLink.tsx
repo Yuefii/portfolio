@@ -7,11 +7,20 @@ const AuthLink = () => {
   return (
     <>
       {status === 'unauthenticated' ? (
-        <Link href="/auth/login">Login</Link>
+        <Link className="hover:underline" href="/auth/login">
+          Login
+        </Link>
       ) : (
         <>
-          <Link href="/blogs/write">Write</Link>
-          <span onClick={() => signOut()}>Logout</span>
+          <Link className="cursor-pointer hover:underline" href="/blogs/write">
+            Write
+          </Link>
+          <span
+            className="cursor-pointer hover:underline"
+            onClick={() => signOut()}
+          >
+            Logout
+          </span>
         </>
       )}
     </>

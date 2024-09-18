@@ -1,15 +1,27 @@
 import 'react-quill/dist/quill.bubble.css'
 import React, { useState } from 'react'
-import dynamic from 'next/dynamic'
 import Layout from '@/layouts/blogs'
+import dynamic from 'next/dynamic'
+import Loading from '@/components/Loading'
 import { FiUpload } from 'react-icons/fi'
 import { FaImage, FaPlusCircle, FaVideo } from 'react-icons/fa'
+import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/react'
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const Write = () => {
+  const router = useRouter()
+  const { status } = useSession()
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState('')
+
+  if (status === 'loading') {
+    return <Loading />
+  }
+  if (status === 'authenticated') {
+    router.push('/blogs')
+  }
   return (
     <Layout>
       <div>
