@@ -1,12 +1,12 @@
-import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
+import { signOut, useSession } from 'next-auth/react'
 
 const AuthLink = () => {
-  const status = 'authenticated'
+  const { status } = useSession()
   return (
     <>
-      {status === 'notauthenticated' ? (
+      {status === 'unauthenticated' ? (
         <Link href="/auth/login">Login</Link>
       ) : (
         <>

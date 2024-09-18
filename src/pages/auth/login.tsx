@@ -1,11 +1,12 @@
-import Loading from '@/components/Loading'
-import { signIn, useSession } from 'next-auth/react'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
 import React from 'react'
+import Image from 'next/image'
+import Loading from '@/components/Loading'
+import { useRouter } from 'next/router'
+import { signIn, useSession } from 'next-auth/react'
 
 const Login = () => {
   const { data, status } = useSession()
+  console.log(data, status)
   const router = useRouter()
 
   if (status === 'loading') {
