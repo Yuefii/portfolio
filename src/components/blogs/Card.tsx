@@ -2,9 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const Card = () => {
+const Card = ({ key, item }) => {
   return (
-    <div className="mb-10 flex flex-col gap-x-3 xl:flex-row">
+    <div key={key} className="mb-10 flex flex-col gap-x-3 xl:flex-row">
       <div>
         <Image
           className="object-cover w-full xl:w-[400px] rounded-md"
@@ -26,13 +26,10 @@ const Card = () => {
           className="text-3xl md:text-4xl font-semibold"
           href="/blogs/daily-use"
         >
-          My Daily Use With Linux
+          {item.title}
         </Link>
         <p className="text-justify  w-full lg:w-[700px] xl:w-[500px] 2xl:w-[800px]">
-          Untuk aktivitas coding saya sehari-hari, Arch Linux adalah pilihan
-          utama saya. Saya telah menyesuaikan sistem ini dengan kebutuhan dan
-          preferensi pribadi, menciptakan lingkungan kerja yang sangat ideal
-          untuk pengembangan perangkat lunak.
+          {item.desc}
         </p>
         <Link className="text-lg underline" href="">
           Read More
