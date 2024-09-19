@@ -12,7 +12,7 @@ export default async function handler(
     )
     const page = parseInt(searchParams.get('page') || '1', 10)
     const cat = searchParams.get('cat')
-    const POST_PER_PAGE = 200
+    const POST_PER_PAGE = 3
 
     if (isNaN(page) || page < 1) {
       return res.status(400).json({ message: 'Invalid page number' })
@@ -31,6 +31,9 @@ export default async function handler(
         prisma.post.findMany(query),
         prisma.post.count({ where: query.where })
       ])
+      if (posts.length === 0 && page > 1) {
+        return res.status(404).json({ message: 'Page not found' })
+      }
       res.status(200).json({ posts, count })
     } catch (error) {
       console.error(error)
