@@ -6,6 +6,9 @@ interface Post {
   id: number
   title: string
   desc: string
+  createdAt: string
+  catSlug: string
+  slug: string
 }
 
 interface CardProps {
@@ -26,22 +29,22 @@ const Card = ({ item }: CardProps) => {
       </div>
       <div className="mt-5 flex flex-col space-y-3">
         <div className="flex gap-x-2 items-center">
-          <span className="text-base">14 september 2024</span>
+          <span className="text-base">{item.createdAt.substring(0, 10)}</span>
           {' - '}
           <span className="rounded-md bg-amber-600 py-1.5 px-3 text-xs md:text-base">
-            Daily Use
+            {item.catSlug}
           </span>
         </div>
         <Link
           className="text-3xl md:text-4xl font-semibold"
-          href="/blogs/daily-use"
+          href={`/blog/posts/${item.slug}`}
         >
           {item.title}
         </Link>
         <p className="text-justify  w-full lg:w-[700px] xl:w-[500px] 2xl:w-[800px]">
           {item.desc}
         </p>
-        <Link className="text-lg underline" href="">
+        <Link className="text-lg underline" href={`/blog/posts/${item.slug}`}>
           Read More
         </Link>
       </div>
