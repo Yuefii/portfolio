@@ -33,7 +33,7 @@ const CardList = () => {
         const response = await axios.get<ApiResponse>(`/api/posts?page=${page}`)
         setData(response.data.posts)
         const itemCount = response.data.count
-        const itemsPerPage = 3
+        const itemsPerPage = 10
         setTotalPages(Math.ceil(itemCount / itemsPerPage))
       } catch (err) {
         setError('Failed to fetch data')

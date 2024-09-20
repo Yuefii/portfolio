@@ -6,7 +6,7 @@ const Menu = () => {
   return (
     <div className="flex-1 mx-5 md:mx-0 mb-20 md:mb-0">
       <h1 className="text-3xl font-bold">Most Populers</h1>
-      <div className="mt-3">
+      <div className="mt-3 pl-2">
         <MenuListArticle />
       </div>
       <MenuListCategory />

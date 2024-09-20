@@ -12,7 +12,7 @@ export default async function handler(
     )
     const page = parseInt(searchParams.get('page') || '1', 10)
     const cat = searchParams.get('cat')
-    const POST_PER_PAGE = 3
+    const POST_PER_PAGE = 10
 
     if (isNaN(page) || page < 1) {
       return res.status(400).json({ message: 'Invalid page number' })
