@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
-import AuthLink from './AuthLink'
 import { AiOutlineClose } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
 
@@ -41,7 +40,6 @@ const BlogNavbar = () => {
               <li>
                 <Link href="/">Contact</Link>
               </li>
-              <AuthLink />
             </ul>
           </div>
         </div>
