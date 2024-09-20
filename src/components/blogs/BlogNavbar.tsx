@@ -22,7 +22,6 @@ const BlogNavbar = () => {
           <li className="hover:underline">
             <Link href="/">Contact</Link>
           </li>
-          <AuthLink />
         </ul>
         <div onClick={toggleMenu} className="md:hidden flex items-center">
           {isOpen ? (

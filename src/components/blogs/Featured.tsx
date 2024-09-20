@@ -9,7 +9,7 @@ const Featured = () => {
         <div className="mx-auto grid max-w-3xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 lg:max-w-5xl 2xl:max-w-full lg:grid-cols-2 lg:px-8 lg:gap-x-16 xl:px-12">
           <div className="lg:relative z-10 md:text-center lg:text-left">
             <div className="relative">
-              <p className="inline bg-gradient-to-r from-red-200 via-rose-600 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
+              <p className="inline bg-gradient-to-r from-red-200 via-rose-600 to-indigo-200 bg-clip-text font-display text-6xl tracking-tight text-transparent">
                 Discover my stories and creative ideas.
               </p>
               <p className="mt-3 text-2xl tracking-tight text-slate-400">
