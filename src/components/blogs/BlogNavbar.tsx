@@ -8,7 +8,7 @@ const BlogNavbar = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
-  let [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     function onScroll() {

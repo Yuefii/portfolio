@@ -8,8 +8,8 @@ import { globalBreadcrumbs } from '@/utils/breadcrumbs'
 import { usePathname } from 'next/navigation'
 
 const Blogs = () => {
-  let pathname = usePathname()
-  let isHomePage = pathname === '/blogs'
+  const pathname = usePathname()
+  const isHomePage = pathname === '/blogs'
   return (
     <>
       <SEO
