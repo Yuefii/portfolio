@@ -5,10 +5,21 @@ import Loading from '../Loading'
 import Pagination from './Pagination'
 import { useRouter } from 'next/router'
 
+interface Post {
+  id: number
+  title: string
+  desc: string
+}
+
+interface ApiResponse {
+  posts: Post[]
+  count: number
+}
+
 const CardList = () => {
   const router = useRouter()
   const { page = 1 } = router.query
-  const [data, setData] = useState<any>([])
+  const [data, setData] = useState<Post[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [totalPages, setTotalPages] = useState(0)
   const [error, setError] = useState<string | null>(null)
@@ -16,7 +27,7 @@ const CardList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get<any>(`/api/posts?page=${page}`)
+        const response = await axios.get<ApiResponse>(`/api/posts?page=${page}`)
         setData(response.data.posts)
         const itemCount = response.data.count
         const itemsPerPage = 3
@@ -42,7 +53,10 @@ const CardList = () => {
           <Card key={index} item={item} />
         ))}
       </div>
-      <Pagination currentPage={parseInt(page)} totalPages={totalPages} />
+      <Pagination
+        currentPage={parseInt(page as string)}
+        totalPages={totalPages}
+      />
     </div>
   )
 }

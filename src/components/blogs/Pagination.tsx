@@ -1,7 +1,12 @@
 import { useRouter } from 'next/router'
 import React from 'react'
 
-const Pagination = ({ currentPage, totalPages }) => {
+interface PaginationProps {
+  currentPage: number
+  totalPages: number
+}
+
+const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
   const router = useRouter()
 
   const handlePrevious = () => {

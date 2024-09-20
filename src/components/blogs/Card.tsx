@@ -2,9 +2,19 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const Card = ({ key, item }) => {
+interface Post {
+  id: number
+  title: string
+  desc: string
+}
+
+interface CardProps {
+  item: Post
+}
+
+const Card = ({ item }: CardProps) => {
   return (
-    <div key={key} className="mb-10 flex flex-col gap-x-3 xl:flex-row">
+    <div className="mb-10 flex flex-col gap-x-3 xl:flex-row">
       <div>
         <Image
           className="object-cover w-full xl:w-[400px] rounded-md"
