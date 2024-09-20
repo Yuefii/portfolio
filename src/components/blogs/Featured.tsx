@@ -4,7 +4,7 @@ import AuthLink from './AuthLink'
 
 const Featured = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <div className="py-16 sm:px-2 lg:relative lg:py-48">
         <div className="mx-auto grid max-w-3xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 lg:max-w-5xl 2xl:max-w-full lg:grid-cols-2 lg:px-8 lg:gap-x-16 xl:px-12">
           <div className="order-2 lg:order-1 lg:relative z-10 md:text-center lg:text-left">
@@ -48,7 +48,7 @@ const Featured = () => {
                 width={700}
                 height={700}
                 priority
-                className="w-full lg:w-[350px] xl:w-[400px] lg:scale-125 2xl:scale-150 border"
+                className="w-full lg:w-[350px] xl:w-[400px] lg:scale-125 2xl:scale-150"
               />
             </div>
           </div>

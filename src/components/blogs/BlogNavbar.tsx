@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
 
@@ -8,11 +8,34 @@ const BlogNavbar = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
+  let [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    function onScroll() {
+      setIsScrolled(window.scrollY > 0)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
   return (
     <>
-      <nav className="mx-5 flex justify-between items-center h-[100px]">
+      <nav
+        className={`
+    sticky top-0 z-50 flex flex-none flex-wrap items-center justify-between 
+    bg-transparent px-4 py-5 shadow-md shadow-slate-900/5 transition duration-500 
+    sm:px-6 lg:px-8 
+    ${
+      isScrolled
+        ? 'dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-transparent/75'
+        : 'dark:bg-transparent'
+    }
+`}
+      >
         <Link href="/blogs" className="text-2xl font-bold flex-1">
-          Yuefii Blog
+          Blogs
         </Link>
         <ul className="hidden md:flex gap-4 text-lg">
           <li className="hover:underline">
