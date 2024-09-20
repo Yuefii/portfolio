@@ -9,6 +9,9 @@ interface Post {
   id: number
   title: string
   desc: string
+  createdAt: string
+  catSlug: string
+  slug: string
 }
 
 interface ApiResponse {
