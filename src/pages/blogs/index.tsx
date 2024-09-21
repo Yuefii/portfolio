@@ -13,7 +13,7 @@ const Blogs = () => {
   return (
     <>
       <SEO
-        title="Yuefii - Blogs"
+        title="Blogs | Yuefii"
         description="Welcome to My Blogs Article"
         image="https://www.yuefii.site/logo.png"
         url="https://www.yuefii.site/blogs"

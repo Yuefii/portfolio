@@ -26,7 +26,7 @@ const Projects = () => {
   return (
     <>
       <SEO
-        title="Yuefii - Projects"
+        title="Projects | Yuefii"
         description="Welcome to My Personal Website Portfolio"
         image="https://www.yuefii.site/profile.jpg"
         url="https://www.yuefii.site/projects"

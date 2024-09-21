@@ -28,9 +28,6 @@ const Navbar = () => {
             <Link href="/projects">Projects</Link>
           </li>
           <li className="hover:underline hover:scale-110">
-            <Link href="/daily-use">Daily Use</Link>
-          </li>
-          <li className="hover:underline hover:scale-110">
             <Link href="/blogs">Blogs</Link>
           </li>
           <li className="hover:underline hover:scale-110 flex gap-1.5">
@@ -55,11 +52,6 @@ const Navbar = () => {
               <li className="hover:underline ">
                 <Link href="/projects" onClick={toggleMenu}>
                   Projects
-                </Link>
-              </li>
-              <li className="hover:underline">
-                <Link href="/daily-use" onClick={toggleMenu}>
-                  Daily Use
                 </Link>
               </li>
               <li className="hover:underline">

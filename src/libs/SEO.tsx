@@ -48,7 +48,7 @@ const SEO = ({
   return (
     <Head>
       <title>{title}</title>
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/logo.png" />
       <meta
         name="google-site-verification"
         content="Pwtm5TnyHpwMl-78sNygN-IFLcTHXpBXTmMYsmjq1Ds"
