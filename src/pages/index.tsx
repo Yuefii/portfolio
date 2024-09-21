@@ -6,10 +6,10 @@ import Layout from '@/layouts/main'
 import Profile from '@/components/homepage/Profile'
 import Welcome from '@/components/homepage/Welcome'
 import FollowMe from '@/components/homepage/FollowMe'
+import Volunteer from '@/components/homepage/Volunteer'
 import GithubCalendar from '@/components/homepage/GithubCalendar'
-import { globalBreadcrumbs } from '@/utils/breadcrumbs'
-import Tiktok from '@/components/homepage/Tiktok'
 import SpotifyPlaylist from '@/components/homepage/SpotifyPlaylist'
+import { globalBreadcrumbs } from '@/utils/breadcrumbs'
 
 const Page = () => {
   return (
@@ -27,9 +27,9 @@ const Page = () => {
         <Welcome />
         <div className="mx-3 md:mx-10 my-5">
           <About />
+          <Volunteer />
           <GithubCalendar />
           <SpotifyPlaylist />
-          <Tiktok />
           <FollowMe />
         </div>
       </Layout>
