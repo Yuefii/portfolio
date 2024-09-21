@@ -51,7 +51,7 @@ const CardList = () => {
   return (
     <div className="mt-10 mx-5">
       <h1 className="text-3xl font-bold">Recents Posts</h1>
-      <div className="my-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      <div className="my-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
         {data.map((item, index) => (
           <Card key={index} item={item} />
         ))}
