@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import GitHubCalendar from 'react-github-calendar'
 import { motion } from 'framer-motion'
 import Loading from '@/components/Loading'
+import Link from 'next/link'
+import { FaGithub } from 'react-icons/fa'
 
 const variants = {
   hidden: { opacity: 0, y: 20 },
@@ -29,7 +31,15 @@ const GithubCalendar = () => {
       variants={variants}
       transition={{ duration: 0.5 }}
     >
-      <h1 className="text-xl pb-5 underline">My Contributions</h1>
+      <h1 className="text-2xl pb-5 font-bold flex">
+        Contributions on{' '}
+        <Link
+          className="flex items-center pl-3 gap-x-1 hover:underline hover:scale-110"
+          href="https://github.com/yuefii"
+        >
+          <FaGithub /> Github
+        </Link>
+      </h1>
       {isLoading ? <Loading /> : <GitHubCalendar username="yuefii" />}
     </motion.div>
   )

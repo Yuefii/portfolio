@@ -10,7 +10,7 @@ const About = () => {
       transition={{ duration: 0.5 }}
     >
       <motion.h1
-        className="text-xl underline"
+        className="text-2xl font-bold"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -18,7 +18,7 @@ const About = () => {
         About Me
       </motion.h1>
       <motion.p
-        className="mt-2 text-justify leading-relaxed indent-4"
+        className="mt-2 text-justify text-lg text-neutral-400 leading-relaxed indent-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
