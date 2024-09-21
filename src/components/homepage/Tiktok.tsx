@@ -32,7 +32,7 @@ const Tiktok = () => {
         <div className="my-5 max-w-xl mx-auto">
           <iframe
             src="https://www.tiktok.com/embed/@yuefii_"
-            className="w-full h-[480px] border-none rounded-lg"
+            className="w-full h-[368px] sm:h-[458px] border-none rounded-lg"
             allowFullScreen
           ></iframe>
         </div>
