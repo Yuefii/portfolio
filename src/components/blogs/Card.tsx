@@ -1,6 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import Image from 'next/image'
+import { GoArrowRight } from 'react-icons/go'
 
 interface Post {
   id: number
@@ -16,36 +17,35 @@ interface CardProps {
 }
 
 const Card = ({ item }: CardProps) => {
+  const maxLength = 50
+  const truncatedDesc =
+    item.desc.length > maxLength
+      ? item.desc.slice(0, maxLength) + '...'
+      : item.desc
   return (
-    <div className="mb-10 flex flex-col gap-x-3 xl:flex-row">
-      <div>
-        <Image
-          className="object-cover w-full xl:w-[400px] rounded-md"
-          src="/de.png"
-          alt="image"
-          width="500"
-          height="500"
-        />
-      </div>
-      <div className="mt-5 flex flex-col space-y-3">
-        <div className="flex gap-x-2 items-center">
-          <span className="text-base">{item.createdAt.substring(0, 10)}</span>
-          {' - '}
-          <span className="rounded-md bg-amber-600 py-1.5 px-3 text-xs md:text-base">
-            {item.catSlug}
-          </span>
-        </div>
-        <Link
-          className="text-3xl md:text-4xl font-semibold"
-          href={`/blog/posts/${item.slug}`}
-        >
-          {item.title}
+    <div className="max-w-sm bg-neutral-800 border border-neutral-900 rounded-lg shadow">
+      <Image
+        className="object-cover w-full xl:w-[400px] rounded-md"
+        src="/de.png"
+        alt="image"
+        width="500"
+        height="500"
+      />
+      <div className="p-5">
+        <Link href={`/blogs/${item.slug}`}>
+          <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {item.title}
+          </h5>
         </Link>
-        <p className="text-justify  w-full lg:w-[700px] xl:w-[500px] 2xl:w-[800px]">
-          {item.desc}
+        <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
+          {truncatedDesc}
         </p>
-        <Link className="text-lg underline" href={`/blog/posts/${item.slug}`}>
-          Read More
+        <Link
+          href={`/blogs/${item.slug}`}
+          className="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-rose-600 rounded-lg hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300"
+        >
+          Read more
+          <GoArrowRight />
         </Link>
       </div>
     </div>

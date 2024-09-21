@@ -26,14 +26,14 @@ const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
       <button
         onClick={handlePrevious}
         disabled={currentPage <= 1}
-        className={`bg-sky-600 rounded-md py-1.5 px-4 text-sm ${currentPage <= 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+        className={`bg-rose-600 rounded-md py-1.5 px-6 text-sm ${currentPage <= 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
       >
         Previous
       </button>
       <button
         onClick={handleNext}
         disabled={currentPage >= totalPages}
-        className={`bg-sky-600 rounded-md py-1.5 px-4 text-sm ${currentPage >= totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+        className={`bg-rose-600 rounded-md py-1.5 px-10 text-sm ${currentPage >= totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
       >
         Next
       </button>

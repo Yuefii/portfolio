@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import Card from './Card'
 import axios from 'axios'
 import Loading from '../Loading'
 import Pagination from './Pagination'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 interface Post {
@@ -51,7 +51,7 @@ const CardList = () => {
   return (
     <div className="mt-10 mx-5">
       <h1 className="text-3xl font-bold">Recents Posts</h1>
-      <div className="mt-5">
+      <div className="my-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {data.map((item, index) => (
           <Card key={index} item={item} />
         ))}
