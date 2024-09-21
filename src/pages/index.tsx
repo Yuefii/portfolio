@@ -10,6 +10,7 @@ import Volunteer from '@/components/homepage/Volunteer'
 import GithubCalendar from '@/components/homepage/GithubCalendar'
 import SpotifyPlaylist from '@/components/homepage/SpotifyPlaylist'
 import { globalBreadcrumbs } from '@/utils/breadcrumbs'
+import Latest from '@/components/homepage/Latest'
 
 const Page = () => {
   return (
@@ -28,6 +29,7 @@ const Page = () => {
         <div className="mx-3 md:mx-10 my-5">
           <About />
           <Volunteer />
+          <Latest />
           <GithubCalendar />
           <SpotifyPlaylist />
           <FollowMe />
