@@ -9,6 +9,7 @@ import FollowMe from '@/components/homepage/FollowMe'
 import GithubCalendar from '@/components/homepage/GithubCalendar'
 import { globalBreadcrumbs } from '@/utils/breadcrumbs'
 import Tiktok from '@/components/homepage/Tiktok'
+import SpotifyPlaylist from '@/components/homepage/SpotifyPlaylist'
 
 const Page = () => {
   return (
@@ -22,12 +23,12 @@ const Page = () => {
       />
       <Layout>
         <Banner />
-
         <Profile />
         <Welcome />
         <div className="mx-3 md:mx-10 my-5">
           <About />
           <GithubCalendar />
+          <SpotifyPlaylist />
           <Tiktok />
           <FollowMe />
         </div>
