@@ -5,7 +5,7 @@ const Volunteer = () => {
   return (
     <div>
       <h1 className="text-2xl font-bold">Volunteer</h1>
-      <div className="flex items-center gap-5 mt-5">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-5 mt-5">
         <Image
           className="border bg-neutral-800 rounded-full"
           src="/comit.png"
