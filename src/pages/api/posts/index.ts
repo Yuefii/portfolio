@@ -1,4 +1,5 @@
 import prisma from '@/libs/prisma'
+import { GetAuthSession } from '@/utils/auth'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
@@ -39,8 +40,26 @@ export default async function handler(
       console.error(error)
       res.status(500).json({ message: 'Internal Server Error' })
     }
+  } else if (req.method === 'POST') {
+    const session = await GetAuthSession(req, res)
+    if (!session) {
+      return res.status(401).json({ message: 'Unauthorized' })
+    }
+    try {
+      const request = req.body
+      const post = await prisma.post.create({
+        data: {
+          ...request,
+          userEmail: session.user?.email
+        }
+      })
+      res.status(201).json({ post })
+    } catch (error) {
+      console.error(error)
+      res.status(500).json({ message: 'Internal Server Error' })
+    }
   } else {
-    res.setHeader('Allow', ['GET'])
+    res.setHeader('Allow', ['GET', 'POST'])
     res.status(405).end(`Method ${req.method} Not Allowed`)
   }
 }
