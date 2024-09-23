@@ -75,7 +75,7 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
   if (error) console.log(error)
   return (
     <div className="lg:mb-20">
-      <h1 className="text-4xl my-3">Comments</h1>
+      <h1 className="text-xl font-bold my-3">Comments</h1>
       {status === 'authenticated' ? (
         <div className="flex items-center justify-between gap-4">
           <textarea
@@ -99,8 +99,8 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
 
       {data?.comments.map((item, index) => (
         <div className="flex-1" key={index}>
-          <div className="flex items-center gap-4">
-            <div className="w-[50px] h-[50px] relative">
+          <div className="flex items-center gap-2">
+            <div className="w-[30px] h-[30px] relative">
               <Image
                 src={item.user?.image}
                 alt=""
@@ -108,14 +108,15 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
                 className="rounded-full object-cover w-full h-full"
               />
             </div>
-            <div className="flex flex-col gap-1 my-5">
-              <span className="font-medium">{item.user?.name}</span>
-              <span className="text-sm">
+            <div className="flex flex-col gap-1 my-3">
+              <span className="text-sm font-medium">{item.user?.name}</span>
+              <span className="text-xs">
                 {new Date(item.createdAt).toLocaleDateString()}
               </span>
             </div>
           </div>
-          <p className="text-xl">{item.desc}</p>
+          <p className="text-lg pl-9 text-neutral-400">{item.desc}</p>
+          <div className="border-b border-neutral-900 mt-2" />
         </div>
       ))}
     </div>
