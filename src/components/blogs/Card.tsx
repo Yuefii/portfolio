@@ -17,11 +17,6 @@ interface CardProps {
 }
 
 const Card = ({ item }: CardProps) => {
-  const maxLength = 50
-  const truncatedDesc =
-    item.desc.length > maxLength
-      ? item.desc.slice(0, maxLength) + '...'
-      : item.desc
   return (
     <div className="max-w-sm bg-neutral-800 border border-neutral-900 rounded-lg shadow">
       <Image
@@ -37,9 +32,15 @@ const Card = ({ item }: CardProps) => {
             {item.title}
           </h5>
         </Link>
-        <p className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">
-          {truncatedDesc}
-        </p>
+        <div
+          className="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400"
+          dangerouslySetInnerHTML={{
+            __html:
+              item?.desc.length > 50
+                ? item.desc.substring(0, 50) + '...'
+                : item.desc
+          }}
+        />
         <Link
           href={`/blogs/posts/${item.slug}`}
           className="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-rose-600 rounded-lg hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300"

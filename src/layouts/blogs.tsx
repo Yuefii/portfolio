@@ -9,7 +9,7 @@ const BlogsLayouts = ({ children }: BlogsLayoutProps) => {
   return (
     <>
       <BlogsNavbar />
-      <div className="container mx-auto">{children}</div>
+      <div className="">{children}</div>
     </>
   )
 }

@@ -51,44 +51,46 @@ const Page = () => {
 
   return (
     <Layout>
-      <div className="mx-5 md:mx-0">
-        <div className="flex flex-col md:flex-row items-center gap-10">
-          <div className="flex-1">
-            <h1 className="text-6xl">{data.title}</h1>{' '}
-            <div className="flex items-center gap-4">
-              <div className="w-[50px] h-[50px] relative">
-                <Image
-                  src={data.user.image}
-                  alt=""
-                  fill
-                  className="rounded-full object-cover w-full h-full"
-                />
-              </div>
-              <div className="flex flex-col gap-1 my-5">
-                <span className="text-xl font-medium">{data.user.name}</span>
-                <span>{new Date(data.createdAt).toLocaleDateString()}</span>
+      <div className="container sm:mx-auto">
+        <div className="mx-5 md:mx-0">
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            <div className="flex-1">
+              <h1 className="text-6xl">{data.title}</h1>{' '}
+              <div className="flex items-center gap-4">
+                <div className="w-[50px] h-[50px] relative">
+                  <Image
+                    src={data.user.image}
+                    alt=""
+                    fill
+                    className="rounded-full object-cover w-full h-full"
+                  />
+                </div>
+                <div className="flex flex-col gap-1 my-5">
+                  <span className="text-xl font-medium">{data.user.name}</span>
+                  <span>{new Date(data.createdAt).toLocaleDateString()}</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex-1 h-[350px] relative hidden lg:block">
-            <Image
-              src={data.image || '/de.png'}
-              alt=""
-              fill
-              className="object-cover rounded-md w-full h-full"
-            />
+            <div className="flex-1 h-[350px] relative hidden lg:block">
+              <Image
+                src={data.image || '/de.png'}
+                alt=""
+                fill
+                className="object-cover rounded-md w-full h-full"
+              />
+            </div>
           </div>
-        </div>
-        <div className="flex flex-col xl:flex-row gap-12 mt-16">
-          <div className="flex-5 mt-16">
-            <div
-              className="text-lg text-justify space-y-2 font-light lg:w-[1000px] mb-5"
-              dangerouslySetInnerHTML={{ __html: data.desc }}
-            />
-            <Comments postSlug={slug as string} />
+          <div className="flex flex-col xl:flex-row gap-12 mt-16">
+            <div className="flex-5 mt-16">
+              <div
+                className="text-lg text-justify space-y-2 font-light lg:w-[1000px] mb-5"
+                dangerouslySetInnerHTML={{ __html: data.desc }}
+              />
+              <Comments postSlug={slug as string} />
+            </div>
+            <Menu />
           </div>
-          <Menu />
         </div>
       </div>
     </Layout>
