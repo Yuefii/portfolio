@@ -32,7 +32,7 @@ const Card = ({ item }: CardProps) => {
         height="500"
       />
       <div className="p-5">
-        <Link href={`/blogs/${item.slug}`}>
+        <Link href={`/blogs/posts/${item.slug}`}>
           <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
             {item.title}
           </h5>
@@ -41,7 +41,7 @@ const Card = ({ item }: CardProps) => {
           {truncatedDesc}
         </p>
         <Link
-          href={`/blogs/${item.slug}`}
+          href={`/blogs/posts/${item.slug}`}
           className="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-rose-600 rounded-lg hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300"
         >
           Read more
