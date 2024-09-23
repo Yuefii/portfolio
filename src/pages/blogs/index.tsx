@@ -1,11 +1,13 @@
 import SEO from '@/libs/SEO'
-import Menu from '@/components/blogs/Menu'
+import Link from 'next/link'
 import React from 'react'
+import Articles from '@/layouts/articles'
 import CardList from '@/components/blogs/CardList'
 import Featured from '@/components/blogs/Featured'
 import BlogsLayouts from '@/layouts/blogs'
-import { globalBreadcrumbs } from '@/utils/breadcrumbs'
+
 import { usePathname } from 'next/navigation'
+import { globalBreadcrumbs } from '@/utils/breadcrumbs'
 
 const Blogs = () => {
   const pathname = usePathname()
@@ -21,19 +23,17 @@ const Blogs = () => {
       />
       <BlogsLayouts>
         {isHomePage && <Featured />}
-        <div className="relative mx-auto flex w-full  flex-auto sm:px-2 lg:px-8 xl:px-12">
-          <div className="hidden lg:relative lg:block lg:flex-none">
-            <div className="absolute inset-y-0 right-0 w-[50vw] bg-slate-50 dark:hidden" />
-            <div className="absolute bottom-0 right-0 top-16  h-12 w-px bg-gradient-to-t from-rose-400" />
-            <div className="absolute bottom-0 right-0 top-28  w-px bg-rose-500" />
-            <div className="sticky top-[4.75rem] -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-8 xl:w-72 xl:pr-16">
-              <Menu />
-            </div>
+        <Articles>
+          <CardList />
+          <div className="hidden xl:block sticky top-[4.75rem] -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-8 xl:w-72">
+            <h1 className="text-xl font-bold">Get Started</h1>
+            <ul className="pl-5 list-disc text-neutral-400">
+              <li className="my-3 hover:underline">
+                <Link href="/blogs/write">Create New Article</Link>
+              </li>
+            </ul>
           </div>
-          <div>
-            <CardList />
-          </div>
-        </div>
+        </Articles>
       </BlogsLayouts>
     </>
   )

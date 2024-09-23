@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
-import Loading from '../Loading'
 import axios from 'axios'
+import Loading from '../Loading'
+import React, { useEffect, useState } from 'react'
 
 interface Post {
   id: number
@@ -37,17 +37,17 @@ const MenuListArticle = () => {
   if (error) return <div>{error}</div>
   return (
     <>
-      <ol className="relative border-s border-gray-200 dark:border-gray-700">
+      <ol className="relative border-s border-neutral-800">
         {data.map((item, index) => (
-          <li key={index} className="mb-10 ms-4">
-            <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-            <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          <li key={index} className="mb-4 ms-4">
+            <div className="absolute w-3 h-3 bg-neutral-800 rounded-full mt-1.5 -start-1.5 border border-neutral-800"></div>
+            <time className="mb-1 text-sm font-normal leading-none text-white">
               {item.createdAt.substring(0, 10)}
             </time>
             <br />
             <Link
-              href={item.slug}
-              className="text-lg font-semibold text-gray-900 dark:text-white"
+              href={`/blogs/posts/${item.slug}`}
+              className="text-base text-neutral-400 hover:underline"
             >
               {item.title}
             </Link>
