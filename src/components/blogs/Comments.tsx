@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import axios from 'axios'
 import Loading from '../Loading'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 
 interface User {
@@ -27,30 +27,52 @@ interface CommentsProps {
 
 const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
   const { status } = useSession()
+  const [desc, setDesc] = useState('')
   const [data, setData] = useState<CommentsData | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (!postSlug) return
+  const handleSubmit = async () => {
+    if (!desc.trim()) return
 
-      try {
-        const response = await axios.get<CommentsData>(
-          `/api/posts/comments?postSlug=${postSlug}`
-        )
-        setData(response.data)
-      } catch (err) {
-        setError('Failed to fetch data')
-      } finally {
-        setLoading(false)
-      }
+    setError(null)
+    try {
+      await axios.post('/api/posts/comments', {
+        postSlug,
+        content: desc
+      })
+      setDesc('')
+      fetchData()
+    } catch (err) {
+      console.error(err)
+      setError('Failed to submit comment')
     }
-    fetchData()
+  }
+
+  const fetchData = useCallback(async () => {
+    if (!postSlug) return
+
+    setLoading(true)
+    setError(null)
+    try {
+      const response = await axios.get<CommentsData>(
+        `/api/posts/comments?postSlug=${postSlug}`
+      )
+      setData(response.data)
+    } catch (err) {
+      console.error(err)
+      setError('Failed to fetch data')
+    } finally {
+      setLoading(false)
+    }
   }, [postSlug])
 
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
+
   if (loading) return <Loading />
-  if (error) return <div>{error}</div>
+  if (error) console.log(error)
   return (
     <div className="lg:mb-20">
       <h1 className="text-4xl my-3">Comments</h1>
@@ -59,8 +81,13 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
           <textarea
             placeholder="write a comment..."
             className="p-2 w-full rounded-md bg-neutral-800"
+            value={desc}
+            onChange={e => setDesc(e.target.value)}
           />
-          <button className="py-1.5 px-3 bg-sky-500 rounded-md cursor-pointer">
+          <button
+            onClick={handleSubmit}
+            className="py-1.5 px-3 bg-sky-500 rounded-md cursor-pointer"
+          >
             Kirim
           </button>
         </div>
@@ -75,14 +102,14 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
           <div className="flex items-center gap-4">
             <div className="w-[50px] h-[50px] relative">
               <Image
-                src={item.user.image}
+                src={item.user?.image}
                 alt=""
                 fill
                 className="rounded-full object-cover w-full h-full"
               />
             </div>
             <div className="flex flex-col gap-1 my-5">
-              <span className="font-medium">{item.user.name}</span>
+              <span className="font-medium">{item.user?.name}</span>
               <span className="text-sm">
                 {new Date(item.createdAt).toLocaleDateString()}
               </span>
