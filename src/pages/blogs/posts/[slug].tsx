@@ -86,7 +86,7 @@ const Page = () => {
               className="text-lg text-justify space-y-2 font-light lg:w-[1000px] mb-5"
               dangerouslySetInnerHTML={{ __html: data.desc }}
             />
-            <Comments postSlug={slug} />
+            <Comments postSlug={slug as string} />
           </div>
           <Menu />
         </div>
