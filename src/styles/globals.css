@@ -34,7 +34,7 @@ body {
 }
 
 .quill > .ql-container {
-  font-size: 24px;
+  font-size: 20px;
 }
 .quill > .ql-container > .ql-editor.ql-blank::before {
   color: white;

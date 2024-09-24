@@ -5,18 +5,17 @@ import React, { useState } from 'react'
 import Layout from '@/layouts/blogs'
 import dynamic from 'next/dynamic'
 import Loading from '@/components/Loading'
+import Articles from '@/layouts/articles'
 
 import { FiUpload } from 'react-icons/fi'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
-import { FaImage, FaPlusCircle, FaVideo } from 'react-icons/fa'
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const Write = () => {
   const router = useRouter()
   const { status } = useSession()
-  const [open, setOpen] = useState(false)
   const [value, setValue] = useState('')
   const [title, setTitle] = useState('')
 
@@ -51,38 +50,37 @@ const Write = () => {
   }
   return (
     <Layout>
-      <div>
-        <input
-          className="bg-transparent focus:border-transparent focus:outline-none text-4xl"
-          type="text"
-          placeholder="Title"
-          onChange={e => setTitle(e.target.value)}
-        />
-        <div className="my-4">
-          <div className="flex items-center gap-x-5">
-            <button onClick={() => setOpen(!open)}>
-              <FaPlusCircle size="24" />
-            </button>
-            {open && (
-              <div className="flex gap-x-4 p-2">
-                <FaImage size="24" />
-                <FiUpload size="24" />
-                <FaVideo size="24" />
-              </div>
-            )}
-          </div>
-          <ReactQuill
-            className="mt-5"
-            theme="bubble"
-            value={value}
-            onChange={setValue}
-            placeholder="Tell your story..."
+      <Articles>
+        <div className="mt-10">
+          <input
+            className="bg-transparent focus:border-transparent focus:outline-none text-4xl"
+            type="text"
+            placeholder="Title"
+            onChange={e => setTitle(e.target.value)}
           />
+          <div className="my-5">
+            <div className="flex items-center gap-x-5">
+              <button className="flex gap-1 items-center hover:underline">
+                <FiUpload size="24" />
+                Upload Image
+              </button>
+            </div>
+            <ReactQuill
+              className="mt-5"
+              theme="bubble"
+              value={value}
+              onChange={setValue}
+              placeholder="Tell your story..."
+            />
+          </div>
+          <button
+            onClick={handleSubmit}
+            className="text-white text-sm bg-neutral-800 rounded-md py-1.5 px-3"
+          >
+            Publish
+          </button>
         </div>
-        <button onClick={handleSubmit} className="text-white text-2xl">
-          Publish
-        </button>
-      </div>
+      </Articles>
     </Layout>
   )
 }
