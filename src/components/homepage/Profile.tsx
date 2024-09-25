@@ -47,9 +47,14 @@ const Profile = () => {
         exit={{ opacity: 0, x: 20 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="mt-5 md:mt-0 text-3xl font-bold">Yuefii (Upii)</h1>
-        <h2 className="text-neutral-400">
-          Entusiast Code, <span className="text-rose-400">Content Creator</span>
+        <h1 className="mt-5 md:mt-0 text-3xl font-bold text-neutral-200">
+          Yuefii (Upii)
+        </h1>
+        <h2 className="text-neutral-200 dark:text-neutral-400">
+          Entusiast Code,{' '}
+          <span className="text-sky-400 dark:text-rose-600">
+            Content Creator
+          </span>
           , Developer.
         </h2>
         <div className="flex justify-center gap-x-10 pt-5 mb-5 md:mb-0">
@@ -69,7 +74,7 @@ const Profile = () => {
               transition={{ duration: 0.3 }}
             >
               <Icon size="24" className={color} />
-              <span className="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 text-xs text-gray-400">
+              <span className="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 text-xs text-neutral-800 dark:text-gray-400">
                 {label}
               </span>
             </motion.div>

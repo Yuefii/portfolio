@@ -24,7 +24,9 @@ const FollowMe = () => {
       transition={{ duration: 0.5 }}
     >
       <div>
-        <h1 className="text-2xl font-bold">Follow Me</h1>
+        <h1 className="text-2xl text-neutral-800 dark:text-white font-bold">
+          Follow Me
+        </h1>
         <motion.ul
           className="my-5 ml-5 space-y-4"
           variants={containerVariants}
@@ -61,7 +63,7 @@ const FollowMe = () => {
               transition={{ duration: 0.3 }}
             >
               <Link
-                className="flex items-center text-lg text-neutral-400 gap-1.5 hover:scale-110 transition-all"
+                className="flex items-center text-lg text-neutral-700 dark:text-neutral-400 gap-1.5 hover:scale-110 transition-all"
                 href={href}
                 target="_blank"
               >

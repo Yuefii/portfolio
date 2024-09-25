@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import GitHubCalendar from 'react-github-calendar'
-import { motion } from 'framer-motion'
-import Loading from '@/components/Loading'
 import Link from 'next/link'
+import Loading from '@/components/Loading'
+import GitHubCalendar from 'react-github-calendar'
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { FaGithub } from 'react-icons/fa'
+import { useTheme } from '@/providers/ThemeProvider'
 
 const variants = {
   hidden: { opacity: 0, y: 20 },
@@ -13,6 +14,7 @@ const variants = {
 
 const GithubCalendar = () => {
   const [isLoading, setIsLoading] = useState(true)
+  const { isDarkMode } = useTheme()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -31,7 +33,7 @@ const GithubCalendar = () => {
       variants={variants}
       transition={{ duration: 0.5 }}
     >
-      <h1 className="text-2xl pb-5 font-bold flex">
+      <h1 className="text-2xl text-neutral-800 dark:text-white pb-5 font-bold flex">
         Contributions on{' '}
         <Link
           className="flex items-center pl-3 gap-x-1 hover:underline hover:scale-110"
@@ -40,7 +42,14 @@ const GithubCalendar = () => {
           <FaGithub /> Github
         </Link>
       </h1>
-      {isLoading ? <Loading /> : <GitHubCalendar username="yuefii" />}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <GitHubCalendar
+          username="yuefii"
+          style={{ color: isDarkMode ? 'white' : 'black' }}
+        />
+      )}
     </motion.div>
   )
 }

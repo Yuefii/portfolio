@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className="relative md:mx-10 flex justify-center">
       <Image
-        className="w-full opacity-50 h-[200px] rounded-md"
+        className="w-full dark:opacity-50 h-[200px] rounded-md"
         src="/banner.gif"
         alt="banner"
         width="200"
