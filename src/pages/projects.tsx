@@ -33,13 +33,13 @@ const Projects = () => {
         breadcrumbs={globalBreadcrumbs.projects}
       />
       <Layout>
-        <div className="mx-10">
+        <div className="mx-10 h-screen">
           <motion.h1
             initial="hidden"
             animate="visible"
             variants={itemVariants}
             transition={{ duration: 0.5 }}
-            className="text-2xl font-semibold underline"
+            className="text-2xl text-neutral-800 dark:text-white font-bold"
           >
             Projects
           </motion.h1>
@@ -58,14 +58,15 @@ const Projects = () => {
                 height="300"
               />
               <div className="flex justify-between">
-                <h2 className="my-1.5 text-lg">COMIT</h2>
+                <h2 className="my-1.5 text-lg text-neutral-800 dark:text-white">
+                  COMIT
+                </h2>
                 <div className="flex gap-2 my-3">
                   <FaReact size="20" className="text-blue-600" />
                   <SiTypescript size="20" className="text-blue-500" />
                 </div>
               </div>
-
-              <p className="text-xs text-neutral-400">
+              <p className="text-sm text-neutral-700 dark:text-neutral-400">
                 Company Profile untuk pengenalan tentang apa itu departemen
                 COMIT.
               </p>
@@ -79,14 +80,16 @@ const Projects = () => {
                 height="300"
               />
               <div className="flex justify-between">
-                <h2 className="text-lg my-1.5">Nusantara Kita</h2>
+                <h2 className="text-lg my-1.5 text-neutral-800 dark:text-white">
+                  Nusantara Kita
+                </h2>
                 <div className="flex gap-2 my-3">
                   <SiPython size="20" className="text-orange-400" />
                   <FaGolang size="20" className="text-sky-400" />
                   <SiDocker size="20" className="text-cyan-400" />
                 </div>
               </div>
-              <p className="text-xs text-neutral-400">
+              <p className="text-sm text-neutral-700 dark:text-neutral-400">
                 Nusantara Kita adalah sebuah API yang menyediakan data wilayah
                 seluruh indonesia.
               </p>
