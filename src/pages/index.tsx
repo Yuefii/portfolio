@@ -9,7 +9,6 @@ import FollowMe from '@/components/homepage/FollowMe'
 import Volunteer from '@/components/homepage/Volunteer'
 import GithubCalendar from '@/components/homepage/GithubCalendar'
 import SpotifyPlaylist from '@/components/homepage/SpotifyPlaylist'
-import { globalBreadcrumbs } from '@/utils/breadcrumbs'
 import Latest from '@/components/homepage/Latest'
 
 const Page = () => {
@@ -20,7 +19,6 @@ const Page = () => {
         description="Welcome to My Personal Website Portfolio"
         image="https://www.yuefii.site/profile.jpg"
         url="https://www.yuefii.site"
-        breadcrumbs={globalBreadcrumbs.homepage}
       />
       <Layout>
         <Banner />
