@@ -47,12 +47,12 @@ const Profile = () => {
         exit={{ opacity: 0, x: 20 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="mt-5 md:mt-0 text-3xl font-bold text-neutral-200">
+        <h1 className="mt-5 md:mt-0 text-3xl font-bold md:text-white dark:text-neutral-200">
           Yuefii (Upii)
         </h1>
-        <h2 className="text-neutral-200 dark:text-neutral-400">
+        <h2 className="text-neutral-600 md:text-neutral-200 dark:text-neutral-400">
           Entusiast Code,{' '}
-          <span className="text-sky-400 dark:text-rose-600">
+          <span className="text-sky-600 dark:text-rose-600">
             Content Creator
           </span>
           , Developer.
