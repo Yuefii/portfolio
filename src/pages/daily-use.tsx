@@ -5,7 +5,6 @@ import React from 'react'
 import Layout from '@/layouts/main'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinux } from 'react-icons/fa'
-import { globalBreadcrumbs } from '@/utils/breadcrumbs'
 
 const fadeInUpVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -25,7 +24,6 @@ const Desktop = () => {
         description="Welcome to My Personal Website Portfolio"
         image="https://www.yuefii.site/profile.jpg"
         url="https://www.yuefii.site/daily-use"
-        breadcrumbs={globalBreadcrumbs.daily_use}
       />
       <Layout>
         <div className="mx-5">
