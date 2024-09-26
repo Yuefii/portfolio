@@ -5,6 +5,7 @@ import { MdLogin } from 'react-icons/md'
 import { FaGithub } from 'react-icons/fa'
 import { AiOutlineClose } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import ThemeToggle from '../ThemeToggle'
 
 const BlogNavbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -37,26 +38,30 @@ const BlogNavbar = () => {
     }
   `}
       >
-        <Link href="/blogs" className="text-2xl font-bold">
+        <Link
+          href="/blogs"
+          className="text-2xl text-neutral-800 dark:text-white font-bold"
+        >
           Blogs
         </Link>
         <Search />
-        <ul className="hidden md:flex items-center gap-x-3 text-lg">
-          <li>
-            <Link href="https://github.com/yuefii/portfolio">
-              <FaGithub size="30" />
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex gap-x-2 items-center rounded-md bg-neutral-800 border py-1.5 px-2 text-sm"
-              href="/auth/login"
-            >
-              <MdLogin size="20" />
-              Login
-            </Link>
-          </li>
-        </ul>
+        <div className="hidden md:flex items-center gap-x-3 text-lg">
+          <ThemeToggle />
+          <Link
+            className="p-1 rounded-full border bg-white"
+            href="https://github.com/yuefii/portfolio"
+            target="_blank"
+          >
+            <FaGithub size="20" />
+          </Link>
+          <Link
+            className="flex gap-x-2 items-center rounded-md bg-sky-600 dark:bg-rose-600 py-1.5 px-2 text-sm text-white"
+            href="/auth/login"
+          >
+            <MdLogin size="20" />
+            Login
+          </Link>
+        </div>
         <div onClick={toggleMenu} className="md:hidden flex items-center">
           {isOpen ? (
             <AiOutlineClose size="24" />
