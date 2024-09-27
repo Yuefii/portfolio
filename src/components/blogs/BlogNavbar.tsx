@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import Search from './Search'
+import ThemeToggle from '../ThemeToggle'
 import React, { useEffect, useState } from 'react'
 import { MdLogin } from 'react-icons/md'
 import { FaGithub } from 'react-icons/fa'
 import { AiOutlineClose } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import ThemeToggle from '../ThemeToggle'
 
 const BlogNavbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -29,7 +29,7 @@ const BlogNavbar = () => {
       <nav
         className={`
     sticky top-0 z-50 flex items-center justify-between 
-    bg-transparent px-4 py-5 shadow-md shadow-slate-900/5 transition duration-500 
+    bg-neutral-50 px-4 py-5 shadow-md shadow-slate-900/5 transition duration-500 
     sm:px-6 lg:px-8 
     ${
       isScrolled

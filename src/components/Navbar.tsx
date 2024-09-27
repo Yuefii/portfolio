@@ -23,11 +23,11 @@ const Navbar = () => {
               width="34"
               height="34"
             />
-            <h1 className="mt-1 font-bold text-xl text-black dark:text-white">
+            <h1 className="mt-1 font-bold text-xl text-neutral-800 dark:text-white">
               Yuefii
             </h1>
           </Link>
-          <ul className="hidden md:flex gap-5 text-black dark:text-white">
+          <ul className="hidden md:flex gap-5 text-neutral-800 dark:text-white">
             <li className="hover:underline hover:scale-110">
               <Link href="/projects">Projects</Link>
             </li>
@@ -47,9 +47,15 @@ const Navbar = () => {
           <ThemeToggle />
           <div onClick={toggleMenu} className="md:hidden flex items-center">
             {isOpen ? (
-              <AiOutlineClose size="24" />
+              <AiOutlineClose
+                size="24"
+                className="text-neutral-800 dark:text-white"
+              />
             ) : (
-              <GiHamburgerMenu size="24" />
+              <GiHamburgerMenu
+                size="24"
+                className="text-neutral-800 dark:text-white"
+              />
             )}
           </div>
         </div>
@@ -57,7 +63,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="top-0 right-0 transition-transform duration-300 ease-in-out">
           <div className="p-6">
-            <ul className="flex flex-col gap-4">
+            <ul className="flex flex-col gap-4 text-neutral-800 dark:text-white">
               <li className="hover:underline">
                 <Link href="/projects" onClick={toggleMenu}>
                   Projects
@@ -65,16 +71,6 @@ const Navbar = () => {
               </li>
               <li className="hover:underline">
                 <Link href="/blogs">Blogs</Link>
-              </li>
-              <li className="hover:underline flex items-center gap-1.5">
-                <FaGithub size="20" />
-                <Link
-                  href="https://github.com/yuefii/portfolio"
-                  target="_blank"
-                  onClick={toggleMenu}
-                >
-                  Source
-                </Link>
               </li>
             </ul>
           </div>
