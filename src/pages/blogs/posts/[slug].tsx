@@ -67,7 +67,9 @@ const Page = () => {
             <div className="mx-5 md:mx-0">
               <div>
                 <div className="flex-1">
-                  <h1 className="text-3xl font-bold mb-10">{data.title}</h1>
+                  <h1 className="text-3xl text-neutral-800 dark:text-white font-bold mb-10">
+                    {data.title}
+                  </h1>
                   <div className="w-[100%] h-[200px] sm:h-[350px] lg:h-[450px] relative mb-5">
                     <Image
                       src={data.image || '/de.png'}
@@ -81,7 +83,7 @@ const Page = () => {
               </div>
               <div className="flex-5 mt-5">
                 <div
-                  className="text-lg text-justify text-neutral-300 space-y-2 mb-5"
+                  className="text-lg text-justify text-neutral-600 dark:text-neutral-400 space-y-2 mb-5"
                   dangerouslySetInnerHTML={{ __html: data.desc }}
                 />
                 <Comments postSlug={slug as string} />

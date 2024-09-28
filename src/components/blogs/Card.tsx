@@ -43,7 +43,7 @@ const Card = ({ item }: CardProps) => {
         />
         <Link
           href={`/blogs/posts/${item.slug}`}
-          className="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-sky-600 dark:bg-rose-600 rounded-lg hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300"
+          className="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-sky-600 dark:bg-rose-600 rounded-lg hover:opacity-75 focus:ring-4 focus:outline-none"
         >
           Read more
           <GoArrowRight />

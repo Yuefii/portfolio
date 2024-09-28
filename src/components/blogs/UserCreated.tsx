@@ -25,8 +25,12 @@ const UserCreated = ({ data }: UserCreatedProps) => {
         />
       </div>
       <div className="flex flex-col gap-1 my-5">
-        <span className="text-xl font-medium">{data.user.name}</span>
-        <span>{new Date(data.createdAt).toLocaleDateString()}</span>
+        <span className="text-xl text-neutral-800 dark:text-white font-medium">
+          {data.user.name}
+        </span>
+        <span className="text-neutral-800 dark:text-white">
+          {new Date(data.createdAt).toLocaleDateString()}
+        </span>
       </div>
     </div>
   )
