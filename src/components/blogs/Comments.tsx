@@ -75,25 +75,29 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
   if (error) console.log(error)
   return (
     <div className="lg:mb-20">
-      <h1 className="text-xl font-bold my-3">Comments</h1>
+      <h1 className="text-xl text-neutral-800 dark:text-white font-bold my-3">
+        Comments
+      </h1>
       {status === 'authenticated' ? (
         <div className="flex items-center justify-between gap-4">
           <textarea
             placeholder="write a comment..."
-            className="p-2 w-full rounded-md bg-neutral-800"
+            className="p-2 w-full rounded-md bg-neutral-200 dark:bg-neutral-800 placeholder:text-neutral-800 dark:placeholder:text-white"
             value={desc}
             onChange={e => setDesc(e.target.value)}
           />
           <button
             onClick={handleSubmit}
-            className="py-1.5 px-3 bg-sky-500 rounded-md cursor-pointer"
+            className="py-1.5 px-3 bg-sky-600 dark:bg-rose-600 text-white rounded-md cursor-pointer"
           >
             Kirim
           </button>
         </div>
       ) : (
         <>
-          <Link href="/auth/login">Login to Write a Comment</Link>
+          <Link className="text-neutral-800 dark:text-white" href="/auth/login">
+            Login to Write a Comment
+          </Link>
         </>
       )}
 
@@ -108,15 +112,17 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
                 className="rounded-full object-cover w-full h-full"
               />
             </div>
-            <div className="flex flex-col gap-1 my-3">
+            <div className="flex flex-col gap-1 my-3 text-neutral-800 dark:text-white">
               <span className="text-sm font-medium">{item.user?.name}</span>
               <span className="text-xs">
                 {new Date(item.createdAt).toLocaleDateString()}
               </span>
             </div>
           </div>
-          <p className="text-lg pl-9 text-neutral-400">{item.desc}</p>
-          <div className="border-b border-neutral-900 mt-2" />
+          <p className="text-lg pl-9 text-neutral-700 dark:text-neutral-300">
+            {item.desc}
+          </p>
+          <div className="border-b dark:border-neutral-900 mt-2" />
         </div>
       ))}
     </div>
