@@ -45,7 +45,7 @@ const MenuListCategory: React.FC = () => {
         {categories.map(item => (
           <li
             key={item.id}
-            className="bg-rose-600 py-1.5 px-3 rounded-md text-sm text-white flex items-center"
+            className="bg-sky-600 dark:bg-rose-600 py-1.5 px-3 rounded-md text-sm text-white flex items-center"
           >
             <Link href={item.slug}>{item.title}</Link>
           </li>

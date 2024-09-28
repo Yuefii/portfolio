@@ -50,7 +50,9 @@ const CardList = () => {
   if (error) return <div>{error}</div>
   return (
     <div className="mt-10 mx-5">
-      <h1 className="text-3xl font-bold">Recents Articles</h1>
+      <h1 className="text-3xl text-neutral-800 dark:text-white font-bold">
+        Recents Articles
+      </h1>
       <div className="my-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {data.map((item, index) => (
           <Card key={index} item={item} />

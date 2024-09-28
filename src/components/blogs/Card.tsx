@@ -18,7 +18,7 @@ interface CardProps {
 
 const Card = ({ item }: CardProps) => {
   return (
-    <div className="max-w-sm bg-neutral-800 border border-neutral-900 rounded-lg shadow">
+    <div className="max-w-sm dark:bg-neutral-800 border border-neutral-900 rounded-lg shadow">
       <Image
         className="object-cover w-full xl:w-[400px] rounded-md"
         src="/de.png"
@@ -43,7 +43,7 @@ const Card = ({ item }: CardProps) => {
         />
         <Link
           href={`/blogs/posts/${item.slug}`}
-          className="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-rose-600 rounded-lg hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300"
+          className="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-sky-600 dark:bg-rose-600 rounded-lg hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300"
         >
           Read more
           <GoArrowRight />
