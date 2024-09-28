@@ -38,12 +38,14 @@ const MenuListCategory: React.FC = () => {
 
   return (
     <div className="mt-5">
-      <h2 className="text-3xl">Category</h2>
+      <h2 className="font-bold text-xl text-neutral-800 dark:text-white">
+        Category
+      </h2>
       <ul className="mt-3 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-2 gap-3">
         {categories.map(item => (
           <li
             key={item.id}
-            className="bg-rose-600 py-1.5 px-3 rounded-md text-sm flex items-center"
+            className="bg-rose-600 py-1.5 px-3 rounded-md text-sm text-white flex items-center"
           >
             <Link href={item.slug}>{item.title}</Link>
           </li>
