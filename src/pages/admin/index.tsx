@@ -1,12 +1,13 @@
 import React from 'react'
+import Sidebar from '@/components/admin/Sidebar'
 import Dashboard from '@/components/admin/Dashboard'
-import LayoutAdmin from '@/layouts/admin'
 
 const Admin = () => {
   return (
-    <LayoutAdmin>
+    <main className="grid gap-4 p-4 grid-cols-[220px,_1fr]">
+      <Sidebar />
       <Dashboard />
-    </LayoutAdmin>
+    </main>
   )
 }
 

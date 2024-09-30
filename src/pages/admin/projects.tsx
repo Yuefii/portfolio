@@ -1,11 +1,14 @@
 import React from 'react'
-import LayoutAdmin from '@/layouts/admin'
+import Sidebar from '@/components/admin/Sidebar'
 
 const projects = () => {
   return (
-    <LayoutAdmin>
-      <h1>Projects Managements</h1>
-    </LayoutAdmin>
+    <main className="grid gap-4 p-4 grid-cols-[220px,_1fr]">
+      <Sidebar />
+      <div>
+        <h1>Projects</h1>
+      </div>
+    </main>
   )
 }
 
