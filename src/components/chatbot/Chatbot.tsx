@@ -1,9 +1,34 @@
-import React, { useState } from 'react'
-import { TbMessageChatbot } from 'react-icons/tb'
 import ChatInput from './ChatInput'
+import BotMessage from './BotMessage'
+import UserMessage from './UserMessage'
+
+import React, { useState } from 'react'
+import { request } from '@/libs/groqAI'
+import { TbMessageChatbot } from 'react-icons/tb'
+
+export interface Message {
+  role: 'user' | 'bot'
+  content: string
+}
 
 const Chatbot = () => {
   const [showChat, setShowChat] = useState(false)
+  const [messages, setMessages] = useState<Message[]>([])
+
+  const handleSendMessage = async (userMessage: string) => {
+    const newMessages: Message[] = [
+      ...messages,
+      { role: 'user', content: userMessage }
+    ]
+    setMessages(newMessages)
+    const botReply = await request(userMessage)
+    if (botReply) {
+      setMessages(prevMessages => [
+        ...prevMessages,
+        { role: 'bot', content: botReply }
+      ])
+    }
+  }
   return (
     <>
       <div
@@ -20,8 +45,17 @@ const Chatbot = () => {
                 Chatbot
               </h2>
             </div>
-            <div className="flex flex-col flex-1 items-center p-2 mt-5 overflow-y-auto"></div>
-            <ChatInput />
+            <div className="flex flex-col flex-1 items-center p-2 mt-5 overflow-y-auto">
+              {messages &&
+                messages.map((m, i) => {
+                  return m.role === 'user' ? (
+                    <UserMessage {...m} key={i} />
+                  ) : (
+                    <BotMessage {...m} key={i} />
+                  )
+                })}
+            </div>
+            <ChatInput onSend={handleSendMessage} />
           </div>
         </div>
       )}
