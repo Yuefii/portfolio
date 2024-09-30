@@ -17,7 +17,7 @@ const Login = () => {
   }
   return (
     <div className="h-screen flex items-center justify-center">
-      <div className="mx-3 md:mx-0 bg-neutral-800 rounded-md p-3 w-[400px] h-auto">
+      <div className="mx-3 md:mx-0 bg-neutral-200 dark:bg-neutral-800 rounded-md p-3 w-[400px] h-auto">
         <div className="py-10 px-3">
           <div
             onClick={() => signIn('google')}
