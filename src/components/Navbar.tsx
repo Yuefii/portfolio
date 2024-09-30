@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
-import { AiOutlineClose } from 'react-icons/ai'
-import { FaGithub } from 'react-icons/fa'
-import { GiHamburgerMenu } from 'react-icons/gi'
 import ThemeToggle from './ThemeToggle'
+
+import React, { useState } from 'react'
+import { FaGithub } from 'react-icons/fa'
+import { AiOutlineClose } from 'react-icons/ai'
+import { GiHamburgerMenu } from 'react-icons/gi'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -30,6 +31,9 @@ const Navbar = () => {
           <ul className="hidden md:flex gap-5 text-neutral-800 dark:text-white">
             <li className="hover:underline hover:scale-110">
               <Link href="/projects">Projects</Link>
+            </li>
+            <li className="hover:underline hover:scale-110">
+              <Link href="/forums">Forums</Link>
             </li>
             <li className="hover:underline hover:scale-110">
               <Link href="/blogs">Blogs</Link>
@@ -70,7 +74,14 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="hover:underline">
-                <Link href="/blogs">Blogs</Link>
+                <Link href="/forums" onClick={toggleMenu}>
+                  Forums
+                </Link>
+              </li>
+              <li className="hover:underline">
+                <Link href="/blogs" onClick={toggleMenu}>
+                  Blogs
+                </Link>
               </li>
             </ul>
           </div>

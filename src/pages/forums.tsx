@@ -60,7 +60,9 @@ const Forums = () => {
   return (
     <Layout>
       <div className="w-full p-4">
-        <h1 className="text-3xl text-neutral-800 dark:text-white font-bold mb-4">Forums Discussion</h1>
+        <h1 className="text-3xl text-neutral-800 dark:text-white font-bold mb-4">
+          Forums Discussion
+        </h1>
         <div className="w-full h-[610px] overflow-auto mt-4">
           {posts.length > 0 ? (
             posts.map(post => (
@@ -97,7 +99,9 @@ const Forums = () => {
               </div>
             ))
           ) : (
-            <p className='text-neutral-800 dark:text-white'>No posts available.</p>
+            <p className="text-neutral-800 dark:text-white">
+              No posts available.
+            </p>
           )}
         </div>
         <div className="my-5" />
