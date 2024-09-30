@@ -1,3 +1,4 @@
+import SEO from '@/libs/SEO'
 import Link from 'next/link'
 import axios from 'axios'
 import Image from 'next/image'
@@ -58,82 +59,90 @@ const Forums = () => {
   }
 
   return (
-    <Layout>
-      <div className="w-full p-4">
-        <h1 className="text-3xl text-neutral-800 dark:text-white font-bold mb-4">
-          Forums Discussion
-        </h1>
-        <div className="w-full h-[610px] overflow-auto mt-4">
-          {posts.length > 0 ? (
-            posts.map(post => (
-              <div key={post.id} className="flex gap-2 p-2 mb-2">
-                <div>
-                  {post.user ? (
-                    <Image
-                      className="w-full rounded-full"
-                      src={post.user.image}
-                      alt={post.user.name}
-                      width={30}
-                      height={30}
-                    />
-                  ) : (
-                    <div
-                      className="w-full rounded-full bg-gray-300"
-                      style={{ width: 30, height: 30 }}
-                    />
-                  )}
-                </div>
-                <div>
-                  <div className="flex gap-2 items-center">
-                    <p className="text-neutral-800 dark:text-white">
-                      {post.user?.name || 'Unknown User'}
-                    </p>
-                    <p className="text-gray-500 text-sm">
-                      {new Date(post.createdAt).toLocaleString()}
+    <>
+      <SEO
+        title="Yuefii | Forums Discussion"
+        description="Welcome to My Personal Website Portfolio"
+        image="https://www.yuefii.site/profile.jpg"
+        url="https://www.yuefii.site/forums"
+      />
+      <Layout>
+        <div className="w-full p-4">
+          <h1 className="text-3xl text-neutral-800 dark:text-white font-bold mb-4">
+            Forums Discussion
+          </h1>
+          <div className="w-full h-[610px] overflow-auto mt-4">
+            {posts.length > 0 ? (
+              posts.map(post => (
+                <div key={post.id} className="flex gap-2 p-2 mb-2">
+                  <div>
+                    {post.user ? (
+                      <Image
+                        className="w-full rounded-full"
+                        src={post.user.image}
+                        alt={post.user.name}
+                        width={30}
+                        height={30}
+                      />
+                    ) : (
+                      <div
+                        className="w-full rounded-full bg-gray-300"
+                        style={{ width: 30, height: 30 }}
+                      />
+                    )}
+                  </div>
+                  <div>
+                    <div className="flex gap-2 items-center">
+                      <p className="text-neutral-800 dark:text-white">
+                        {post.user?.name || 'Unknown User'}
+                      </p>
+                      <p className="text-gray-500 text-sm">
+                        {new Date(post.createdAt).toLocaleString()}
+                      </p>
+                    </div>
+                    <p className="mt-2 w-[250px] sm:w-[500px] border border-neutral-800 dark:border-white text-neutral-700 dark:text-white rounded-2xl py-1.5 px-3">
+                      {post.content}
                     </p>
                   </div>
-                  <p className="mt-2 w-[250px] sm:w-[500px] border border-neutral-800 dark:border-white text-neutral-700 dark:text-white rounded-2xl py-1.5 px-3">
-                    {post.content}
-                  </p>
                 </div>
-              </div>
-            ))
+              ))
+            ) : (
+              <p className="text-neutral-800 dark:text-white">
+                No posts available.
+              </p>
+            )}
+          </div>
+          <div className="my-5" />
+          {status === 'authenticated' ? (
+            <form
+              onSubmit={handleSubmit}
+              className="w-full flex items-center gap-2"
+            >
+              <input
+                value={content}
+                onChange={e => setContent(e.target.value)}
+                placeholder="Write your message here..."
+                required
+                className="w-full p-2 border bg-neutral-200 dark:bg-neutral-700 dark:placeholder:text-white text-neutral-700 dark:text-white placeholder:text-neutral-800 rounded-md"
+              />
+              <button
+                type="submit"
+                className="bg-sky-600 dark:bg-rose-600 text-white px-4 py-2 rounded-md hover:opacity-85"
+              >
+                Send
+              </button>
+            </form>
           ) : (
-            <p className="text-neutral-800 dark:text-white">
-              No posts available.
-            </p>
+            <Link
+              className="bg-sky-600 dark:bg-rose-600 rounded-md py-1.5 px-3 text-white"
+              href="/auth/login"
+            >
+              Sign In to Write a Message
+            </Link>
           )}
         </div>
-        <div className="my-5" />
-        {status === 'authenticated' ? (
-          <form
-            onSubmit={handleSubmit}
-            className="w-full flex items-center gap-2"
-          >
-            <input
-              value={content}
-              onChange={e => setContent(e.target.value)}
-              placeholder="Write your message here..."
-              required
-              className="w-full p-2 border bg-neutral-200 dark:bg-neutral-700 dark:placeholder:text-white text-neutral-700 dark:text-white placeholder:text-neutral-800 rounded-md"
-            />
-            <button
-              type="submit"
-              className="bg-sky-600 dark:bg-rose-600 text-white px-4 py-2 rounded-md hover:opacity-85"
-            >
-              Send
-            </button>
-          </form>
-        ) : (
-          <Link
-            className="bg-sky-600 dark:bg-rose-600 rounded-md py-1.5 px-3 text-white"
-            href="/auth/login"
-          >
-            Sign In to Write a Message
-          </Link>
-        )}
-      </div>
-    </Layout>
+      </Layout>
+    </>
   )
 }
 
