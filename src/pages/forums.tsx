@@ -135,7 +135,7 @@ const Forums = () => {
           ) : (
             <Link
               className="bg-sky-600 dark:bg-rose-600 rounded-md py-1.5 px-3 text-white"
-              href="/auth/login"
+              href={`/auth/login?redirect=${encodeURIComponent('/forums')}`}
             >
               Sign In to Write a Message
             </Link>

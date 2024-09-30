@@ -1,19 +1,23 @@
 import React from 'react'
 import Image from 'next/image'
 import Loading from '@/components/Loading'
+
 import { useRouter } from 'next/router'
 import { signIn, useSession } from 'next-auth/react'
 
 const Login = () => {
-  const { data, status } = useSession()
-  console.log(data, status)
+  const { status } = useSession()
   const router = useRouter()
-
+  const { redirect } = router.query
+  console.log(redirect)
+  const redirectTo = Array.isArray(redirect)
+    ? redirect[0]
+    : redirect || '/blogs'
   if (status === 'loading') {
     return <Loading />
   }
   if (status === 'authenticated') {
-    router.push('/blogs')
+    router.push(redirectTo)
   }
   return (
     <div className="h-screen flex items-center justify-center">
