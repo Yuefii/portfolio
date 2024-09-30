@@ -2,6 +2,7 @@ import Link from 'next/link'
 import axios from 'axios'
 import Image from 'next/image'
 import Layout from '@/layouts/main'
+
 import React, { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { useSession } from 'next-auth/react'
@@ -59,7 +60,7 @@ const Forums = () => {
   return (
     <Layout>
       <div className="w-full p-4">
-        <h1 className="text-3xl font-bold mb-4">Forums Discussion</h1>
+        <h1 className="text-3xl text-neutral-800 dark:text-white font-bold mb-4">Forums Discussion</h1>
         <div className="w-full h-[610px] overflow-auto mt-4">
           {posts.length > 0 ? (
             posts.map(post => (
@@ -82,21 +83,21 @@ const Forums = () => {
                 </div>
                 <div>
                   <div className="flex gap-2 items-center">
-                    <p className="text-neutral-800">
+                    <p className="text-neutral-800 dark:text-white">
                       {post.user?.name || 'Unknown User'}
                     </p>
                     <p className="text-gray-500 text-sm">
                       {new Date(post.createdAt).toLocaleString()}
                     </p>
                   </div>
-                  <p className="mt-2 w-[500px] border border-neutral-800 text-neutral-700 rounded-2xl py-1.5 px-3">
+                  <p className="mt-2 w-[250px] sm:w-[500px] border border-neutral-800 dark:border-white text-neutral-700 dark:text-white rounded-2xl py-1.5 px-3">
                     {post.content}
                   </p>
                 </div>
               </div>
             ))
           ) : (
-            <p>No posts available.</p>
+            <p className='text-neutral-800 dark:text-white'>No posts available.</p>
           )}
         </div>
         <div className="my-5" />
@@ -110,18 +111,18 @@ const Forums = () => {
               onChange={e => setContent(e.target.value)}
               placeholder="Write your message here..."
               required
-              className="w-full p-2 border border-gray-300 rounded"
+              className="w-full p-2 border bg-neutral-200 dark:bg-neutral-700 dark:placeholder:text-white text-neutral-700 dark:text-white placeholder:text-neutral-800 rounded-md"
             />
             <button
               type="submit"
-              className="bg-sky-600 text-white px-4 py-2 rounded-md hover:opacity-85"
+              className="bg-sky-600 dark:bg-rose-600 text-white px-4 py-2 rounded-md hover:opacity-85"
             >
               Send
             </button>
           </form>
         ) : (
           <Link
-            className="bg-sky-600 rounded-md py-1.5 px-3 text-white"
+            className="bg-sky-600 dark:bg-rose-600 rounded-md py-1.5 px-3 text-white"
             href="/auth/login"
           >
             Sign In to Write a Message
