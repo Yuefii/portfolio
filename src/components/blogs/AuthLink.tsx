@@ -17,7 +17,6 @@ const AuthLink = () => {
           <Link
             href="/"
             className="border rounded-md text-neutral-800 dark:text-white py-1.5 px-6 flex items-center hover:scale-110 cursor-pointer"
-            onClick={() => signOut()}
           >
             Profile
           </Link>

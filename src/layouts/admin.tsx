@@ -7,13 +7,13 @@ interface Props {
 }
 const AdminLayout = ({ children }: Props) => {
   return (
-    <main className="grid gap-4 p-4 grid-cols-[220px,_1fr]">
+    <div className="flex gap-4 p-4">
       <Sidebar />
-      <div>
+      <div className="w-full">
         <TopBar />
         {children}
       </div>
-    </main>
+    </div>
   )
 }
 
