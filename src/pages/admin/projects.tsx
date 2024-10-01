@@ -1,15 +1,12 @@
 import React from 'react'
-import Sidebar from '@/components/admin/Sidebar'
+import Layout from '@/layouts/admin'
 
-const projects = () => {
+const Projects = () => {
   return (
-    <main className="grid gap-4 p-4 grid-cols-[220px,_1fr]">
-      <Sidebar />
-      <div>
-        <h1>Projects</h1>
-      </div>
-    </main>
+    <Layout>
+      <h1>Projects</h1>
+    </Layout>
   )
 }
 
-export default projects
+export default Projects

@@ -1,15 +1,12 @@
 import React from 'react'
-import Sidebar from '@/components/admin/Sidebar'
+import Layout from '@/layouts/admin'
 
-const articles = () => {
+const Article = () => {
   return (
-    <main className="grid gap-4 p-4 grid-cols-[220px,_1fr]">
-      <Sidebar />
-      <div>
-        <h1>Articles</h1>
-      </div>
-    </main>
+    <Layout>
+      <h1>Article</h1>
+    </Layout>
   )
 }
 
-export default articles
+export default Article
