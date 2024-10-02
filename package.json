@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "bun prettier --write ."
+    "format": "bun prettier --write .",
+    "format:check": "bun prettier --check ."
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.5.0",

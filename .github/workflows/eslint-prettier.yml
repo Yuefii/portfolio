@@ -1,0 +1,35 @@
+name: Running eslint and prettier checking
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+jobs:
+  lint:
+    name: ⬣ ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: ⎔ Setup node
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: 🔬 Lint
+        run: bun lint
+  prettier:
+    name: 💅 Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: ⎔ Setup node
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: 💅 Prettier check
+        run: bun format:check
