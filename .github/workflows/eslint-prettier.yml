@@ -33,6 +33,6 @@ jobs:
         with:
           bun-version: latest
       - run: bun install
-      
+
       - name: 💅 Prettier check
         run: bun format:check
