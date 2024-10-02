@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import Loading from '../../components/Loading'
+import Loading from '@/components/Loading'
 import GitHubCalendar from 'react-github-calendar'
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub } from 'react-icons/fa'
-import { useTheme } from '../../common/providers/ThemeProvider'
+import { useTheme } from '@/common/providers/ThemeProvider'
 
 const variants = {
   hidden: { opacity: 0, y: 20 },

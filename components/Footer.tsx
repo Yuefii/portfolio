@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import React from 'react'
 import { motion } from 'framer-motion'
 import { FaCoffee } from 'react-icons/fa'
+import ButtonLink from './ui/ButtonLink'
 
 const Footer = () => {
   return (
@@ -13,14 +13,14 @@ const Footer = () => {
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.3 }}
         >
-          <Link
-            target="_blank"
+          <ButtonLink
             href="https://saweria.co/yuefii"
-            className="bg-sky-600 dark:bg-rose-600 flex gap-1.5 rounded-md py-1.5 px-4 text-white hover:scale-110 transition-all"
-          >
-            <FaCoffee size="20" className="text-white" />
-            Buy me Coffee
-          </Link>
+            target="_blank"
+            title="Buy me Coffee"
+            Icon={FaCoffee}
+            size={20}
+            className="flex gap-1.5 py-1.5 px-4"
+          />
         </motion.div>
       </div>
 

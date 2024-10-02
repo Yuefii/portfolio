@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import React from 'react'
+import ButtonLink from '@/components/ui/ButtonLink'
 import { motion } from 'framer-motion'
 
 const About = () => {
@@ -44,12 +44,7 @@ const About = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <Link
-          className="bg-sky-600 dark:bg-rose-600 py-2 px-6 rounded-md text-sm text-white font-bold hover:scale-110 transition-all"
-          href="/projects"
-        >
-          My Projects {' > '}
-        </Link>
+        <ButtonLink href="/projects" title="My Projects >" />
       </motion.div>
     </motion.div>
   )
