@@ -1,12 +1,12 @@
 import React from 'react'
-import { Message } from './Chatbot'
-import { FaUser } from 'react-icons/fa6'
+import { Message } from '..'
+import { RiRobot3Line } from 'react-icons/ri'
 
-const UserMessage = ({ role, content }: Message) => {
+const BotMessage = ({ role, content }: Message) => {
   return (
     <div className="flex w-full my-2">
       <div className="flex justify-center items-center p-1 w-8 h-8 bg-neutral-100 dark:bg-neutral-700 rounded-full mr-2">
-        <FaUser size={18} className="text-neutral-800 dark:text-white" />
+        <RiRobot3Line size={18} className="text-neutral-800 dark:text-white" />
       </div>
       <div>
         <div className="text-neutral-800 dark:text-white">{role}</div>
@@ -18,4 +18,4 @@ const UserMessage = ({ role, content }: Message) => {
   )
 }
 
-export default UserMessage
+export default BotMessage
