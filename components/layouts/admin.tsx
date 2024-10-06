@@ -1,5 +1,5 @@
-import TopBar from '@/modules/admin/TopBar'
-import Sidebar from '@/modules/admin/Sidebar'
+import TopBar from '@/modules/admin/components/TopBar'
+import Sidebar from '@/modules/admin/components/Sidebar'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import React, { ReactNode } from 'react'

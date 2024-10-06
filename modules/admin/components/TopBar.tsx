@@ -1,4 +1,4 @@
-import { formatDate } from '../../common/utils/formatDate'
+import { formatDate } from '@/common/utils/formatDate'
 import { useSession } from 'next-auth/react'
 import React from 'react'
 

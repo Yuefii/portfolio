@@ -1,12 +1,11 @@
 import React from 'react'
-import Layout from '@/components/layouts/admin'
-import Dashboard from '@/modules/admin/Dashboard'
+import Dashboard from '@/modules/admin/dashboard'
 
 const Admin = () => {
   return (
-    <Layout>
+    <>
       <Dashboard />
-    </Layout>
+    </>
   )
 }
 

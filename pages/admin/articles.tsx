@@ -1,11 +1,11 @@
 import React from 'react'
-import Layout from '@/components/layouts/admin'
+import Articles from '@/modules/admin/articles'
 
 const Article = () => {
   return (
-    <Layout>
-      <h1>Article</h1>
-    </Layout>
+    <>
+      <Articles />
+    </>
   )
 }
 
