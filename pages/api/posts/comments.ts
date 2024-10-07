@@ -1,5 +1,5 @@
-import prisma from '@/common/libs/prisma'
 import { GetAuthSession } from '@/common/utils/auth'
+import { getComments, createComment } from '@/services/comment_services'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
@@ -11,15 +11,10 @@ export default async function handler(
       req.url || '',
       `http://${req.headers.host}`
     )
-    const postSlug = searchParams.get('postSlug')
+    const postSlug = searchParams.get('postSlug') || undefined
 
     try {
-      const comments = await prisma.comment.findMany({
-        where: {
-          ...(postSlug && { postSlug })
-        },
-        include: { user: true }
-      })
+      const comments = await getComments(postSlug)
       res.status(200).json({ comments })
     } catch (error) {
       console.error(error)
@@ -42,12 +37,10 @@ export default async function handler(
       if (!userEmail) {
         return res.status(400).json({ message: 'User email is required' })
       }
-      const comment = await prisma.comment.create({
-        data: {
-          desc: request.content,
-          postSlug: request.postSlug,
-          userEmail: userEmail
-        }
+      const comment = await createComment({
+        content: request.content,
+        postSlug: request.postSlug,
+        userEmail
       })
       res.status(201).json({ comment })
     } catch (error) {
