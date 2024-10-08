@@ -28,7 +28,9 @@ const Navbar = () => {
               Yuefii
             </h1>
           </Link>
-          <ul className="hidden md:flex gap-5 text-neutral-800 dark:text-white">
+        </div>
+        <div className="flex items-center gap-x-2">
+          <ul className="hidden md:flex gap-5 pr-5 text-neutral-800 dark:text-white text-lg">
             <li className="hover:underline hover:scale-110">
               <Link href="/projects">Projects</Link>
             </li>
@@ -39,8 +41,6 @@ const Navbar = () => {
               <Link href="/blogs">Blogs</Link>
             </li>
           </ul>
-        </div>
-        <div className="flex items-center gap-x-2">
           <Link
             className="p-1 rounded-full border dark:bg-neutral-200"
             href="https://github.com/yuefii/portfolio"
