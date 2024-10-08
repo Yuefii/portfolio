@@ -1,4 +1,4 @@
-import { GetAuthSession } from '@/common/utils/auth'
+import { GetAuthSession } from '@/services/auth_services'
 import { getComments, createComment } from '@/services/comment_services'
 import { NextApiRequest, NextApiResponse } from 'next'
 

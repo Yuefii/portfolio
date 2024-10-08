@@ -1,4 +1,4 @@
-import { authOptions } from '@/common/utils/auth'
+import { authOptions } from '@/services/auth_services'
 import NextAuth from 'next-auth'
 
 export default NextAuth(authOptions)

@@ -1,4 +1,4 @@
-import prisma from '../libs/prisma'
+import prisma from '../common/libs/prisma'
 import GoogleProvider from 'next-auth/providers/google'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { getServerSession, NextAuthOptions } from 'next-auth'

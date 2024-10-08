@@ -1,5 +1,5 @@
 import prisma from '@/common/libs/prisma'
-import { GetAuthSession } from '@/common/utils/auth'
+import { GetAuthSession } from '@/services/auth_services'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
