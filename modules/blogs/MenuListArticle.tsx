@@ -2,6 +2,7 @@ import Link from 'next/link'
 import axios from 'axios'
 import Loading from '../../components/Loading'
 import React, { useEffect, useState } from 'react'
+import Mapping from '@/common/utils/mapping'
 
 interface Post {
   id: number
@@ -38,21 +39,26 @@ const MenuListArticle = () => {
   return (
     <>
       <ol className="relative border-s border-neutral-400 dark:border-neutral-800">
-        {data.map((item, index) => (
-          <li key={index} className="mb-4 ms-4">
-            <div className="absolute w-3 h-3 bg-neutral-400 dark:bg-neutral-800 rounded-full mt-1.5 -start-1.5 border border-neutral-400 dark:border-neutral-800"></div>
-            <time className="mb-1 text-sm font-normal leading-none text-neutral-500 dark:text-white">
-              {item.createdAt.substring(0, 10)}
-            </time>
-            <br />
-            <Link
-              href={`/blogs/posts/${item.slug}`}
-              className="text-neutral-800 dark:text-neutral-400 hover:underline"
-            >
-              {item.title}
-            </Link>
-          </li>
-        ))}
+        <Mapping
+          of={data}
+          render={(item, index) => {
+            return (
+              <li key={index} className="mb-4 ms-4">
+                <div className="absolute w-3 h-3 bg-neutral-400 dark:bg-neutral-800 rounded-full mt-1.5 -start-1.5 border border-neutral-400 dark:border-neutral-800"></div>
+                <time className="mb-1 text-sm font-normal leading-none text-neutral-500 dark:text-white">
+                  {item.createdAt.substring(0, 10)}
+                </time>
+                <br />
+                <Link
+                  href={`/blogs/posts/${item.slug}`}
+                  className="text-neutral-800 dark:text-neutral-400 hover:underline"
+                >
+                  {item.title}
+                </Link>
+              </li>
+            )
+          }}
+        />
       </ol>
     </>
   )
