@@ -4,6 +4,7 @@ import axios from 'axios'
 import Loading from '../../components/Loading'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
+import Mapping from '@/common/utils/mapping'
 
 interface User {
   name: string
@@ -100,31 +101,43 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
           </Link>
         </>
       )}
-
-      {data?.comments.map((item, index) => (
-        <div className="flex-1" key={index}>
-          <div className="flex items-center gap-2">
-            <div className="w-[30px] h-[30px] relative">
-              <Image
-                src={item.user?.image}
-                alt=""
-                fill
-                className="rounded-full object-cover w-full h-full"
-              />
-            </div>
-            <div className="flex flex-col gap-1 my-3 text-neutral-800 dark:text-white">
-              <span className="text-sm font-medium">{item.user?.name}</span>
-              <span className="text-xs">
-                {new Date(item.createdAt).toLocaleDateString()}
-              </span>
-            </div>
-          </div>
-          <p className="text-lg pl-9 text-neutral-700 dark:text-neutral-300">
-            {item.desc}
-          </p>
-          <div className="border-b dark:border-neutral-900 mt-2" />
-        </div>
-      ))}
+      {data?.comments && data.comments.length > 0 ? (
+        <Mapping
+          of={data?.comments}
+          render={(item, index) => {
+            return (
+              <div className="flex-1" key={index}>
+                <div className="flex items-center gap-2">
+                  <div className="w-[30px] h-[30px] relative">
+                    <Image
+                      src={item.user?.image}
+                      alt=""
+                      fill
+                      className="rounded-full object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1 my-3 text-neutral-800 dark:text-white">
+                    <span className="text-sm font-medium">
+                      {item.user?.name}
+                    </span>
+                    <span className="text-xs">
+                      {new Date(item.createdAt).toLocaleDateString()}
+                    </span>
+                  </div>
+                </div>
+                <p className="text-lg pl-9 text-neutral-700 dark:text-neutral-300">
+                  {item.desc}
+                </p>
+                <div className="border-b dark:border-neutral-900 mt-2" />
+              </div>
+            )
+          }}
+        />
+      ) : (
+        <p className="text-neutral-700 dark:text-neutral-300">
+          No comments available.
+        </p>
+      )}
     </div>
   )
 }
