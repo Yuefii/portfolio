@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: dev_local
+      POSTGRES_PASSWORD: dev_local
+      POSTGRES_DB: dev_local
+    ports:
+      - 5433:5433
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
