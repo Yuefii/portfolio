@@ -1,3 +1,4 @@
+import Mapping from '@/common/utils/mapping'
 import ChatInput from './components/ChatInput'
 import BotMessage from './components/BotMessage'
 import UserMessage from './components/UserMessage'
@@ -46,14 +47,16 @@ const Chatbot = () => {
               </h2>
             </div>
             <div className="flex flex-col flex-1 items-center p-2 mt-5 overflow-y-auto">
-              {messages &&
-                messages.map((m, i) => {
+              <Mapping
+                of={messages}
+                render={(m, i) => {
                   return m.role === 'you' ? (
                     <UserMessage {...m} key={i} />
                   ) : (
                     <BotMessage {...m} key={i} />
                   )
-                })}
+                }}
+              />
             </div>
             <ChatInput onSend={handleSendMessage} />
           </div>
