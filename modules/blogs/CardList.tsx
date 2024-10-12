@@ -4,6 +4,7 @@ import Loading from '../../components/Loading'
 // import Pagination from './Pagination'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import Mapping from '@/common/utils/mapping'
 
 interface Post {
   id: number
@@ -54,9 +55,12 @@ const CardList = () => {
         Recents Articles
       </h1>
       <div className="my-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {data.map((item, index) => (
-          <Card key={index} item={item} />
-        ))}
+        <Mapping
+          of={data}
+          render={(item, index) => {
+            return <Card key={index} item={item} />
+          }}
+        />
       </div>
       {/* <Pagination
         currentPage={parseInt(page as string)}
