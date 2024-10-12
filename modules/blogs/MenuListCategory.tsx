@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Loading from '../../components/Loading'
+import Mapping from '@/common/utils/mapping'
 
 interface Category {
   id: number
@@ -42,14 +43,19 @@ const MenuListCategory: React.FC = () => {
         Category
       </h2>
       <ul className="mt-3 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-2 gap-3">
-        {categories.map(item => (
-          <li
-            key={item.id}
-            className="bg-sky-600 dark:bg-rose-600 py-1.5 px-3 rounded-md text-sm text-white flex items-center"
-          >
-            <Link href={item.slug}>{item.title}</Link>
-          </li>
-        ))}
+        <Mapping
+          of={categories}
+          render={item => {
+            return (
+              <li
+                key={item.id}
+                className="bg-sky-600 dark:bg-rose-600 py-1.5 px-3 rounded-md text-sm text-white flex items-center"
+              >
+                <Link href={item.slug}>{item.title}</Link>
+              </li>
+            )
+          }}
+        />
       </ul>
     </div>
   )
