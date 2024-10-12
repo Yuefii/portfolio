@@ -2,6 +2,8 @@ import Link from 'next/link'
 import React from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaInstagram, FaLinkedin, FaTiktok } from 'react-icons/fa'
+import Mapping from '@/common/utils/mapping'
+import { Contacts } from '@/common/constants'
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -35,43 +37,27 @@ const FollowMe = () => {
           exit="exit"
           transition={{ duration: 0.5 }}
         >
-          {[
-            {
-              href: 'https://www.instagram.com/yuefii_',
-              icon: FaInstagram,
-              text: 'Instagram'
-            },
-            {
-              href: 'https://www.tiktok.com/@yuefii_',
-              icon: FaTiktok,
-              text: 'Tiktok'
-            },
-            {
-              href: 'https://www.linkedin.com/in/muhamad-mupid-ahmadiawan-3b2a95292/',
-              icon: FaLinkedin,
-              text: 'LinkedIn'
-            },
-            {
-              href: 'https://github.com/yuefii',
-              icon: FaGithub,
-              text: 'Github'
-            }
-          ].map(({ href, icon: Icon, text }) => (
-            <motion.li
-              key={href}
-              variants={itemVariants}
-              transition={{ duration: 0.3 }}
-            >
-              <Link
-                className="flex items-center text-lg text-neutral-700 dark:text-neutral-400 gap-1.5 hover:scale-110 transition-all"
-                href={href}
-                target="_blank"
-              >
-                <Icon size="24" />
-                {text}
-              </Link>
-            </motion.li>
-          ))}
+          <Mapping
+            of={Contacts}
+            render={(item, index) => {
+              return (
+                <motion.li
+                  key={index}
+                  variants={itemVariants}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Link
+                    className="flex items-center text-lg text-neutral-700 dark:text-neutral-400 gap-1.5 hover:scale-110 transition-all"
+                    href={item.href}
+                    target="_blank"
+                  >
+                    {item.icon && <item.icon size="24" />}
+                    {item.text}
+                  </Link>
+                </motion.li>
+              )
+            }}
+          />
         </motion.ul>
       </div>
     </motion.div>
