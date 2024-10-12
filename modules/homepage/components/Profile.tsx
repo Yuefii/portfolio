@@ -3,6 +3,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { FaGolang } from 'react-icons/fa6'
 import { SiDocker, SiPython, SiTypescript } from 'react-icons/si'
+import Mapping from '@/common/utils/mapping'
+import { TechStack } from '@/common/constants'
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -58,27 +60,27 @@ const Profile = () => {
           , Developer.
         </h2>
         <div className="flex justify-center gap-x-10 pt-5 mb-5 md:mb-0">
-          {[
-            { Icon: SiPython, color: 'text-orange-400', label: 'Python' },
-            { Icon: FaGolang, color: 'text-sky-400', label: 'Go' },
-            { Icon: SiTypescript, color: 'text-blue-500', label: 'TypeScript' },
-            { Icon: SiDocker, color: 'text-cyan-400', label: 'Docker' }
-          ].map(({ Icon, color, label }) => (
-            <motion.div
-              key={label}
-              className="relative flex items-center"
-              variants={iconVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              transition={{ duration: 0.3 }}
-            >
-              <Icon size="24" className={color} />
-              <span className="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 text-xs text-neutral-800 dark:text-gray-400">
-                {label}
-              </span>
-            </motion.div>
-          ))}
+          <Mapping
+            of={TechStack}
+            render={(item, index) => {
+              return (
+                <motion.div
+                  key={index}
+                  className="relative flex items-center"
+                  variants={iconVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  transition={{ duration: 0.3 }}
+                >
+                  {item.Icon && <item.Icon size="24" className={item.color} />}
+                  <span className="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 text-xs text-neutral-800 dark:text-gray-400">
+                    {item.label}
+                  </span>
+                </motion.div>
+              )
+            }}
+          />
         </div>
       </motion.div>
     </motion.div>
