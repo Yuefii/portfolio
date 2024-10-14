@@ -1,5 +1,5 @@
-import prisma from '@/common/libs/prisma'
 import { GetAuthSession } from '@/services/auth_services'
+import { createPost, getPosts } from '@/services/post_services'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
@@ -13,25 +13,13 @@ export default async function handler(
     )
     const page = parseInt(searchParams.get('page') || '1', 10)
     const cat = searchParams.get('cat')
-    const POST_PER_PAGE = 10
 
     if (isNaN(page) || page < 1) {
       return res.status(400).json({ message: 'Invalid page number' })
     }
 
-    const query = {
-      take: POST_PER_PAGE,
-      skip: POST_PER_PAGE * (page - 1),
-      where: {
-        ...(cat && { catSlug: cat })
-      }
-    }
-
     try {
-      const [posts, count] = await prisma.$transaction([
-        prisma.post.findMany(query),
-        prisma.post.count({ where: query.where })
-      ])
+      const { posts, count } = await getPosts(page, cat)
       if (posts.length === 0 && page > 1) {
         return res.status(404).json({ message: 'Page not found' })
       }
@@ -47,12 +35,11 @@ export default async function handler(
     }
     try {
       const request = req.body
-      const post = await prisma.post.create({
-        data: {
-          ...request,
-          userEmail: session.user?.email
-        }
-      })
+      const email = session.user?.email
+      if (typeof email !== 'string') {
+        return res.status(400).json({ message: 'Invalid email' })
+      }
+      const post = await createPost(request, email)
       res.status(201).json({ post })
     } catch (error) {
       console.error(error)

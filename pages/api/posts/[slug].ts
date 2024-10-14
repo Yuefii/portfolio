@@ -1,4 +1,4 @@
-import prisma from '@/common/libs/prisma'
+import { incrementPostViews } from '@/services/post_services'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
@@ -13,11 +13,7 @@ export default async function handler(
     }
 
     try {
-      const post = await prisma.post.update({
-        where: { slug },
-        data: { views: { increment: 1 } },
-        include: { user: true }
-      })
+      const post = await incrementPostViews(slug)
 
       if (!post) {
         return res.status(404).json({ message: 'Post not found' })
