@@ -1,4 +1,5 @@
 import axios from 'axios'
+import handleError from '@/common/utils/handleError'
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 
@@ -23,7 +24,7 @@ const useForums = () => {
       const response = await axios.get<Post[]>('/api/forums')
       setPosts(response.data)
     } catch (err) {
-      console.error('Error fetching posts:', err)
+      handleError(err)
     }
   }
 
@@ -33,11 +34,8 @@ const useForums = () => {
       toast.success('Message created successfully!', { autoClose: 1000 })
       setContent('')
       fetchPosts()
-    } catch (err: any) {
-      console.error('Error:', err)
-      toast.error(err.response?.data?.message || 'Something went wrong', {
-        autoClose: 1000
-      })
+    } catch (err) {
+      handleError(err)
     }
   }
 
