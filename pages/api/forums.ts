@@ -1,5 +1,5 @@
-import prisma from '@/common/libs/prisma'
 import { GetAuthSession } from '@/services/auth_services'
+import { createForum, getForums } from '@/services/forum_services'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
@@ -8,11 +8,7 @@ export default async function handler(
 ) {
   if (req.method === 'GET') {
     try {
-      const forums = await prisma.forums.findMany({
-        include: {
-          user: true
-        }
-      })
+      const forums = await getForums()
       res.status(200).json(forums)
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' })
@@ -31,12 +27,7 @@ export default async function handler(
       if (!userEmail) {
         return res.status(400).json({ message: 'User email is required' })
       }
-      const forum = await prisma.forums.create({
-        data: {
-          content: request.content,
-          userEmail: userEmail
-        }
-      })
+      const forum = await createForum(request.content, userEmail)
       res.status(201).json(forum)
     } catch (error) {
       console.error(error)
