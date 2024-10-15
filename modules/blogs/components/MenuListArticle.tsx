@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import axios from 'axios'
-import Loading from '../../../components/Loading'
+import Loading from '@/components/Loading'
 import React, { useEffect, useState } from 'react'
 import Mapping from '@/common/utils/mapping'
 
@@ -19,6 +19,7 @@ const MenuListArticle = () => {
   const [data, setData] = useState<Post[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,20 +39,31 @@ const MenuListArticle = () => {
   if (error) return <div>{error}</div>
   return (
     <>
-      <ol className="relative border-s border-neutral-400 dark:border-neutral-800">
+      <ul className="pl-1.5 list-disc text-neutral-600 dark:text-neutral-400 text-justify mr-6">
         <Mapping
           of={data}
           render={(item, index) => {
+            const isActive = activeIndex === index
+            const titleClass = isActive
+              ? 'text-sky-600 dark:text-rose-600'
+              : 'text-neutral-600 dark:text-neutral-400'
+
             return (
-              <li key={index} className="mb-4 ms-4">
-                <div className="absolute w-3 h-3 bg-neutral-400 dark:bg-neutral-800 rounded-full mt-1.5 -start-1.5 border border-neutral-400 dark:border-neutral-800"></div>
-                <time className="mb-1 text-sm font-normal leading-none text-neutral-500 dark:text-white">
-                  {item.createdAt.substring(0, 10)}
-                </time>
-                <br />
+              <li
+                key={index}
+                className="my-3"
+                onClick={() => setActiveIndex(index)}
+              >
                 <Link
                   href={`/blogs/posts/${item.slug}`}
-                  className="text-neutral-800 dark:text-neutral-400 hover:underline"
+                  className={`${
+                    isActive ? 'cursor-default' : 'hover:text-neutral-700'
+                  } ${titleClass}`}
+                  onClick={e => {
+                    if (isActive) {
+                      e.preventDefault()
+                    }
+                  }}
                 >
                   {item.title}
                 </Link>
@@ -59,7 +71,7 @@ const MenuListArticle = () => {
             )
           }}
         />
-      </ol>
+      </ul>
     </>
   )
 }

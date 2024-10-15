@@ -38,7 +38,7 @@ const MenuListCategory: React.FC = () => {
   if (error) return <div>{error}</div>
 
   return (
-    <div className="mt-5">
+    <div className="mt-5 mr-5">
       <h2 className="font-bold text-xl text-neutral-800 dark:text-white">
         Category
       </h2>

@@ -19,16 +19,6 @@ const Blogs = () => {
         )}
         <Articles>
           <CardList />
-          <div className="hidden xl:block sticky top-[4.75rem] -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-8 xl:w-72">
-            <h1 className="text-xl text-neutral-800 dark:text-white font-bold">
-              Get Started
-            </h1>
-            <ul className="pl-5 list-disc text-neutral-600 dark:text-neutral-400">
-              <li className="my-3 hover:underline">
-                <Link href="/blogs/write">Create New Article</Link>
-              </li>
-            </ul>
-          </div>
         </Articles>
       </BlogsLayouts>
     </>
