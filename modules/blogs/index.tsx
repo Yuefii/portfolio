@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import React from 'react'
 import Articles from '@/components/layouts/articles'
 import CardList from '@/modules/blogs/components/CardList'
 import Featured from '@/modules/blogs/components/Featured'
@@ -13,7 +12,11 @@ const Blogs = () => {
   return (
     <>
       <BlogsLayouts>
-        {isHomePage && <Featured />}
+        {isHomePage && (
+          <div className="bg-[#0f172a] dark:bg-neutral-900">
+            <Featured />
+          </div>
+        )}
         <Articles>
           <CardList />
           <div className="hidden xl:block sticky top-[4.75rem] -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-8 xl:w-72">
