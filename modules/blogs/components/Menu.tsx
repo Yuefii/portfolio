@@ -20,7 +20,7 @@ const Menu = () => {
         <h1 className="text-xl text-neutral-800 dark:text-white font-bold">
           Most Populers
         </h1>
-        <div className="mt-2 pl-3">
+        <div className="mt-2 pl-3 h-[400px] overflow-auto">
           <MenuListArticle />
         </div>
       </div>

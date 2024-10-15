@@ -134,7 +134,7 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
           }}
         />
       ) : (
-        <p className="text-neutral-700 dark:text-neutral-300">
+        <p className="mt-3 text-neutral-700 dark:text-neutral-300">
           No comments available.
         </p>
       )}
