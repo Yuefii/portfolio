@@ -1,24 +1,17 @@
 import 'react-quill/dist/quill.bubble.css'
-import axios from 'axios'
 import Layout from '@/components/layouts/blogs'
 import dynamic from 'next/dynamic'
 import Loading from '@/components/Loading'
-import handleError from '@/common/utils/handleError'
+import useAuth from '@/hooks/useAuth'
+import useArticle from '@/hooks/useArticles'
 import ButtonPublish from './components/ButtonPublish'
 import ButtonUploadImage from './components/ButtonUploadImage'
-
-import React, { useState } from 'react'
-import { useRouter } from 'next/router'
-import { useSession } from 'next-auth/react'
-import { slugify } from '@/common/utils/slugify'
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const Write = () => {
-  const router = useRouter()
-  const { status } = useSession()
-  const [value, setValue] = useState('')
-  const [title, setTitle] = useState('')
+  const { isLoading, isAuthenticated } = useAuth()
+  const { setTitle, value, setValue, handleSubmit } = useArticle()
 
   const modules = {
     toolbar: [
@@ -28,30 +21,12 @@ const Write = () => {
     ]
   }
 
-  const handleSubmit = async () => {
-    if (!title.trim() || !value.trim()) {
-      alert('Title and Content on article can`t be empty!')
-      return
-    }
-    try {
-      const res = await axios.post('/api/posts', {
-        title,
-        desc: value,
-        img: null,
-        slug: slugify(title),
-        catSlug: 'personal'
-      })
-      router.push(`/blogs/posts/${res.data.post.slug}`)
-    } catch (error) {
-      handleError(error)
-    }
-  }
-
-  if (status === 'loading') {
+  if (isLoading) {
     return <Loading />
   }
-  if (status === 'unauthenticated') {
-    router.push('/auth/login')
+
+  if (!isAuthenticated) {
+    return null
   }
 
   return (
