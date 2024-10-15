@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import axios from 'axios'
-import Loading from '../../components/Loading'
+import Loading from '../../../components/Loading'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import Mapping from '@/common/utils/mapping'

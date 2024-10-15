@@ -1,6 +1,6 @@
 import Card from './Card'
 import axios from 'axios'
-import Loading from '../../components/Loading'
+import Loading from '../../../components/Loading'
 // import Pagination from './Pagination'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'

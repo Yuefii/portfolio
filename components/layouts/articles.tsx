@@ -1,4 +1,4 @@
-import Menu from '@/modules/blogs/Menu'
+import Menu from '@/modules/blogs/components/Menu'
 import React, { ReactNode } from 'react'
 
 interface ArticleLayoutProps {

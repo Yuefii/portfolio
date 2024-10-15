@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Search from './Search'
-import ThemeToggle from '../../components/ThemeToggle'
+import ThemeToggle from '../../../components/ThemeToggle'
 import React, { useEffect, useState } from 'react'
 import { MdLogin } from 'react-icons/md'
 import { FaGithub } from 'react-icons/fa'

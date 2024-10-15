@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import axios from 'axios'
-import Loading from '../../components/Loading'
+import Loading from '../../../components/Loading'
 import React, { useEffect, useState } from 'react'
 import Mapping from '@/common/utils/mapping'
 
