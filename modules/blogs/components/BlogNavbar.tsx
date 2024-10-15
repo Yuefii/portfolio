@@ -1,13 +1,14 @@
 import Link from 'next/link'
 import Search from './Search'
-import ThemeToggle from '../../../components/ThemeToggle'
+import ThemeToggle from '@/components/ThemeToggle'
 import React, { useEffect, useState } from 'react'
-import { MdLogin } from 'react-icons/md'
 import { FaGithub } from 'react-icons/fa'
 import { AiOutlineClose } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { signOut, useSession } from 'next-auth/react'
 
 const BlogNavbar = () => {
+  const { status } = useSession()
   const [isOpen, setIsOpen] = useState(false)
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -54,15 +55,38 @@ const BlogNavbar = () => {
           >
             <FaGithub size="20" />
           </Link>
-          <Link
-            className="flex gap-x-2 items-center rounded-md bg-sky-600 dark:bg-rose-600 py-1.5 px-2 text-sm text-white"
-            href="/auth/login"
-          >
-            <MdLogin size="20" />
-            Login
-          </Link>
+          {status === 'unauthenticated' ? (
+            <>
+              <Link
+                className="rounded-md bg-sky-600 dark:bg-rose-600 py-2 px-4 text-sm text-white hover:scale-105 transition-all"
+                href="/auth/login"
+              >
+                Log In
+              </Link>
+            </>
+          ) : (
+            <>
+              <div
+                onClick={() => signOut()}
+                className="rounded-md bg-sky-600 dark:bg-rose-600 py-2 px-4 text-sm text-white cursor-pointer hover:scale-105 transition-all"
+              >
+                Log Out
+              </div>
+            </>
+          )}
         </div>
-        <div onClick={toggleMenu} className="md:hidden flex items-center">
+        <div
+          onClick={toggleMenu}
+          className="md:hidden flex items-center gap-x-3"
+        >
+          <ThemeToggle />
+          <Link
+            className="p-1 rounded-full border bg-white"
+            href="https://github.com/yuefii/portfolio"
+            target="_blank"
+          >
+            <FaGithub size="20" />
+          </Link>
           {isOpen ? (
             <AiOutlineClose size="24" />
           ) : (
