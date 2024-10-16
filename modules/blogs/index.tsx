@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Articles from '@/components/layouts/articles'
 import CardList from '@/modules/blogs/components/CardList'
 import Featured from '@/modules/blogs/components/Featured'

@@ -1,10 +1,9 @@
 import Card from './Card'
 import axios from 'axios'
-import Loading from '../../../components/Loading'
-// import Pagination from './Pagination'
-import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import Loading from '@/components/Loading'
 import Mapping from '@/common/utils/mapping'
+import handleError from '@/common/utils/handleError'
+import React, { useEffect, useState } from 'react'
 
 interface Post {
   id: number
@@ -21,34 +20,24 @@ interface ApiResponse {
 }
 
 const CardList = () => {
-  const router = useRouter()
-  const { page = 1 } = router.query
   const [data, setData] = useState<Post[]>([])
   const [loading, setLoading] = useState<boolean>(true)
-  // const [totalPages, setTotalPages] = useState(0)
-  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get<ApiResponse>(`/api/posts?page=${page}`)
+        const response = await axios.get<ApiResponse>(`/api/posts`)
         setData(response.data.posts)
-        // const itemCount = response.data.count
-        // const itemsPerPage = 10
-        // setTotalPages(Math.ceil(itemCount / itemsPerPage))
       } catch (err) {
-        setError('Failed to fetch data')
+        handleError(err)
       } finally {
         setLoading(false)
       }
     }
-    if (page) {
-      fetchData()
-    }
-  }, [page])
+    fetchData()
+  }, [])
 
   if (loading) return <Loading />
-  if (error) return <div>{error}</div>
   return (
     <div className="mt-10 mx-5">
       <h1 className="text-3xl text-neutral-800 dark:text-white font-bold">
@@ -62,10 +51,6 @@ const CardList = () => {
           }}
         />
       </div>
-      {/* <Pagination
-        currentPage={parseInt(page as string)}
-        totalPages={totalPages}
-      /> */}
     </div>
   )
 }

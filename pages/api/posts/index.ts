@@ -14,20 +14,14 @@ export default async function handler(
         req.url || '',
         `http://${req.headers.host}`
       )
-      const page = parseInt(searchParams.get('page') || '1', 10)
       const cat = searchParams.get('cat')
+      const { posts } = await getPosts(cat)
 
-      if (isNaN(page) || page < 1) {
-        throw new ResponseError(400, 'Invalid page number')
+      if (posts.length === 0) {
+        throw new ResponseError(404, 'No posts found')
       }
 
-      const { posts, count } = await getPosts(page, cat)
-
-      if (posts.length === 0 && page > 1) {
-        throw new ResponseError(404, 'Page not found')
-      }
-
-      res.status(200).json({ posts, count })
+      res.status(200).json({ posts })
     }
 
     if (req.method === 'POST') {

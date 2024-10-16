@@ -1,21 +1,15 @@
 import prisma from '@/common/libs/prisma'
 
-export const getPosts = async (page: number, cat: string | null) => {
-  const POST_PER_PAGE = 10
+export const getPosts = async (cat: string | null) => {
   const query = {
-    take: POST_PER_PAGE,
-    skip: POST_PER_PAGE * (page - 1),
     where: {
       ...(cat && { catSlug: cat })
     }
   }
 
-  const [posts, count] = await prisma.$transaction([
-    prisma.post.findMany(query),
-    prisma.post.count({ where: query.where })
-  ])
+  const [posts] = await prisma.$transaction([prisma.post.findMany(query)])
 
-  return { posts, count }
+  return { posts }
 }
 
 export const createPost = async (request: any, userEmail: string) => {
