@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import axios from 'axios'
-import Loading from '../../../components/Loading'
+import Loading from '@/components/Loading'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import Mapping from '@/common/utils/mapping'
@@ -96,7 +96,10 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
         </div>
       ) : (
         <>
-          <Link className="text-neutral-800 dark:text-white" href="/auth/login">
+          <Link
+            className="text-white bg-sky-600 dark:bg-rose-600 py-2 px-3 rounded-md"
+            href="/auth/login"
+          >
             Login to Write a Comment
           </Link>
         </>
@@ -111,7 +114,7 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
                   <div className="w-[30px] h-[30px] relative">
                     <Image
                       src={item.user?.image}
-                      alt=""
+                      alt={item.user.name}
                       fill
                       className="rounded-full object-cover w-full h-full"
                     />

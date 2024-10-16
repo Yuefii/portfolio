@@ -15,7 +15,7 @@ const AuthLink = () => {
           </Link>
           <Link
             href="/"
-            className="bg-neutral-300 rounded-md text-neutral-800 dark:text-white py-1.5 px-6 flex items-center hover:scale-110 cursor-pointer"
+            className="bg-neutral-300 rounded-md text-neutral-800 py-1.5 px-6 flex items-center hover:scale-110 cursor-pointer"
           >
             Contact Me
           </Link>

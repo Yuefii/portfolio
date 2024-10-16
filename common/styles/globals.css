@@ -55,7 +55,7 @@ html {
 
 .text-content li {
   margin-bottom: 8px;
-  color: #333;
+  color: var(--font-color);
 }
 
 .text-content ol {
