@@ -1,13 +1,21 @@
 import prisma from '@/common/libs/prisma'
+import { Prisma } from '@prisma/client'
 
-export const getPosts = async (cat: string | null) => {
-  const query = {
+export const getPosts = async (cat: string | null, search: string | null) => {
+  const query: Prisma.PostFindManyArgs = {
     where: {
-      ...(cat && { catSlug: cat })
+      ...(cat && { catSlug: cat }),
+      ...(search && {
+        OR: [
+          { title: { contains: search, mode: 'insensitive' } },
+          { slug: { contains: search, mode: 'insensitive' } },
+          { desc: { contains: search, mode: 'insensitive' } }
+        ]
+      })
     }
   }
 
-  const [posts] = await prisma.$transaction([prisma.post.findMany(query)])
+  const posts = await prisma.post.findMany(query)
 
   return { posts }
 }

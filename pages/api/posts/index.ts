@@ -15,7 +15,8 @@ export default async function handler(
         `http://${req.headers.host}`
       )
       const cat = searchParams.get('cat')
-      const { posts } = await getPosts(cat)
+      const search = searchParams.get('search')
+      const { posts } = await getPosts(cat, search)
 
       if (posts.length === 0) {
         throw new ResponseError(404, 'No posts found')
