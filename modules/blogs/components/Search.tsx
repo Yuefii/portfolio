@@ -1,58 +1,15 @@
-import handleError from '@/common/utils/handleError'
-import axios from 'axios'
 import Link from 'next/link'
-import React, { useState, useEffect, useRef, RefObject } from 'react'
+import useOutsideClick from '@/hooks/useOutsideClick'
+import useSearchArticles from '@/hooks/useSearchArticles'
+import React, { useState, useRef } from 'react'
 import { FaSearch } from 'react-icons/fa'
 
-interface Post {
-  slug: string
-  title: string
-}
-
-const Search: React.FC = () => {
+const Search = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false)
   const [searchQuery, setSearchQuery] = useState<string>('')
-  const [results, setResults] = useState<Post[]>([])
-  const modalRef: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (searchQuery) {
-        try {
-          const response = await axios.get(`/api/posts?search=${searchQuery}`)
-          setResults(response.data.posts)
-        } catch (err) {
-          handleError(err)
-        }
-      } else {
-        setResults([])
-      }
-    }
-
-    const debounceFetch = setTimeout(() => {
-      fetchData()
-    }, 300)
-
-    return () => clearTimeout(debounceFetch)
-  }, [searchQuery])
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-      setModalOpen(false)
-    }
-  }
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [isModalOpen])
+  const modalRef = useRef<HTMLDivElement>(null)
+  const results = useSearchArticles(searchQuery)
+  useOutsideClick(modalRef, () => setModalOpen(false), isModalOpen)
 
   return (
     <div className="hidden md:block w-1/2 -mr-24">
