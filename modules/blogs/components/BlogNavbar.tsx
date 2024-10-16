@@ -88,9 +88,15 @@ const BlogNavbar = () => {
             <FaGithub size="20" />
           </Link>
           {isOpen ? (
-            <AiOutlineClose size="24" />
+            <AiOutlineClose
+              size="24"
+              className="text-neutral-600 dark:text-white"
+            />
           ) : (
-            <GiHamburgerMenu size="24" />
+            <GiHamburgerMenu
+              size="24"
+              className="text-neutral-600 dark:text-white"
+            />
           )}
         </div>
       </nav>
