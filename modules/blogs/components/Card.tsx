@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
-import { GoArrowRight } from 'react-icons/go'
 
 interface Post {
   id: number
   title: string
+  img: string
   desc: string
   createdAt: string
   catSlug: string
@@ -24,7 +24,7 @@ const Card = ({ item }: CardProps) => {
     >
       <Image
         className="object-cover w-full xl:w-[400px] rounded-t-md"
-        src="/de.png"
+        src={item.img}
         alt="image"
         width="500"
         height="500"

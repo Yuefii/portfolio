@@ -27,7 +27,7 @@ const Posts = () => {
                   </h1>
                   <div className="w-[100%] h-[200px] sm:h-[350px] lg:h-[450px] relative mb-5">
                     <Image
-                      src={data.image || '/hero.png'}
+                      src={data.img || '/hero.png'}
                       alt="thumbnail"
                       fill
                       className="object-cover rounded-md w-full h-full"

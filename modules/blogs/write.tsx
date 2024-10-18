@@ -11,14 +11,21 @@ const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const Write = () => {
   const { isLoading, isAuthenticated } = useAuth()
-  const { setTitle, value, setValue, handleSubmit } = useArticle()
+  const {
+    setFile,
+    setTitle,
+    value,
+    setValue,
+    handleSubmit,
+    loading,
+    progress,
+    mediaURL
+  } = useArticle()
 
-  const modules = {
-    toolbar: [
-      [{ header: '1' }, { header: '2' }],
-      ['bold', 'italic', 'underline', 'strike'],
-      [{ list: 'ordered' }, { list: 'bullet' }]
-    ]
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setFile(e.target.files[0])
+    }
   }
 
   if (isLoading) {
@@ -26,22 +33,27 @@ const Write = () => {
   }
 
   if (!isAuthenticated) {
-    return null
+    return <p>Please log in to create an article.</p>
   }
 
   return (
     <Layout>
       <div className="mt-10 min-h-screen container mx-auto border border-neutral-600 rounded-md p-10 max-w-6xl">
-        <input
-          className="w-full bg-transparent focus:border-transparent focus:outline-none text-4xl"
-          type="text"
-          placeholder="Title"
-          onChange={e => setTitle(e.target.value)}
-        />
-        <div className="my-5">
-          <div className="flex items-center gap-x-5">
-            <ButtonUploadImage />
-            <ButtonPublish handleSubmit={handleSubmit} />
+        <form>
+          <input
+            className="w-full bg-transparent focus:border-transparent focus:outline-none text-4xl"
+            type="text"
+            placeholder="Title"
+            onChange={e => setTitle(e.target.value)}
+            required
+          />
+          <div className="my-5 flex gap-x-3">
+            <ButtonUploadImage onUpload={handleFileChange} />
+            <ButtonPublish handleSubmit={handleSubmit} loading={loading} />
+          </div>
+          <div>
+            {loading && <p>Uploading... {progress.toFixed(2)}%</p>}
+            {mediaURL && <img src={mediaURL} alt="Uploaded" className="mt-2" />}
           </div>
           <ReactQuill
             className="mt-5"
@@ -49,9 +61,15 @@ const Write = () => {
             value={value}
             onChange={setValue}
             placeholder="Tell your story..."
-            modules={modules}
+            modules={{
+              toolbar: [
+                [{ header: '1' }, { header: '2' }],
+                ['bold', 'italic', 'underline', 'strike'],
+                [{ list: 'ordered' }, { list: 'bullet' }]
+              ]
+            }}
           />
-        </div>
+        </form>
       </div>
     </Layout>
   )

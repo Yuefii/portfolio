@@ -12,7 +12,7 @@ interface Post {
   id: string
   title: string
   desc: string
-  image: string | null
+  img: string | null
   createdAt: string
   user: User
 }
