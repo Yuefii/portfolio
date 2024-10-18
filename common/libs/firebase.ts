@@ -13,6 +13,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 export const storage = getStorage(app)
 
-if (process.env.NEXT_PUBLIC_FIREBASE_EMULATOR === "true") {
-  connectStorageEmulator(storage, "127.0.0.1", 9199)
+if (process.env.NEXT_PUBLIC_FIREBASE_EMULATOR === 'true') {
+  connectStorageEmulator(storage, '127.0.0.1', 9199)
 }
