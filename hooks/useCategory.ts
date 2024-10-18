@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import axios from 'axios'
 import handleError from '@/common/utils/handleError'
+import { useRouter } from 'next/router'
 
 export interface Category {
   id: number
@@ -10,6 +11,27 @@ export interface Category {
 
 const useCategory = () => {
   const [categories, setCategories] = useState<Category[]>([])
+  const [title, setTitle] = useState('')
+  const [slug, setSlug] = useState('')
+  const router = useRouter()
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    try {
+      const response = await axios.post('/api/category', { title, slug })
+
+      if (response.status !== 201) {
+        throw new Error('Failed to create new category.')
+      }
+
+      setTitle('')
+      setSlug('')
+      router.push('/admin/category')
+    } catch (err) {
+      handleError(err)
+    }
+  }
 
   const fetchCategories = async () => {
     try {
@@ -36,7 +58,15 @@ const useCategory = () => {
     fetchCategories()
   }, [])
 
-  return { categories, handleDelete }
+  return {
+    categories,
+    handleDelete,
+    title,
+    slug,
+    setTitle,
+    setSlug,
+    handleSubmit
+  }
 }
 
 export default useCategory

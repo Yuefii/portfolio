@@ -1,12 +1,11 @@
-import React from 'react'
-import Layout from '@/components/layouts/admin'
+import AddCategory from '@/modules/admin/category/add-category'
 
-const AddCategory = () => {
+const Pages = () => {
   return (
-    <Layout>
-      <h1>Add Category</h1>
-    </Layout>
+    <>
+      <AddCategory />
+    </>
   )
 }
 
-export default AddCategory
+export default Pages
