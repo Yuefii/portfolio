@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import BlogsNavbar from '@/modules/blogs/BlogNavbar'
+import BlogsNavbar from '@/modules/blogs/components/BlogNavbar'
 
 interface BlogsLayoutProps {
   children: ReactNode

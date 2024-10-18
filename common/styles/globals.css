@@ -19,9 +19,46 @@ body {
   }
 }
 
-.quill > .ql-container {
-  font-size: 20px;
+html {
+  --font-color: #52525b;
 }
+
+.dark {
+  --font-color: #a3a3a3;
+}
+
+.quill > .ql-container {
+  font-size: 16px;
+  color: var(--font-color);
+}
+
 .quill > .ql-container > .ql-editor.ql-blank::before {
-  color: white;
+  color: var(--font-color);
+}
+
+.text-content h1 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 40px;
+}
+
+.text-content h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 26px;
+}
+
+.text-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.text-content li {
+  margin-bottom: 8px;
+  color: var(--font-color);
+}
+
+.text-content ol {
+  list-style-type: decimal;
+  padding-left: 20px;
 }

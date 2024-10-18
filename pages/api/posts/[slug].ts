@@ -1,35 +1,28 @@
-import prisma from '@/common/libs/prisma'
+import { errorHandler } from '@/middleware/errorHandler'
+import { ResponseError } from '@/common/utils/responseError'
+import { incrementPostViews } from '@/services/post_services'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { slug } = req.query
+  try {
+    if (req.method === 'GET') {
+      const { slug } = req.query
 
-  if (req.method === 'GET') {
-    if (typeof slug !== 'string') {
-      return res.status(400).json({ message: 'Invalid slug' })
-    }
-
-    try {
-      const post = await prisma.post.update({
-        where: { slug },
-        data: { views: { increment: 1 } },
-        include: { user: true }
-      })
+      if (typeof slug !== 'string') {
+        throw new ResponseError(400, 'Invalid slug')
+      }
+      const post = await incrementPostViews(slug)
 
       if (!post) {
-        return res.status(404).json({ message: 'Post not found' })
+        throw new ResponseError(404, 'Post not found')
       }
 
       res.status(200).json(post)
-    } catch (error) {
-      console.error(error)
-      res.status(500).json({ message: 'Internal server error' })
     }
-  } else {
-    res.setHeader('Allow', ['GET'])
-    res.status(405).json({ message: `Method ${req.method} Not Allowed` })
+  } catch (error) {
+    errorHandler(error, req, res)
   }
 }
