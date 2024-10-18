@@ -3,8 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import {
   createCategory,
   deleteCategory,
-  getAllCategories,
-  updateCategory
+  getAllCategories
 } from '@/services/category_services'
 
 export default async function handler(
@@ -21,12 +20,6 @@ export default async function handler(
       const { title, slug } = req.body
       const newCategory = await createCategory(title, slug)
       return res.status(201).json({ data: newCategory })
-    }
-
-    if (req.method === 'PATCH') {
-      const { id, title, slug } = req.body
-      const updatedCategory = await updateCategory(id, title, slug)
-      return res.status(200).json({ data: updatedCategory })
     }
 
     if (req.method === 'DELETE') {
