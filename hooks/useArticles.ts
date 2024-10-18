@@ -18,6 +18,21 @@ const useArticle = () => {
   const [progress, setProgress] = useState<number>(0)
   const [uploadComplete, setUploadComplete] = useState<boolean>(false)
   const [mediaURL, setMediaURL] = useState<string>('')
+  const [categories, setCategories] = useState<any[]>([])
+  const [selectedCategory, setSelectedCategory] = useState<string>('')
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get('/api/category')
+        setCategories(response.data.data)
+      } catch (error) {
+        handleError(error)
+      }
+    }
+
+    fetchCategories()
+  }, [])
 
   useEffect(() => {
     const upload = () => {
@@ -80,7 +95,7 @@ const useArticle = () => {
         desc: value,
         img: url,
         slug: slugify(title),
-        catSlug: 'personal'
+        catSlug: selectedCategory
       })
       console.log(res)
 
@@ -93,6 +108,9 @@ const useArticle = () => {
   return {
     setFile,
     setTitle,
+    categories,
+    selectedCategory,
+    setSelectedCategory,
     value,
     setValue,
     loading,

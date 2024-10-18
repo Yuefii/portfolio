@@ -17,6 +17,9 @@ const Write = () => {
     value,
     setValue,
     handleSubmit,
+    categories,
+    selectedCategory,
+    setSelectedCategory,
     loading,
     progress,
     mediaURL
@@ -50,6 +53,24 @@ const Write = () => {
           <div className="my-5 flex gap-x-3">
             <ButtonUploadImage onUpload={handleFileChange} />
             <ButtonPublish handleSubmit={handleSubmit} loading={loading} />
+            <select
+              value={selectedCategory}
+              onChange={e => setSelectedCategory(e.target.value)}
+              className="block p-2 text-white text-sm bg-sky-600 dark:bg-rose-600 rounded-md focus:outline-none focus:ring-0"
+            >
+              <option value="" disabled>
+                Select Category
+              </option>
+              {categories.map(category => (
+                <option
+                  className="bg-black"
+                  key={category.slug}
+                  value={category.slug}
+                >
+                  {category.title}
+                </option>
+              ))}
+            </select>
           </div>
           <div>
             {loading && <p>Uploading... {progress.toFixed(2)}%</p>}

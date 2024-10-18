@@ -13,7 +13,7 @@ const ButtonPublish = ({ handleSubmit, loading }: ButtonPublishProps) => {
   return (
     <button
       onClick={handleClick}
-      className={`text-white text-sm bg-sky-600 rounded-md py-1.5 px-3 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`} // Tambahkan efek loading
+      className={`text-white text-sm bg-sky-600 dark:bg-rose-600 rounded-md py-1.5 px-3 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`} // Tambahkan efek loading
       disabled={loading}
     >
       {loading ? 'Publishing...' : 'Publish'}
