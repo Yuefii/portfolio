@@ -10,10 +10,10 @@ export interface Category {
 }
 
 const useCategory = () => {
-  const [categories, setCategories] = useState<Category[]>([])
-  const [title, setTitle] = useState('')
-  const [slug, setSlug] = useState('')
   const router = useRouter()
+  const [slug, setSlug] = useState('')
+  const [title, setTitle] = useState('')
+  const [categories, setCategories] = useState<Category[]>([])
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()

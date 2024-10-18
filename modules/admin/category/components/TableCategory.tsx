@@ -35,7 +35,7 @@ const TableCategory = ({ categories, handleOpenModal }: TableCategoryProps) => {
                   <div className="flex justify-center gap-x-3">
                     <ButtonLink
                       title="Update"
-                      href="/admin/category/update-category"
+                      href={`/admin/category/${category.slug}`}
                     />
                     <button
                       className="bg-red-500 text-white text-sm px-3 py-1 rounded-md hover:bg-red-600 hover:scale-110 transition-all"
