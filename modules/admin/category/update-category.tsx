@@ -1,41 +1,8 @@
-import axios from 'axios'
 import Layout from '@/components/layouts/admin'
-import handleError from '@/common/utils/handleError'
-import { useRouter } from 'next/router'
-import { FormEvent, useEffect, useState } from 'react'
+import useCategory from '@/hooks/useCategory'
 
 const UpdateCategory = () => {
-  const router = useRouter()
-  const { slug } = router.query
-  const [category, setCategory] = useState({ title: '' })
-
-  useEffect(() => {
-    if (slug) {
-      const fetchCategory = async () => {
-        try {
-          const response = await axios.get(`/api/category/${slug}`)
-          setCategory(response.data.data)
-        } catch (err) {
-          handleError(err)
-        }
-      }
-      fetchCategory()
-    }
-  }, [slug])
-
-  const handleUpdate = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    try {
-      const response = await axios.patch(`/api/category/${slug}`, {
-        title: category.title
-      })
-
-      setCategory(response.data.data)
-      router.push('/admin/category')
-    } catch (err) {
-      handleError(err)
-    }
-  }
+  const { handleUpdate, category, setCategory } = useCategory()
   return (
     <Layout>
       <div className="max-w-xl p-5">

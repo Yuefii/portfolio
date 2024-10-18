@@ -2,12 +2,12 @@ import Layout from '@/components/layouts/admin'
 import useCategory from '@/hooks/useCategory'
 
 const AddCategory = () => {
-  const { handleSubmit, title, setTitle, slug, setSlug } = useCategory()
+  const { handleCreate, title, setTitle, catSlug, setCatSlug } = useCategory()
   return (
     <Layout>
       <div className="max-w-xl p-5">
         <h2 className="text-xl font-bold mb-4">Create New Category</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleCreate}>
           <div className="mb-4">
             <label className="block text-gray-700" htmlFor="title">
               Title
@@ -28,8 +28,8 @@ const AddCategory = () => {
             <input
               type="text"
               id="slug"
-              value={slug}
-              onChange={e => setSlug(e.target.value)}
+              value={catSlug}
+              onChange={e => setCatSlug(e.target.value)}
               required
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-0 focus:outline-none"
             />
