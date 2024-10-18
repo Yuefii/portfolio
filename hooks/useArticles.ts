@@ -48,15 +48,12 @@ const useArticle = () => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100
           setProgress(progress)
-          console.log(`Upload is ${progress}% done`)
         },
         error => {
-          console.error('Upload error:', error)
           handleError(error)
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
-            console.log('Download URL:', downloadURL)
             setMediaURL(downloadURL)
             setUploadComplete(true)
             setLoading(false)
@@ -78,10 +75,6 @@ const useArticle = () => {
   }, [file])
 
   const handleSubmit = async (url: string) => {
-    console.log('media before submit:', url)
-    console.log('title:', title)
-    console.log('value:', value)
-
     if (!title.trim() || !value.trim()) {
       toast.error('Title and Content must be filled!', {
         autoClose: 1000
@@ -97,8 +90,6 @@ const useArticle = () => {
         slug: slugify(title),
         catSlug: selectedCategory
       })
-      console.log(res)
-
       router.push(`/blogs/posts/${res.data.post.slug}`)
     } catch (error) {
       handleError(error)
@@ -116,6 +107,7 @@ const useArticle = () => {
     loading,
     progress,
     mediaURL,
+    uploadComplete,
     handleSubmit
   }
 }

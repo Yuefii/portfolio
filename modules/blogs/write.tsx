@@ -1,7 +1,6 @@
 import 'react-quill/dist/quill.bubble.css'
 import Layout from '@/components/layouts/blogs'
 import dynamic from 'next/dynamic'
-import Loading from '@/components/Loading'
 import useAuth from '@/hooks/useAuth'
 import useArticle from '@/hooks/useArticles'
 import ButtonPublish from './components/ButtonPublish'
@@ -10,7 +9,7 @@ import ButtonUploadImage from './components/ButtonUploadImage'
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const Write = () => {
-  const { isLoading, isAuthenticated } = useAuth()
+  const { isAuthenticated } = useAuth()
   const {
     setFile,
     setTitle,
@@ -31,12 +30,8 @@ const Write = () => {
     }
   }
 
-  if (isLoading) {
-    return <Loading />
-  }
-
   if (!isAuthenticated) {
-    return <p>Please log in to create an article.</p>
+    return
   }
 
   return (
@@ -44,7 +39,7 @@ const Write = () => {
       <div className="mt-10 min-h-screen container mx-auto border border-neutral-600 rounded-md p-10 max-w-6xl">
         <form>
           <input
-            className="w-full bg-transparent focus:border-transparent focus:outline-none text-4xl"
+            className="w-full bg-transparent focus:border-transparent focus:outline-none text-4xl dark:text-white text-neutral-600"
             type="text"
             placeholder="Title"
             onChange={e => setTitle(e.target.value)}

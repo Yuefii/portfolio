@@ -1,9 +1,6 @@
 import Image from 'next/image'
-import React from 'react'
-import { motion } from 'framer-motion'
-import { FaGolang } from 'react-icons/fa6'
-import { SiDocker, SiPython, SiTypescript } from 'react-icons/si'
 import Mapping from '@/common/utils/mapping'
+import { motion } from 'framer-motion'
 import { TechStack } from '@/common/constants'
 
 const containerVariants = {

@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import axios from 'axios'
-import Loading from '@/components/Loading'
+import Mapping from '@/common/utils/mapping'
+import handleError from '@/common/utils/handleError'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
-import Mapping from '@/common/utils/mapping'
 
 interface User {
   name: string
@@ -30,13 +30,9 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
   const { status } = useSession()
   const [desc, setDesc] = useState('')
   const [data, setData] = useState<CommentsData | null>(null)
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async () => {
     if (!desc.trim()) return
-
-    setError(null)
     try {
       await axios.post('/api/posts/comments', {
         postSlug,
@@ -45,26 +41,19 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
       setDesc('')
       fetchData()
     } catch (err) {
-      console.error(err)
-      setError('Failed to submit comment')
+      handleError(err)
     }
   }
 
   const fetchData = useCallback(async () => {
     if (!postSlug) return
-
-    setLoading(true)
-    setError(null)
     try {
       const response = await axios.get<CommentsData>(
         `/api/posts/comments?postSlug=${postSlug}`
       )
       setData(response.data)
     } catch (err) {
-      console.error(err)
-      setError('Failed to fetch data')
-    } finally {
-      setLoading(false)
+      handleError(err)
     }
   }, [postSlug])
 
@@ -72,8 +61,6 @@ const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
     fetchData()
   }, [fetchData])
 
-  if (loading) return <Loading />
-  if (error) console.log(error)
   return (
     <div className="lg:mb-20">
       <h1 className="text-xl text-neutral-800 dark:text-white font-bold my-3">
