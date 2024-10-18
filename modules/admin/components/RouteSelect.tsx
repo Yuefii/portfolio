@@ -4,6 +4,7 @@ import { IconType } from 'react-icons'
 import { FiHome } from 'react-icons/fi'
 import { GrArticle, GrProjects } from 'react-icons/gr'
 import { useRouter } from 'next/router'
+import { TbCategoryPlus } from 'react-icons/tb'
 
 export const RouteSelect = () => {
   const router = useRouter()
@@ -27,6 +28,12 @@ export const RouteSelect = () => {
         selected={isActive('/admin/projects')}
         title="Projects"
         href="/admin/projects"
+      />
+      <Route
+        Icon={TbCategoryPlus}
+        selected={isActive('/admin/category')}
+        title="Category"
+        href="/admin/category"
       />
       <Route
         Icon={GrArticle}
