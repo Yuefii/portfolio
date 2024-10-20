@@ -39,3 +39,7 @@ next-env.d.ts
 firebase-debug.log
 storage.rules
 ui-debug.log
+
+# jupyter notebooks
+*.ipynb_checkpoints/
+notebooks/*.sql
