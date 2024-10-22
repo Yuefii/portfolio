@@ -3,7 +3,6 @@ import Layout from '@/components/layouts/blogs'
 import dynamic from 'next/dynamic'
 import useAuth from '@/hooks/useAuth'
 import useArticle from '@/hooks/useArticles'
-import ButtonPublish from './components/ButtonPublish'
 import ButtonUploadImage from './components/ButtonUploadImage'
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
@@ -15,7 +14,6 @@ const Write = () => {
     setTitle,
     value,
     setValue,
-    handleSubmit,
     categories,
     selectedCategory,
     setSelectedCategory,
@@ -46,8 +44,6 @@ const Write = () => {
             required
           />
           <div className="my-5 flex gap-x-3">
-            <ButtonUploadImage onUpload={handleFileChange} />
-            <ButtonPublish handleSubmit={handleSubmit} loading={loading} />
             <select
               value={selectedCategory}
               onChange={e => setSelectedCategory(e.target.value)}
@@ -66,6 +62,7 @@ const Write = () => {
                 </option>
               ))}
             </select>
+            <ButtonUploadImage onUpload={handleFileChange} />
           </div>
           <div>
             {loading && <p>Uploading... {progress.toFixed(2)}%</p>}

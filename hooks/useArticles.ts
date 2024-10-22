@@ -138,8 +138,7 @@ const useArticle = () => {
     loading,
     progress,
     mediaURL,
-    uploadComplete,
-    handleSubmit
+    uploadComplete
   }
 }
 
