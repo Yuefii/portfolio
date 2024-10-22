@@ -9,8 +9,24 @@ import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 
 type FileType = File | null
 
+export interface Post {
+  id: number
+  title: string
+  desc: string
+  img: string
+  views: number
+  createdAt: string
+  catSlug: string
+  slug: string
+}
+
+interface ApiResponse {
+  posts: Post[]
+}
+
 const useArticle = () => {
   const router = useRouter()
+  const [post, setPost] = useState<Post[]>([])
   const [title, setTitle] = useState<string>('')
   const [value, setValue] = useState<string>('')
   const [file, setFile] = useState<FileType>(null)
@@ -20,6 +36,20 @@ const useArticle = () => {
   const [mediaURL, setMediaURL] = useState<string>('')
   const [categories, setCategories] = useState<any[]>([])
   const [selectedCategory, setSelectedCategory] = useState<string>('')
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(`/api/posts`)
+        setPost(response.data.posts)
+      } catch (err) {
+        handleError(err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
+  }, [])
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -97,6 +127,7 @@ const useArticle = () => {
   }
 
   return {
+    post,
     setFile,
     setTitle,
     categories,

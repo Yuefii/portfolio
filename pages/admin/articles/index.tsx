@@ -1,7 +1,7 @@
 import React from 'react'
 import Articles from '@/modules/admin/articles'
 
-const Article = () => {
+const Pages = () => {
   return (
     <>
       <Articles />
@@ -9,4 +9,4 @@ const Article = () => {
   )
 }
 
-export default Article
+export default Pages
