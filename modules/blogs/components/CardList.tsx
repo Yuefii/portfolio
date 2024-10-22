@@ -1,42 +1,10 @@
 import Card from './Card'
-import axios from 'axios'
 import Loading from '@/components/Loading'
 import Mapping from '@/common/utils/mapping'
-import handleError from '@/common/utils/handleError'
-import React, { useEffect, useState } from 'react'
-
-interface Post {
-  id: number
-  title: string
-  desc: string
-  img: string
-  createdAt: string
-  catSlug: string
-  slug: string
-}
-
-interface ApiResponse {
-  posts: Post[]
-  count: number
-}
+import useArticle from '@/hooks/useArticles'
 
 const CardList = () => {
-  const [data, setData] = useState<Post[]>([])
-  const [loading, setLoading] = useState<boolean>(true)
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get<ApiResponse>(`/api/posts`)
-        setData(response.data.posts)
-      } catch (err) {
-        handleError(err)
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchData()
-  }, [])
+  const { post, loading } = useArticle()
 
   if (loading) return <Loading />
   return (
@@ -46,7 +14,7 @@ const CardList = () => {
       </h1>
       <div className="w-full my-5 grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4">
         <Mapping
-          of={data}
+          of={post}
           render={(item, index) => {
             return <Card key={index} item={item} />
           }}

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Search from './Search'
 import ThemeToggle from '@/components/ThemeToggle'
+import MenuListArticle from './MenuListArticle'
 import React, { useEffect, useState } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import { AiOutlineClose } from 'react-icons/ai'
@@ -100,6 +101,36 @@ const BlogNavbar = () => {
           )}
         </div>
       </nav>
+      {isOpen && (
+        <div className="mt-16 fixed inset-0 bg-white dark:bg-neutral-900 z-50">
+          <div className="mt-2 flex items-center justify-end mr-4">
+            <Search />
+            {status === 'unauthenticated' ? (
+              <Link
+                className="rounded-md bg-sky-600 dark:bg-rose-600 py-1.5 px-3 text-sm text-white hover:scale-105 transition-all"
+                href="/auth/login"
+              >
+                Log In
+              </Link>
+            ) : (
+              <div
+                onClick={() => signOut()}
+                className="rounded-md bg-sky-600 dark:bg-rose-600 py-1.5 px-3 text-sm text-white cursor-pointer hover:scale-105 transition-all"
+              >
+                Log Out
+              </div>
+            )}
+          </div>
+          <div className="ml-5 overflow-auto h-screen">
+            <h1 className="text-neutral-600 dark:text-neutral-300 text-xl font-bold">
+              Recent Article
+            </h1>
+            <div className="ml-5">
+              <MenuListArticle />
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }

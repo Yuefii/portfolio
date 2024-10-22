@@ -34,3 +34,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# firebase
+firebase-debug.log
+storage.rules
+ui-debug.log
+
+# jupyter notebooks
+*.ipynb_checkpoints/
+notebooks/*.sql

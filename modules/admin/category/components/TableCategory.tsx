@@ -10,7 +10,7 @@ const TableCategory = ({ categories, handleOpenModal }: TableCategoryProps) => {
   return (
     <>
       <div className="overflow-x-auto mt-5">
-        <table className="min-w-full border-collapse border border-gray-200">
+        <table className="min-w-full border-collapse border border-gray-200 text-sm text-center">
           <thead>
             <tr className="bg-gray-100">
               <th className="border border-gray-300 px-4 py-2">ID</th>

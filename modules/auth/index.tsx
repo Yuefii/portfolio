@@ -6,19 +6,21 @@ import { useRouter } from 'next/router'
 import { signIn, useSession } from 'next-auth/react'
 
 const AuthLogin = () => {
-  const { status } = useSession()
   const router = useRouter()
+  const { status } = useSession()
   const { redirect } = router.query
-  console.log(redirect)
   const redirectTo = Array.isArray(redirect)
     ? redirect[0]
     : redirect || '/blogs'
+
   if (status === 'loading') {
     return <Loading />
   }
+
   if (status === 'authenticated') {
     router.push(redirectTo)
   }
+
   return (
     <div className="h-screen flex items-center justify-center">
       <div className="mx-3 md:mx-0 bg-neutral-200 dark:bg-neutral-800 rounded-md p-3 w-[400px] h-auto">

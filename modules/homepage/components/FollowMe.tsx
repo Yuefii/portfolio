@@ -1,8 +1,6 @@
 import Link from 'next/link'
-import React from 'react'
-import { motion } from 'framer-motion'
-import { FaGithub, FaInstagram, FaLinkedin, FaTiktok } from 'react-icons/fa'
 import Mapping from '@/common/utils/mapping'
+import { motion } from 'framer-motion'
 import { Contacts } from '@/common/constants'
 
 const containerVariants = {

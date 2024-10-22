@@ -28,7 +28,7 @@ const Category = () => {
   return (
     <Layout>
       <div className="flex justify-between">
-        <h1 className="text-2xl">Articles</h1>
+        <h1 className="text-2xl">Category</h1>
         <ButtonLink title="Add Category" href="/admin/category/add-category" />
       </div>
       <TableCategory
