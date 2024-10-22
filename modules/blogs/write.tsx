@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import useAuth from '@/hooks/useAuth'
 import useArticle from '@/hooks/useArticles'
 import ButtonUploadImage from './components/ButtonUploadImage'
+import SelectCategory from './components/SelectCategory'
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
@@ -44,24 +45,11 @@ const Write = () => {
             required
           />
           <div className="my-5 flex gap-x-3">
-            <select
-              value={selectedCategory}
-              onChange={e => setSelectedCategory(e.target.value)}
-              className="block p-2 text-white text-sm bg-sky-600 dark:bg-rose-600 rounded-md focus:outline-none focus:ring-0"
-            >
-              <option value="" disabled>
-                Select Category
-              </option>
-              {categories.map(category => (
-                <option
-                  className="bg-black"
-                  key={category.slug}
-                  value={category.slug}
-                >
-                  {category.title}
-                </option>
-              ))}
-            </select>
+            <SelectCategory
+              categories={categories}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+            />
             <ButtonUploadImage onUpload={handleFileChange} />
           </div>
           <div>
