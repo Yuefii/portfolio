@@ -39,18 +39,18 @@ html {
 .text-content h1 {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
-  font-size: 40px;
+  font-size: 26px;
 }
 
 .text-content h2 {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
-  font-size: 26px;
+  font-size: 20px;
 }
 
 .text-content ul {
   list-style-type: disc;
-  padding-left: 20px;
+  margin-left: 20px;
 }
 
 .text-content li {
@@ -60,5 +60,5 @@ html {
 
 .text-content ol {
   list-style-type: decimal;
-  padding-left: 20px;
+  margin-left: 20px;
 }
