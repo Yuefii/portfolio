@@ -1,65 +1,23 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import axios from 'axios'
 import Mapping from '@/common/utils/mapping'
-import handleError from '@/common/utils/handleError'
-import React, { useCallback, useEffect, useState } from 'react'
+import useComments from '@/hooks/useComments'
+import { useState } from 'react'
 import { useSession } from 'next-auth/react'
-
-interface User {
-  name: string
-  image: string
-}
-
-interface Comment {
-  id: string
-  user: User
-  desc: string
-  createdAt: string
-}
-
-interface CommentsData {
-  comments: Comment[]
-}
 
 interface CommentsProps {
   postSlug: string
 }
 
-const Comments: React.FC<CommentsProps> = ({ postSlug }) => {
+const Comments = ({ postSlug }: CommentsProps) => {
   const { status } = useSession()
   const [desc, setDesc] = useState('')
-  const [data, setData] = useState<CommentsData | null>(null)
+  const { data, submitComment } = useComments(postSlug)
 
-  const handleSubmit = async () => {
-    if (!desc.trim()) return
-    try {
-      await axios.post('/api/posts/comments', {
-        postSlug,
-        content: desc
-      })
-      setDesc('')
-      fetchData()
-    } catch (err) {
-      handleError(err)
-    }
+  const handleSubmit = () => {
+    submitComment(desc)
+    setDesc('')
   }
-
-  const fetchData = useCallback(async () => {
-    if (!postSlug) return
-    try {
-      const response = await axios.get<CommentsData>(
-        `/api/posts/comments?postSlug=${postSlug}`
-      )
-      setData(response.data)
-    } catch (err) {
-      handleError(err)
-    }
-  }, [postSlug])
-
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
 
   return (
     <div className="lg:mb-20">
