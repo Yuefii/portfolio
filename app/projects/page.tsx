@@ -1,20 +1,12 @@
-import TabItem from '@/components/tab_item'
-import HomeContentProject from '@/components/home_content_project'
 import Breadcrumbs from '@/components/breadcrumbs'
+import HomeContentProject from '@/components/home_content_project'
 
 function Page() {
-  const tabItems = [
-    {
-      key: 'projects',
-      label: 'Projects',
-      content: <HomeContentProject />
-    }
-  ]
   return (
-    <div className="py-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
         <Breadcrumbs />
-        <TabItem tabs={tabItems} defaultTabKey="projects" />
+        <HomeContentProject />
       </div>
     </div>
   )
