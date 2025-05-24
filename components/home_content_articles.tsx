@@ -1,87 +1,66 @@
-const HomeContentArticles = () => {
+import Link from 'next/link'
+import { fetchNotionPage, fetchNotionPageBlocks } from '@/lib/notion'
+
+const HomeContentArticles = async () => {
+  const data = await fetchNotionPage()
+  const postsWithBlocks = await Promise.all(
+    data.results.map(async (item: any) => {
+      const blocks = await fetchNotionPageBlocks(item.id)
+      return { ...item, blocks }
+    })
+  )
+
+  function formattedDate(dateString: string) {
+    const date = new Date(dateString)
+    return new Intl.DateTimeFormat('id-ID', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }).format(date)
+  }
+
+  function estimateReadingTime(blocks: any[]) {
+    const allText = blocks
+      .map((block) => {
+        if (block[block.type]?.rich_text) {
+          return block[block.type].rich_text.map((t: any) => t.plain_text).join(' ')
+        }
+        return ''
+      })
+      .join(' ')
+    const wordCount = allText.trim().split(/\s+/).length
+    return Math.ceil(wordCount / 200)
+  }
+
   return (
     <div>
       <div className="prose max-w-none">
-        <h2 className="text-2xl font-bold mb-4">Articles</h2>
-
+        <h2 className="text-2xl font-bold">Articles</h2>
         <div className="space-y-8">
-          <article className="border-b border-gray-200 pb-8">
-            <h3 className="text-xl font-bold mb-2">Building Scalable Microservices with Node.js</h3>
-            <div className="flex items-center gap-x-2 text-sm text-gray-500 mb-3">
-              <span>Jan 15, 2025</span>
-              <span>•</span>
-              <span>8 min read</span>
-              <span>•</span>
-              <span>Backend Development</span>
-            </div>
-            <p className="text-gray-600 mb-4">
-              Learn how to design and implement highly scalable microservices architecture using
-              Node.js, Docker, and Kubernetes. This article covers best practices for service
-              discovery, communication patterns, and deployment strategies.
-            </p>
-            <a href="#" className="text-blue-600 hover:underline font-medium">
-              Read more
-            </a>
-          </article>
-
-          <article className="border-b border-gray-200 pb-8">
-            <h3 className="text-xl font-bold mb-2">The Rise of GraphQL: REST API Alternative</h3>
-            <div className="flex items-center gap-x-2 text-sm text-gray-500 mb-3">
-              <span>Nov 23, 2024</span>
-              <span>•</span>
-              <span>10 min read</span>
-              <span>•</span>
-              <span>API Design</span>
-            </div>
-            <p className="text-gray-600 mb-4">
-              Explore the benefits of GraphQL over traditional REST APIs and how it solves common
-              API development challenges. This comprehensive guide includes real-world examples and
-              performance comparisons.
-            </p>
-            <a href="#" className="text-blue-600 hover:underline font-medium">
-              Read more
-            </a>
-          </article>
-
-          <article className="border-b border-gray-200 pb-8">
-            <h3 className="text-xl font-bold mb-2">Securing Backend Services: Best Practices</h3>
-            <div className="flex items-center gap-x-2 text-sm text-gray-500 mb-3">
-              <span>Aug 05, 2024</span>
-              <span>•</span>
-              <span>12 min read</span>
-              <span>•</span>
-              <span>Security</span>
-            </div>
-            <p className="text-gray-600 mb-4">
-              A deep dive into security best practices for backend services, including
-              authentication, authorization, data encryption, and protection against common
-              vulnerabilities like SQL injection and XSS attacks.
-            </p>
-            <a href="#" className="text-blue-600 hover:underline font-medium">
-              Read more
-            </a>
-          </article>
-
-          <article>
-            <h3 className="text-xl font-bold mb-2">
-              Performance Optimization Techniques for Node.js Applications
-            </h3>
-            <div className="flex items-center gap-x-2 text-sm text-gray-500 mb-3">
-              <span>May 17, 2024</span>
-              <span>•</span>
-              <span>9 min read</span>
-              <span>•</span>
-              <span>Performance</span>
-            </div>
-            <p className="text-gray-600 mb-4">
-              Discover proven strategies to boost the performance of your Node.js applications.
-              Learn about memory management, caching strategies, load balancing, and how to identify
-              and fix common bottlenecks.
-            </p>
-            <a href="#" className="text-blue-600 hover:underline font-medium">
-              Read more
-            </a>
-          </article>
+          {postsWithBlocks.slice(0, 3).map((item: any) => {
+            const readingTime = estimateReadingTime(item.blocks)
+            return (
+              <article key={item.id} className="border-b border-gray-200 pb-8">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-2">
+                  {item.properties.title.title[0].plain_text}
+                </h3>
+                <div className="flex flex-wrap items-center gap-x-2 text-sm text-gray-500 mb-3">
+                  <span>{formattedDate(item.created_time)}</span>
+                  <span>•</span>
+                  <span>{readingTime} min read</span>
+                </div>
+                <p className="text-gray-600 mb-4 text-base">
+                  {item.properties.Description?.rich_text?.[0]?.plain_text}
+                </p>
+                <Link
+                  href={`/articles/${item.properties.Slug.rich_text[0].plain_text}`}
+                  className="text-blue-600 hover:underline font-medium"
+                >
+                  Read more
+                </Link>
+              </article>
+            )
+          })}
         </div>
       </div>
     </div>
