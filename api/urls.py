@@ -19,5 +19,6 @@ urlpatterns = [
     path('', include('apps.core.urls')),
     path('about/', include('apps.about.urls')),
     path('projects/', include('apps.projects.urls')),
+    path('articles/', include('apps.articles.urls')),
 ]
 
