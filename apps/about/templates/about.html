@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+<!-- Load Static -->
+
+{% load static %}
+
+<!-- Meta SEO  -->
+
+{% block seo %}
+<title>{{ seo.title }}</title>
+
+<meta name="author" content="{{ about.username }}" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}" />
+
+<meta name="description" content="{{ seo.description }}" />
+<meta name="keywords" content="{{ seo.keywords }}" />
+
+<meta property="og:type" content="{{ seo.og_type }}" />
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}" />
+<meta property="og:title" content="{{ seo.title }}" />
+<meta property="og:description" content="{{ seo.description }}" />
+<meta property="og:image" content="{{ seo.og_image }}" />
+
+<meta property="twitter:card" content="{{ seo.twitter_card }}" />
+<meta property="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}" />
+<meta property="twitter:title" content="{{ seo.title }}" />
+<meta property="twitter:description" content="{{ seo.description }}" />
+<meta property="twitter:image" content="{{ seo.og_image }}" />
+{% endblock %}
+
+<!-- Content  -->
+
+{% block content %}
+<div class="h-screen flex flex-col items-center justify-center">
+    <h1 class="text-2xl font-bold">Halaman Tentang Saya</h1>
+</div>
+{% endblock %}
