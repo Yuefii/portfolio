@@ -1,0 +1,99 @@
+<nav class="border-b border-gray-200 bg-white fixed w-full z-10">
+  <div class="max-w-6xl mx-auto px-4 py-3">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-x-2">
+        <img
+          class="rounded-full"
+          src="/static/img/logo.ico"
+          width="35"
+          height="35"
+          alt="logo"
+        />
+        <a href="/" class="text-green-600 font-bold text-xl"> yuefii </a>
+      </div>
+
+      <button
+        id="menu-toggle"
+        class="md:hidden text-gray-600 hover:text-gray-800 focus:outline-none"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+      </button>
+
+      <div
+        id="menu-desktop"
+        class="hidden md:flex md:items-center md:space-x-4"
+      >
+        <a
+          class="text-gray-600 font-normal hover:text-gray-800 transition-colors"
+          href="mailto:callmeyuefii@gmail.com"
+        >
+          Contact Me
+        </a>
+        <a
+          href="/articles"
+          class="px-4 py-1 text-sm text-green-600 font-medium border border-green-600 rounded-lg hover:bg-green-50 transition-colors"
+        >
+          Articles
+        </a>
+        <a
+          href="/projects"
+          class="px-4 py-1 text-sm text-white font-medium bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
+        >
+          Projects
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="menu-mobile"
+    class="hidden md:hidden flex flex-col items-center pb-4 space-y-2 bg-white border-t border-gray-200"
+  >
+    <a
+      class="w-full text-center text-gray-600 font-normal hover:text-gray-800 transition-colors py-2"
+      href="mailto:callmeyuefii@gmail.com"
+    >
+      Contact Me
+    </a>
+    <a
+      href="/articles"
+      class="w-full text-center px-4 py-2 text-sm text-green-600 font-medium border border-green-600 rounded hover:bg-green-50 transition-colors"
+    >
+      Articles
+    </a>
+    <a
+      href="/projects"
+      class="w-full text-center px-4 py-2 text-sm text-white font-medium bg-green-600 hover:bg-green-700 transition-colors"
+    >
+      Projects
+    </a>
+  </div>
+</nav>
+
+<script>
+  const toggleBtn = document.getElementById("menu-toggle");
+  const menuMobile = document.getElementById("menu-mobile");
+
+  toggleBtn.addEventListener("click", () => {
+    menuMobile.classList.toggle("hidden");
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) {
+      menuMobile.classList.add("hidden");
+    }
+  });
+</script>
