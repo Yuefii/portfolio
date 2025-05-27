@@ -1,72 +1,38 @@
 {% load static %}
-<footer class="bg-white border-t border-gray-200 py-12">
-    <div class="max-w-5xl mx-auto px-4">
-        <div class="grid md:grid-cols-4 gap-8">
-            <div>
-                <h2 class="font-bold text-xl text-green-600 mb-4">@yuefii</h2>
-                <p class="text-gray-600">
-                    A personal website to share knowledge, ideas and stories of coding.
-                </p>
+<footer class="py-12">
+    <div class="max-w-3xl container mx-auto border-t border-neutral-200 dark:border-neutral-700">
+        <div class="flex flex-col md:flex-row justify-between items-center pt-10 mb-6">
+            <div class="flex gap-x-4 mb-4 md:mb-0 dark:invert">
+                <a href="https://www.linkedin.com/in/muhamad-mupid-ahmadiawan-3b2a95292">
+                    <img class="w-6 h-6"
+                         src="{% static 'icons/linkedin-brands.svg' %}"
+                         alt="linkedin" />
+                </a>
+                <a href="https://www.instagram.com/yuefii_">
+                    <img class="w-6 h-6"
+                         src="{% static 'icons/instagram-brands.svg' %}"
+                         alt="instagram" />
+                </a>
+                <a href="https://www.tiktok.com/@yuefii_">
+                    <img class="w-6 h-6"
+                         src="{% static 'icons/tiktok-brands.svg' %}"
+                         alt="tiktok" />
+                </a>
+                <a href="https://github.com/yuefii">
+                    <img class="w-6 h-6"
+                         src="{% static 'icons/github-brands.svg' %}"
+                         alt="github" />
+                </a>
             </div>
-            <div>
-                <h3 class="font-medium text-gray-900 mb-3">About</h3>
-                <ul class="space-y-2">
-                    <li>
-                        <a href="/articles" class="text-gray-600 hover:text-green-600">
-                            Articles
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/about" class="text-gray-600 hover:text-green-600">
-                            About Me
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/projects" class="text-gray-600 hover:text-green-600">
-                            Projects
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-medium text-gray-900 mb-3">Help</h3>
-                <ul class="space-y-2">
-                    <li>
-                        <a href="#" class="text-gray-600 hover:text-green-600"> FAQs </a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-600 hover:text-green-600">
-                            Contact Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-600 hover:text-green-600">
-                            Terms of Service
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-medium text-gray-900 mb-3">Connect</h3>
-                <div class="flex space-x-4 text-gray-600">
-                    <a href="https://www.linkedin.com/in/muhamad-mupid-ahmadiawan-3b2a95292"
-                        class="hover:text-green-600">
-                        <img class="w-6 h-6" src="{% static 'icons/linkedin-brands.svg' %}" alt="linkedin" />
-                    </a>
-                    <a href="https://www.instagram.com/yuefii_" class="hover:text-green-600">
-                        <img class="w-6 h-6" src="{% static 'icons/instagram-brands.svg' %}" alt="instagram" />
-                    </a>
-                    <a href="https://www.tiktok.com/@yuefii_" class="hover:text-green-600">
-                        <img class="w-6 h-6" src="{% static 'icons/tiktok-brands.svg' %}" alt="tiktok" />
-                    </a>
-                    <a href="https://github.com/yuefii" class="hover:text-green-600">
-                        <img class="w-6 h-6" src="{% static 'icons/github-brands.svg' %}" alt="github" />
-                    </a>
-                </div>
+            <div class="flex gap-x-6">
+                <a href="/articles" class="text-neutral-500 dark:text-neutral-400">Articles</a>
+                <a href="/about" class="text-neutral-500 dark:text-neutral-400">About Me</a>
+                <a href="/projects" class="text-neutral-500 dark:text-neutral-400">Projects</a>
             </div>
         </div>
-        <div class="mt-8 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
-            © 2024 yuefii. All rights reserved.
+        <div class="flex flex-col md:flex-row justify-between items-center text-sm text-neutral-500 dark:text-neutral-400">
+            <p class="mb-2 md:mb-0">Built with Django, Tailwind and Vercel</p>
+            <p>&copy;2024 All rights reserved.</p>
         </div>
     </div>
 </footer>
