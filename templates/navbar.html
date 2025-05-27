@@ -1,100 +1,112 @@
 {% load static %}
-<nav class="border-b border-gray-200 bg-white fixed w-full z-10">
-  <div class="max-w-6xl mx-auto px-4 py-3">
-    <div class="flex items-center justify-between">
-      <div class="flex items-center gap-x-2">
-        <img
-          class="rounded-full"
-          src="{% static 'img/logo.ico' %}"
-          width="53"
-          height="53"
-          alt="logo"
-        />
-        <a href="/" class="text-green-700 font-bold text-xl">yuefii</a>
-      </div>
-
-    <button
-        id="menu-toggle"
-        class="md:hidden text-gray-600 hover:text-gray-800 focus:outline-none"
-      >
-        <svg
-          class="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M4 6h16M4 12h16M4 18h16"
-          ></path>
+<header class="container mx-auto max-w-3xl px-4 py-6 flex justify-between items-center">
+    <button id="mobile-menu-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6 text-neutral-800 dark:text-neutral-200"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
-      </button>
-
-      <div
-        id="menu-desktop"
-        class="hidden md:flex md:items-center md:space-x-4"
-      >
-        <a
-          class="text-gray-600 font-normal hover:text-gray-800 transition-colors"
-          href="mailto:callmeyuefii@gmail.com"
-        >
-          Contact Me
+    </button>
+    <nav class="hidden md:block">
+        <ul class="flex gap-x-6 text-neutral-800 dark:text-neutral-200">
+            <li>
+                <a href="/" class="hover:text-green-600 hover:font-bold">Home</a>
+            </li>
+            <li>
+                <a href="/about" class="hover:text-green-600 hover:font-bold">Abouts</a>
+            </li>
+            <li>
+                <a href="/articles" class="hover:text-green-600 hover:font-bold">Articles</a>
+            </li>
+            <li>
+                <a href="/projects" class="hover:text-green-600 hover:font-bold">Projects</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="flex items-center gap-x-4">
+        <a href="https://www.linkedin.com/in/muhamad-mupid-ahmadiawan-3b2a95292"
+           target="_blank"
+           class="dark:invert">
+            <img class="w-6 h-6"
+                 src="{% static 'icons/linkedin-brands.svg' %}"
+                 alt="github">
         </a>
-        <a
-          href="/articles"
-          class="px-4 py-1 text-sm text-green-700 font-medium border border-green-700 rounded-lg hover:bg-green-50 transition-colors"
-        >
-          Articles
+        <a href="https://github.com/yuefii" target="_blank" class="dark:invert">
+            <img class="w-6 h-6"
+                 src="{% static 'icons/github-brands.svg' %}"
+                 alt="github">
         </a>
-        <a
-          href="/projects"
-          class="px-4 py-1 text-sm text-white font-medium bg-green-700 rounded-lg hover:bg-green-800 transition-colors"
-        >
-          Projects
-        </a>
-      </div>
+        <button id="theme-toggle-btn"
+                class="relative inline-flex items-center w-11 h-6 bg-gray-700 rounded-full focus:outline-none ring-0 focus:ring-4 focus:ring-emerald-300 dark:focus:ring-emerald-800 transition-colors">
+            <span class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform"></span>
+        </button>
     </div>
-  </div>
-
-  <div
-    id="menu-mobile"
-    class="hidden md:hidden flex flex-col items-center pb-4 space-y-2 bg-white border-t border-gray-200"
-  >
-    <a
-      class="w-full text-center text-gray-600 font-normal hover:text-gray-800 transition-colors py-2"
-      href="mailto:callmeyuefii@gmail.com"
-    >
-      Contact Me
-    </a>
-    <a
-      href="/articles"
-      class="w-full text-center px-4 py-2 text-sm text-green-800 font-medium border border-green-800 rounded hover:bg-green-50 transition-colors"
-    >
-      Articles
-    </a>
-    <a
-      href="/projects"
-      class="w-full text-center px-4 py-2 text-sm text-white font-medium bg-green-800 hover:bg-green-700 transition-colors"
-    >
-      Projects
-    </a>
-  </div>
-</nav>
-
+</header>
+<div id="mobile-nav"
+     class="hidden fixed top-0 left-0 w-[250px] h-full z-50 bg-neutral-100 dark:bg-neutral-900 flex flex-col items-start justify-start pt-16 px-6 gap-y-4 text-lg text-neutral-800 dark:text-neutral-200 shadow-lg">
+    <button id="close-mobile-nav" class="absolute top-4 left-4 text-3xl">&times;</button>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/articles">Articles</a>
+    <a href="/projects">Projects</a>
+</div>
+<div id="mobile-nav-overlay"
+     class="hidden fixed inset-0 z-40 bg-black bg-opacity-40"></div>
 <script>
-  const toggleBtn = document.getElementById("menu-toggle");
-  const menuMobile = document.getElementById("menu-mobile");
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.getElementById("theme-toggle-btn");
+        const dot = toggleBtn.querySelector(".dot");
 
-  toggleBtn.addEventListener("click", () => {
-    menuMobile.classList.toggle("hidden");
-  });
+        const isDark = localStorage.theme === "dark" ||
+            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches);
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth >= 768) {
-      menuMobile.classList.add("hidden");
-    }
-  });
+        if (isDark) {
+            document.documentElement.classList.add("dark");
+            toggleBtn.classList.replace("bg-gray-700", "bg-emerald-500");
+            dot.style.transform = "translateX(20px)";
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            const currentlyDark = document.documentElement.classList.contains("dark");
+
+            if (currentlyDark) {
+                document.documentElement.classList.remove("dark");
+                localStorage.theme = "light";
+                toggleBtn.classList.replace("bg-emerald-500", "bg-gray-700");
+                dot.style.transform = "translateX(0)";
+            } else {
+                document.documentElement.classList.add("dark");
+                localStorage.theme = "dark";
+                toggleBtn.classList.replace("bg-gray-700", "bg-emerald-500");
+                dot.style.transform = "translateX(20px)";
+            }
+        });
+
+        const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+        const mobileNav = document.getElementById("mobile-nav");
+        const closeMobileNav = document.getElementById("close-mobile-nav");
+        const mobileNavOverlay = document.getElementById("mobile-nav-overlay");
+        
+        mobileNavOverlay.addEventListener("click", () => {
+            mobileNav.classList.add("hidden");
+            mobileNavOverlay.classList.add("hidden");
+        });
+
+        closeMobileNav.addEventListener("click", () => {
+            mobileNav.classList.add("hidden");
+        });
+
+        mobileMenuToggle.addEventListener("click", () => {
+            const isHidden = mobileNav.classList.contains("hidden");
+            if (isHidden) {
+                mobileNav.classList.remove("hidden");
+                mobileNavOverlay.classList.remove("hidden");
+            } else {
+                mobileNav.classList.add("hidden");
+                mobileNavOverlay.classList.add("hidden");
+            }
+        });
+    });
 </script>
