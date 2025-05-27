@@ -1,17 +1,25 @@
-<!doctype html>
-<html lang="id">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    {% block seo %} {% endblock %}
-</head>
-
-<body>
-    {% include 'navbar.html' %}
-    <main>{% block content %} {% endblock %}</main>
-    {% include 'footer.html' %}
-</body>
-
+<!DOCTYPE html>
+<html lang="id class="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>tailwind.config = { darkMode: 'class' }</script>
+        {% block seo %}{% endblock %}
+    </head>
+    <body class="bg-neutral-100 dark:bg-neutral-900">
+        {% include 'navbar.html' %}
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        {% include 'footer.html' %}
+    </body>
 </html>
