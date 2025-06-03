@@ -1,4 +1,7 @@
 {
+    "includeFiles": [
+        "markdown/**/*"
+    ],
     "routes": [
         {
             "src": "/static/(.*)",
