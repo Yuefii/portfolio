@@ -10,14 +10,14 @@
 
 ---
 
-Website ini bukan sekadar kumpulan proyek—ini adalah representasi digital dari siapa saya, apa yang saya kerjakan, dan ke mana saya ingin berkembang.
+Personal Website ini adalah representasi digital dari siapa saya, apa yang saya kerjakan, dan ke mana saya ingin berkembang.
 
-Dibangun menggunakan **Django**, didesain elegan dengan **Tailwind CSS**, dan dideploy secara efisien melalui **Vercel** 🚀.
+Dibangun menggunakan **Django**, didesain elegan dan minimalist dengan **Tailwind CSS**, dan dideploy secara efisien melalui **Vercel** 🚀.
 
 ### 🎯 Fitur Utama
 
 - Menyampaikan cerita karier saya secara visual dan profesional
-- Menampilkan proyek-proyek terbaik dalam tampilan modern dan responsif
+- Menampilkan project-project terbaik dalam tampilan modern dan responsif
 - Dilengkapi halaman artikel untuk berbagi wawasan dan cerita di balik layar
 - Dirancang dengan perhatian terhadap detail, kecepatan, dan pengalaman pengguna
 
