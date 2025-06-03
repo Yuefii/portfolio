@@ -53,7 +53,7 @@
     <section class="mx-2 md:mx-0">
         <div class="container mx-auto max-w-3xl mb-10 space-y-2">
             <h2 class="text-xl text-neutral-800 dark:text-neutral-200 font-semibold">
-                Projects Publish
+                Projects
             </h3>
             <ul class="space-y-2">
                 <li class="flex justify-between">
@@ -73,41 +73,22 @@
     </section>
     <section class="mx-2 md:mx-0 mb-10">
         <div class="container mx-auto max-w-3xl">
-            <h2 class="text-xl text-neutral-800 dark:text-neutral-200 font-semibold">
-                Artikel Terbaru
-            </h3>
+            <h2 class="text-xl text-neutral-800 dark:text-neutral-200 font-semibold">Artikel Terbaru</h2>
             <p class="mt-2 mb-8 text-neutral-600 dark:text-neutral-400">
                 Beberapa artikel yang saya tulis berdasarkan pembelajaran dan pengalaman. Semoga ada satu yang bisa menemanimu hari ini:
             </p>
             <ul class="space-y-4">
-                <li class="flex flex-col md:flex-row md:justify-between">
-                    <a href="#"
-                       class="max-w-md font-normal text-left md:text-justify text-neutral-800 dark:text-neutral-200">
-                        <span class="text-emerald-800 dark:text-emerald-300 mr-2">•</span>Desktop Environment vs Window Manager: Apa Bedanya dan Mana yang Cocok untuk Kamu?
-                    </a>
-                    <span class="text-neutral-600 dark:text-neutral-400 text-sm">Jul 18, 2024</span>
-                </li>
-                <li class="flex flex-col md:flex-row md:justify-between">
-                    <a href="#"
-                       class="max-w-md font-normal text-left md:text-justify text-neutral-800 dark:text-neutral-200">
-                        <span class="text-emerald-800 dark:text-emerald-300 mr-2">•</span>Apa Itu Linux? Panduan Lengkap untuk Pemula yang Baru Pindah dari Windows
-                    </a>
-                    <span class="text-neutral-600 dark:text-neutral-400 text-sm">Jul 18, 2024</span>
-                </li>
-                <li class="flex flex-col md:flex-row md:justify-between">
-                    <a href="#"
-                       class="max-w-md font-normal text-left md:text-justify text-neutral-800 dark:text-neutral-200">
-                        <span class="text-emerald-800 dark:text-emerald-300 mr-2">•</span>Memulai Arch Linux: Dari Instalasi Hingga Tampilan Minimalis dan Estetik
-                    </a>
-                    <span class="text-neutral-600 dark:text-neutral-400 text-sm">Jul 18, 2024</span>
-                </li>
-                <li class="flex flex-col md:flex-row md:justify-between">
-                    <a href="#"
-                       class="max-w-md font-normal text-left md:text-justify text-neutral-800 dark:text-neutral-200">
-                        <span class="text-emerald-800 dark:text-emerald-300 mr-2">•</span>Mengenal Dunia Ricing di Linux: Seni Kustomisasi Desktop Tanpa Batas
-                    </a>
-                    <span class="text-neutral-600 dark:text-neutral-400 text-sm">Jul 18, 2024</span>
-                </li>
+                {% for article in articles %}
+                    <li class="flex flex-col md:flex-row md:justify-between">
+                        <a href="{% url 'article_detail' slug=article.slug %}"
+                           class="max-w-md font-normal text-left md:text-justify text-neutral-800 dark:text-neutral-200">
+                            <span class="text-emerald-800 dark:text-emerald-300 mr-2">•</span>{{ article.title }}
+                        </a>
+                        <span class="text-neutral-600 dark:text-neutral-400 text-sm">{{ article.date }}</span>
+                    </li>
+                {% empty %}
+                    <li>Tidak ada artikel.</li>
+                {% endfor %}
             </ul>
         </div>
     </section>
