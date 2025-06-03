@@ -1,15 +1,16 @@
 {
-    "includeFiles": [
-        "markdown/**/*"
-    ],
-    "routes": [
-        {
-            "src": "/static/(.*)",
-            "dest": "/static/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "api/wsgi.py"
-        }
-    ]
+  "routes": [
+    {
+      "src": "/markdown/(.*)",
+      "dest": "/markdown/$1"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "api/wsgi.py"
+    }
+  ]
 }
