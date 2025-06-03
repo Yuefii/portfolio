@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./static/favicon/favicon.ico" width="150" alt="logo">
+<img src="./static/img/profile.png" width="160" alt="logo">
 </div>
 
 <div align="center">
