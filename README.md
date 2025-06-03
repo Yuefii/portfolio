@@ -1,28 +1,26 @@
-<div align="center">
+<p align="center">
+  <img src="./static/logo.png" width="160" alt="logo">
+</p>
 
-    <img src="./.github/logo.png" width="160" alt="logo">
+<p align="center">
+  <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white" alt="Vercel Badge">
+  <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white" alt="Django Badge">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS Badge">
+</p>
 
-</div>
+---
 
-<div align="center">
+Website ini bukan sekadar kumpulan proyek—ini adalah representasi digital dari siapa saya, apa yang saya kerjakan, dan ke mana saya ingin berkembang.
 
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
-![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+Dibangun menggunakan **Django**, didesain elegan dengan **Tailwind CSS**, dan dideploy secara efisien melalui **Vercel** 🚀.
 
-</div>
+### 🎯 Fitur Utama
 
-Website ini bukan sekadar kumpulan projects, ini adalah representasi digital dari siapa saya, apa yang saya kerjakan, dan ke mana saya ingin berkembang. Dibangun dengan Django, didesain elegan menggunakan TailwindCSS, dan di-deploy dengan cepat melalui Vercel 🚀.
+- Menyampaikan cerita karier saya secara visual dan profesional
+- Menampilkan proyek-proyek terbaik dalam tampilan modern dan responsif
+- Dilengkapi halaman artikel untuk berbagi wawasan dan cerita di balik layar
+- Dirancang dengan perhatian terhadap detail, kecepatan, dan pengalaman pengguna
 
-Sebuah website personal portfolio yang:
+---
 
-    - Menyampaikan cerita karier saya secara visual dan profesional
-
-    - Menampilkan project terbaik saya dalam tampilan modern dan responsif
-
-    - Dilengkapi dengan halaman artikel untuk berbagi wawasan dan cerita di balik layar
-
-    - Dirancang dengan perhatian terhadap detail, kecepatan, dan pengalaman pengguna
-
-Dibuat dengan ❤️ oleh [yuefii]
-Terima kasih sudah berkunjung – semoga menginspirasi! 🙌
+Terima kasih sudah berkunjung — semoga menginspirasi! 🙌
