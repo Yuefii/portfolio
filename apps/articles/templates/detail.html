@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container max-w-3xl mx-auto pt-10">
+        <div class="space-y-2 mb-8">
+            <h1 class="text-neutral-800 dark:text-neutral-200 font-semibold text-2xl">{{ title }}</h1>
+            <p class="text-neutral-600 dark:text-neutral-400">{{ date }}</p>
+        </div>
+        <div class="markdown-content">{{ content|safe }}</div>
+        <a class="text-neutral-800 dark:text-neutral-200"
+           href="{% url 'article_list' %}">← Kembali ke daftar artikel</a>
+    </div>
+{% endblock %}
