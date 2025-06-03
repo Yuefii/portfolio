@@ -1,38 +1,74 @@
 {% extends 'base.html' %}
-
 <!-- Load Static -->
-
 {% load static %}
-
 <!-- Meta SEO  -->
-
 {% block seo %}
-<title>{{ seo.title }}</title>
-
-<meta name="author" content="{{ about.username }}" />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}" />
-
-<meta name="description" content="{{ seo.description }}" />
-<meta name="keywords" content="{{ seo.keywords }}" />
-
-<meta property="og:type" content="{{ seo.og_type }}" />
-<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}" />
-<meta property="og:title" content="{{ seo.title }}" />
-<meta property="og:description" content="{{ seo.description }}" />
-<meta property="og:image" content="{{ seo.og_image }}" />
-
-<meta property="twitter:card" content="{{ seo.twitter_card }}" />
-<meta property="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}" />
-<meta property="twitter:title" content="{{ seo.title }}" />
-<meta property="twitter:description" content="{{ seo.description }}" />
-<meta property="twitter:image" content="{{ seo.og_image }}" />
+    <title>{{ seo.title }}</title>
+    <meta name="author" content="{{ about.username }}" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}" />
+    <meta name="description" content="{{ seo.description }}" />
+    <meta name="keywords" content="{{ seo.keywords }}" />
+    <meta property="og:type" content="{{ seo.og_type }}" />
+    <meta property="og:url"
+          content="{{ request.scheme }}://{{ request.get_host }}" />
+    <meta property="og:title" content="{{ seo.title }}" />
+    <meta property="og:description" content="{{ seo.description }}" />
+    <meta property="og:image" content="{{ seo.og_image }}" />
+    <meta property="twitter:card" content="{{ seo.twitter_card }}" />
+    <meta property="twitter:url"
+          content="{{ request.scheme }}://{{ request.get_host }}" />
+    <meta property="twitter:title" content="{{ seo.title }}" />
+    <meta property="twitter:description" content="{{ seo.description }}" />
+    <meta property="twitter:image" content="{{ seo.og_image }}" />
 {% endblock %}
-
 <!-- Content  -->
-
 {% block content %}
-<div class="h-screen flex flex-col items-center justify-center">
-    <h1 class="text-2xl font-bold">Halaman Tentang Saya</h1>
-</div>
+    <section class="mx-2 md:mx-0">
+        <div class="container mx-auto max-w-3xl pt-5">
+            <div class="mb-10">
+                <h1 class="text-neutral-800 dark:text-neutral-200 text-2xl font-semibold mb-2">About Me</h1>
+                <p class="text-justify text-neutral-600 dark:text-neutral-400 mb-3">
+                    Hi! Saya Muhamad Mupid Ahmadiawan biasa dipanggil upii/mupid, saya seorang Backend Engineer yang sedang menempuh studi di Universitas Insan Pembangunan Indonesia dengan semangat tinggi dalam membangun sistem yang efisien, scalable, dan dapat diandalkan. Berbekal kemampuan utama dalam Typescript, Python, saya telah mengembangkan berbagai API, integrasi layanan, hingga manajemen database untuk mendukung kebutuhan aplikasi modern.
+                </p>
+                <p class="text-justify text-neutral-600 dark:text-neutral-400 mb-3">
+                    Saya percaya bahwa teknologi backend adalah fondasi dari aplikasi yang hebat. Oleh karena itu, saya terus memperdalam pengetahuan saya dalam arsitektur sistem, keamanan aplikasi, dan pengolahan data — sambil aktif mengikuti project-project nyata di luar kampus, baik secara profesional maupun sebagai volunteer.
+                </p>
+                <p class="text-justify text-neutral-600 dark:text-neutral-400 mb-3">
+                    Dengan kombinasi antara pengalaman praktis, keingintahuan tinggi, dan dedikasi terhadap clean code & scalable design, saya siap untuk menjadi bagian dari tim pengembang yang berdampak.
+                </p>
+            </div>
+            <div class="mb-10">
+                <h2 class="text-2xl font-semibold text-neutral-800 dark:text-neutral-200 mb-3">Education</h2>
+                <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-md">
+                    <h3 class="text-lg font-medium text-neutral-700 dark:text-neutral-300">Universitas Insan Pembangunan Indonesia</h3>
+                    <p class="text-sm text-neutral-500 dark:text-neutral-400">S1 Teknologi Informasi (2023 - Sekarang)</p>
+                </div>
+            </div>
+            <div class="mb-10">
+                <h2 class="text-2xl font-semibold text-neutral-800 dark:text-neutral-200 mb-3">Volunteer Experience</h2>
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-neutral-700 dark:text-neutral-300">Community of Information Technology</h3>
+                    <ul class="list-disc list-inside text-neutral-600 dark:text-neutral-400 mt-2">
+                        <li>Staff Programming (2023 - 2024)</li>
+                        <li>Koordinator Akademik (2024 - 2025)</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-2xl font-semibold text-neutral-800 dark:text-neutral-200 mb-3">Let's Connect!</h2>
+                <p class="text-neutral-600 dark:text-neutral-400 mb-2">
+                    Saya terbuka untuk kolaborasi, diskusi teknologi, atau kesempatan proyek/magang.
+                </p>
+                <a href="https://www.linkedin.com/in/muhamad-mupid-ahmadiawan-3b2a95292"
+                   target="_blank"
+                   class="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:underline">
+                    <img class="w-6 h-6 dark:invert"
+                         src="{% static 'icons/linkedin-brands.svg' %}"
+                         alt="linkedin" />
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
 {% endblock %}
