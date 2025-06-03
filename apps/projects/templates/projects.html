@@ -1,38 +1,60 @@
 {% extends 'base.html' %}
-
 <!-- Load Static -->
-
 {% load static %}
-
 <!-- Meta SEO  -->
-
 {% block seo %}
-<title>{{ seo.title }}</title>
-
-<meta name="author" content="{{ about.username }}" />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}" />
-
-<meta name="description" content="{{ seo.description }}" />
-<meta name="keywords" content="{{ seo.keywords }}" />
-
-<meta property="og:type" content="{{ seo.og_type }}" />
-<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}" />
-<meta property="og:title" content="{{ seo.title }}" />
-<meta property="og:description" content="{{ seo.description }}" />
-<meta property="og:image" content="{{ seo.og_image }}" />
-
-<meta property="twitter:card" content="{{ seo.twitter_card }}" />
-<meta property="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}" />
-<meta property="twitter:title" content="{{ seo.title }}" />
-<meta property="twitter:description" content="{{ seo.description }}" />
-<meta property="twitter:image" content="{{ seo.og_image }}" />
+    <title>{{ seo.title }}</title>
+    <meta name="author" content="{{ about.username }}" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}" />
+    <meta name="description" content="{{ seo.description }}" />
+    <meta name="keywords" content="{{ seo.keywords }}" />
+    <meta property="og:type" content="{{ seo.og_type }}" />
+    <meta property="og:url"
+          content="{{ request.scheme }}://{{ request.get_host }}" />
+    <meta property="og:title" content="{{ seo.title }}" />
+    <meta property="og:description" content="{{ seo.description }}" />
+    <meta property="og:image" content="{{ seo.og_image }}" />
+    <meta property="twitter:card" content="{{ seo.twitter_card }}" />
+    <meta property="twitter:url"
+          content="{{ request.scheme }}://{{ request.get_host }}" />
+    <meta property="twitter:title" content="{{ seo.title }}" />
+    <meta property="twitter:description" content="{{ seo.description }}" />
+    <meta property="twitter:image" content="{{ seo.og_image }}" />
 {% endblock %}
-
 <!-- Content  -->
-
 {% block content %}
-<div class="h-screen flex flex-col items-center justify-center">
-    <h1 class="text-2xl font-bold">Halaman Projects</h1>
-</div>
+    <section class="mx-2 md:mx-0">
+        <div class="container mx-auto max-w-3xl pt-5">
+            <h1 class="text-neutral-800 dark:text-neutral-200 text-2xl font-semibold mb-2">Projects</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border border-neutral-200 dark:border-neutral-700 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300">
+                    <div class="h-40 bg-teal-600 flex items-center justify-center">
+                        <div class="text-white font-bold text-xl">Nusantara Kita</div>
+                    </div>
+                    <div class="p-4">
+                        <h2 class="font-bold text-lg text-neutral-800 dark:text-neutral-200 mb-2">
+                            Nusantara Kita - API data wilayah indonesia
+                        </h2>
+                        <p class="text-neutral-600 dark:text-neutral-400 mb-3">
+                            Nusantara Kita adalah sebuah API yang menyediakan data wilayah Indonesia.
+                        </p>
+                    </div>
+                </div>
+                <div class="border border-neutral-200 dark:border-neutral-700 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300">
+                    <div class="h-40 bg-blue-600 flex items-center justify-center">
+                        <div class="text-white font-bold text-xl">COMIT</div>
+                    </div>
+                    <div class="p-4">
+                        <h2 class="font-bold text-lg text-neutral-800 dark:text-neutral-200 mb-2">
+                            COMIT - Comunity of Information Technology
+                        </h2>
+                        <p class="text-neutral-600 dark:text-neutral-400 mb-3">
+                            Sebuah landing page pengenalan berserta system managementnya.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
