@@ -6,7 +6,7 @@ import os
 import markdown
 
 
-ARTICLES_DIR = os.path.join(settings.BASE_DIR, "markdown", "articles")
+ARTICLES_DIR = os.path.join(settings.BASE_DIR, "static", "markdown")
 
 
 class ArticlesPageView(TemplateView):

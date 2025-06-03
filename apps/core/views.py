@@ -4,7 +4,7 @@ from helper.parse_article import parse_article
 from apps.articles.views import ARTICLES_DIR
 import os
 
-ARTICLES_DIR = os.path.join(settings.BASE_DIR, "markdown", "articles")
+ARTICLES_DIR = os.path.join(settings.BASE_DIR, "static", "markdown")
 
 
 class HomePageView(TemplateView):
