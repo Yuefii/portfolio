@@ -1,10 +1,11 @@
-from django.views.generic import TemplateView
-from django.http import Http404
-from django.conf import settings
-from helper.parse_article import parse_article
 import os
-import markdown
 
+import markdown
+from django.conf import settings
+from django.http import Http404
+from django.views.generic import TemplateView
+
+from helper.parse_article import parse_article
 
 ARTICLES_DIR = os.path.join(settings.BASE_DIR, "static", "markdown")
 
